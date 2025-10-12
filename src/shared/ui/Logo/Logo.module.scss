@@ -1,0 +1,30 @@
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-weight: 700;
+  color: var(--color-text);
+  transition: var(--transition);
+
+  &.sm {
+    font-size: var(--font-size-base);
+  }
+
+  &.md {
+    font-size: var(--font-size-lg);
+  }
+
+  &.lg {
+    font-size: var(--font-size-xl);
+  }
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.text {
+  &:first-child {
+    font-size: 1.2em;
+  }
+}
