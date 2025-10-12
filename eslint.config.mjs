@@ -39,6 +39,7 @@ export default defineConfig([
     },
     rules: {
       ...prettierPlugin.configs.recommended.rules,
+      'prettier/prettier': ['error', { endOfLine: 'auto' }],
 
       // Твои текущие правила
       'react/react-in-jsx-scope': 'off',
