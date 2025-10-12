@@ -11,6 +11,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  gap: var(--space-lg);
   padding-top: var(--space-2xl);
   padding-bottom: var(--space-2xl);
   border-bottom: 1px solid rgba(74, 124, 89, 0.4);
@@ -19,9 +20,13 @@
   > div {
     transition: transform 0.4s ease;
     cursor: pointer;
+    position: relative;
+    height: 400px;
+    overflow: hidden;
 
     &:hover {
       transform: scale(1.1);
+      z-index: 10;
       background: linear-gradient(
           135deg,
           rgba(255, 255, 255, 0.4),
@@ -55,24 +60,47 @@
   /* Стили для span элементов - такой же шрифт как у p */
   span {
     font-size: var(--font-size-lg);
-    transition: color 0.4s ease;
+    transition: opacity 0.2s ease;
+    margin-top: -20px;
   }
 
-  /* Цвет span при наведении на карточку */
+  /* Скрываем span при наведении на карточку */
   > div:hover span {
-    color: var(--color-secondary);
+    opacity: 0;
   }
 
-  /* Скрываем только последний p (описание) по умолчанию */
+  /* Скрываем профессию и университет при наведении */
+  p:not(:last-child) {
+    transition: opacity 0.2s ease;
+  }
+
+  > div:hover p:not(:last-child) {
+    opacity: 0;
+  }
+
+  /* Скрываем описание по умолчанию */
   p:last-child {
     opacity: 0;
-    max-height: 0;
-    overflow: hidden;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    background: linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.2),
+      rgba(219, 255, 203, 0.3)
+    );
+    color: white;
+    padding: 0px 10px 5px 10px;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+    transition: opacity 0.2s ease;
+    z-index: 5;
   }
 
   /* Показываем описание при наведении на карточку */
   > div:hover p:last-child {
     opacity: 1;
-    max-height: 200px;
   }
 }
