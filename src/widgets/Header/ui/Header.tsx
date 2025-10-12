@@ -1,12 +1,21 @@
+'use client';
+
 import Link from 'next/link';
 
+import { useScrollDirection } from '@/shared/hooks/useScrollDirection';
 import { Logo } from '@/shared/ui/Logo';
 
 import styles from './Header.module.scss';
 
 export function Header() {
+  const { scrollDirection, isScrolled } = useScrollDirection();
+
   return (
-    <header className={styles.header}>
+    <header
+      className={`${styles.header} ${
+        scrollDirection === 'down' ? styles.headerHidden : ''
+      } ${isScrolled ? styles.headerScrolled : ''}`}
+    >
       <div className={styles.containerLogo}>
         <Link href="/" className={styles.navLink}>
           <Logo size="md" className={styles.logoImg} />

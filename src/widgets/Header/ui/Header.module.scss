@@ -16,6 +16,23 @@
   letter-spacing: 0.05em;
   text-transform: uppercase;
 
+  /* Анимации для скрытия/показа */
+  transition:
+    transform 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.3s ease-in-out;
+  transform: translateY(0);
+
+  /* Стили при скролле */
+  &.headerScrolled {
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+  }
+
+  /* Скрытие хедера */
+  &.headerHidden {
+    transform: translateY(-100%);
+  }
+
   .containerLogo {
     display: flex;
     flex: 0 0 auto;
