@@ -1,0 +1,22 @@
+.homePage {
+  padding: var(--space-lg);
+  margin-top: 70px; // отступ для фиксированного header
+}
+
+.heroSection {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contentContainer {
+  width: 100%;
+  padding: var(--space-xl);
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  z-index: 2;
+}

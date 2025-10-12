@@ -1,0 +1,8 @@
+.cardList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: var(--space-2xl);
+    padding-bottom: var(--space-xl);
+    border-bottom: 1px solid rgba(74, 124, 89, 0.4);
+  }
