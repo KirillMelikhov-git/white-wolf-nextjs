@@ -1,13 +1,6 @@
 'use client';
 
 import { useRef, useState, useEffect } from 'react';
-import {
-  Navigation,
-  Pagination,
-  A11y,
-  Keyboard,
-  Autoplay,
-} from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import type { Swiper as SwiperInstance } from 'swiper/types';
 
@@ -63,7 +56,6 @@ export function Carousel<T>({
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="size-6"
         >
           <path
             strokeLinecap="round"
@@ -74,7 +66,7 @@ export function Carousel<T>({
       </button>
 
       <Swiper
-        modules={[Navigation, Pagination, Autoplay, A11y, Keyboard]}
+        modules={[...SWIPER_DEFAULTS.modules]}
         spaceBetween={SWIPER_DEFAULTS.spaceBetween}
         slidesPerView={slidesPerView}
         breakpoints={breakpoints}
@@ -90,6 +82,7 @@ export function Carousel<T>({
         onInit={(swiper: SwiperInstance) => {
           setSwiperInstance(swiper);
         }}
+        className={styles.swiper}
       >
         {items.map((item, index) => (
           <SwiperSlide key={getKey ? getKey(item, index) : String(index)}>
@@ -109,7 +102,6 @@ export function Carousel<T>({
           viewBox="0 0 24 24"
           strokeWidth={1.5}
           stroke="currentColor"
-          className="size-6"
         >
           <path
             strokeLinecap="round"
