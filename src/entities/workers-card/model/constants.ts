@@ -1,31 +1,30 @@
 import type { ICard } from '@/shared/ui/Card/types';
-import { Clinic, Individual, Loyalty, Quality } from '@/shared/ui/Icons';
 
-export const aboutCards: ICard[] = [
+export const workersCards: ICard[] = [
   {
     id: 'card-1',
-    image: Clinic,
+    image: '/images/workers/1.png',
     title: 'Комплексное лечение',
     description:
       'Наша клиника оказывает широкий спектр ветеринарных услуг, чтобы добиться выздоровления вашего любимого питомца.',
   },
   {
     id: 'card-2',
-    image: Individual,
+    image: '/images/workers/2.png',
     title: 'Индивидуальный подход',
     description:
       'Мы учитываем индивидуальные особенности каждого питомца и предлагаем наиболее эффективные решения.',
   },
   {
     id: 'card-3',
-    image: Loyalty,
+    image: '/images/workers/3.png',
     title: 'Программа лояльности',
     description:
       'Мы предлагаем накопительную систему скидок, бонусов и других привилегий для наших постоянных клиентов.',
   },
   {
     id: 'card-4',
-    image: Quality,
+    image: '/images/workers/4.png',
     title: 'Качественные услуги',
     description:
       'Качество наших услуг и оборудования - наш приоритет. Мы используем только современное и эффективное оборудование.',

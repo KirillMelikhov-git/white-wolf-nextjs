@@ -1,9 +1,9 @@
-import { type Card } from '@/entities/about-card/model';
+import { type ICard } from '@/shared/ui/Card/types';
 
 import styles from './Card.module.scss';
 
 interface AboutCardProps {
-  card: Card;
+  card: ICard;
 }
 
 export function Card({ card }: AboutCardProps) {
@@ -13,7 +13,7 @@ export function Card({ card }: AboutCardProps) {
     <div className={styles.card}>
       <div className={styles.imageContainer}>
         {typeof card.image === 'string' ? (
-          <img src={card.image} alt={card.title} />
+          <img src={card.image} alt={card.title} loading="lazy" />
         ) : (
           <Image />
         )}

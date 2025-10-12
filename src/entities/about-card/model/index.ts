@@ -1,2 +1,1 @@
-export type { Card } from './types';
-export { cards } from './constants';
+export { aboutCards } from './constants';

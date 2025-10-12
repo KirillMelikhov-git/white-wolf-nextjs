@@ -1,4 +1,4 @@
-import { cards } from '@/entities/about-card/model';
+import { aboutCards } from '@/entities/about-card/model';
 import { Card } from '@/shared/ui/Card';
 
 import styles from './CardList.module.scss';
@@ -6,7 +6,7 @@ import styles from './CardList.module.scss';
 export function CardList() {
   return (
     <div className={styles.cardList}>
-      {cards.map((card) => (
+      {aboutCards.map((card) => (
         <Card key={card.id} card={card} />
       ))}
     </div>

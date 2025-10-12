@@ -1,6 +1,7 @@
 import { AboutCarousel } from '@/features/about-carousel';
 import { CardList } from '@/widgets/CardList';
 import { Header } from '@/widgets/Header';
+import { WorkersList } from '@/widgets/WorkersList';
 
 import styles from './page.module.scss';
 
@@ -13,6 +14,7 @@ export default function HomePage() {
           <div className={styles.contentContainer}>
             <AboutCarousel />
             <CardList />
+            <WorkersList />
           </div>
         </section>
       </main>
