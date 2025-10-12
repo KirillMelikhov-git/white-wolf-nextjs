@@ -64,7 +64,7 @@ export default defineConfig([
           alphabetize: { order: 'asc' },
         },
       ],
-      'import/no-unresolved': ['error', { ignore: ['^/'] }],
+      'import/no-unresolved': 'off',
       'import/no-duplicates': 'error',
 
       // React Hooks

@@ -1,6 +1,6 @@
-import { Header } from '@/widgets/Header';
 import { AboutCarousel } from '@/features/about-carousel';
 import { CardList } from '@/widgets/CardList';
+import { Header } from '@/widgets/Header';
 
 import styles from './page.module.scss';
 
