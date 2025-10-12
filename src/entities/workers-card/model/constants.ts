@@ -2,28 +2,28 @@ import type { ICard } from '@/shared/ui/Card/types';
 
 export const workersCards: ICard[] = [
   {
-    id: 'card-1',
+    id: 'workers-card-1',
     image: '/images/workers/1.png',
     title: 'Комплексное лечение',
     description:
       'Наша клиника оказывает широкий спектр ветеринарных услуг, чтобы добиться выздоровления вашего любимого питомца.',
   },
   {
-    id: 'card-2',
+    id: 'workers-card-2',
     image: '/images/workers/2.png',
     title: 'Индивидуальный подход',
     description:
       'Мы учитываем индивидуальные особенности каждого питомца и предлагаем наиболее эффективные решения.',
   },
   {
-    id: 'card-3',
+    id: 'workers-card-3',
     image: '/images/workers/3.png',
     title: 'Программа лояльности',
     description:
       'Мы предлагаем накопительную систему скидок, бонусов и других привилегий для наших постоянных клиентов.',
   },
   {
-    id: 'card-4',
+    id: 'workers-card-4',
     image: '/images/workers/4.png',
     title: 'Качественные услуги',
     description:
