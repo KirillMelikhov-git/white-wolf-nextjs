@@ -19,7 +19,7 @@ export default defineConfig([
     extends: ['js/recommended', prettierConfig],
     languageOptions: { globals: globals.browser },
   },
-  tseslint.configs.recommended,
+  ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
   {
     plugins: {
@@ -87,5 +87,16 @@ export default defineConfig([
       'no-var': 'error',
       'object-shorthand': 'warn',
     },
+  },
+  {
+    ignores: [
+      'node_modules/**',
+      '.next/**',
+      'out/**',
+      'build/**',
+      'next-env.d.ts',
+      '**/*.scss',
+      '**/*.css',
+    ],
   },
 ]);
