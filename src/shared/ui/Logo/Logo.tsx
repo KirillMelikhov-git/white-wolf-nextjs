@@ -1,5 +1,4 @@
 import styles from './Logo.module.scss';
-import logoSvg from './logo.svg';
 
 export interface LogoProps {
   className?: string;
@@ -8,10 +7,9 @@ export interface LogoProps {
 
 export function Logo({ className, size = 'sm' }: LogoProps) {
   return (
-    // prettier-ignore
     <img
-      src={logoSvg}
-      alt="Logo"
+      src="/images/logo.svg"
+      alt="Белый волк - ветеринарная клиника"
       className={`${styles.logo} ${styles[size]} ${className || ''}`}
     />
   );
