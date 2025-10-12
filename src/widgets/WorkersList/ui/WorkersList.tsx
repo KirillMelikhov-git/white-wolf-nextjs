@@ -6,10 +6,13 @@ import { workersCards } from '@/entities/workers-card/model';
 
 export function WorkersList() {
   return (
-    <div className={styles.cardList}>
-      {workersCards.map((card) => (
-        <Card key={card.id} card={card} />
-      ))}
-    </div>
+    <>
+      <h2 className={styles.title}>Наши специалисты</h2>
+      <div className={styles.cardList}>
+        {workersCards.map((card) => (
+          <Card key={card.id} card={card} />
+        ))}
+      </div>
+    </>
   );
 }

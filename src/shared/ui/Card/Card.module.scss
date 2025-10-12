@@ -42,3 +42,8 @@
     font-size: var(--font-size-lg);
   }
 }
+
+.universityContainer {
+  display: flex;
+  flex-direction: column;
+}

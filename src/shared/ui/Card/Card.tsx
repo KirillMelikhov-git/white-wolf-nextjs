@@ -19,8 +19,16 @@ export function Card({ card }: AboutCardProps) {
         )}
       </div>
       <div className={styles.textContainer}>
-        <h2>{card.title}</h2>
-        <p>{card.description}</p>
+        <h2 className={styles.name}>{card.title}</h2>
+        {card.profession ? <p>{card.profession}</p> : null}
+        {card.university ? (
+          <div className={styles.universityContainer}>
+            <span>{card.university}</span>
+            <p>{card.description}</p>
+          </div>
+        ) : (
+          <p>{card.description}</p>
+        )}
       </div>
     </div>
   );
