@@ -3,6 +3,6 @@ export interface ICard {
   title: string;
   profession?: string;
   university?: string;
-  description: string;
+  description?: string;
   image: string | React.ComponentType;
 }
