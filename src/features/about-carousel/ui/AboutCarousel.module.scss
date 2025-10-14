@@ -1,5 +1,5 @@
 .section {
-  border-bottom: 1px solid rgba(74, 124, 89, 0.4);
+  border-bottom: 1px solid rgb(74 124 89 / 40%);
   padding-bottom: 20px;
 }
 
@@ -26,7 +26,7 @@
   height: auto;
   border-radius: 12px;
   object-fit: contain; /* Изменено с cover на contain для предотвращения обрезки */
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 6px 24px rgb(0 0 0 / 8%);
   display: block; /* Убираем возможные проблемы с inline элементами */
 }
 

@@ -1,8 +1,7 @@
+import { workersCards } from '@/entities/workers-card/model';
 import { Card } from '@/shared/ui/Card';
 
 import styles from './WorkersList.module.scss';
-
-import { workersCards } from '@/entities/workers-card/model';
 
 export function WorkersList() {
   return (

@@ -1,9 +1,7 @@
 :root {
-  // Цвета для ветклиники
-  --color-primary: #4a7c59; // зелёный
   --color-secondary: #f4a261; // оранжевый
   --color-text-hover: #2d3748;
-  --color-text: #ffffff;
+  --color-text: #fff;
   --color-border: #e2e8f0;
 
   // Spacing
@@ -16,7 +14,7 @@
   --space-3xl: 5rem; // 80px
 
   // Typography
-  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family: -apple-system, blinkmacsystemfont, 'Segoe UI', sans-serif;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
   --font-size-lg: 1.125rem;
@@ -26,7 +24,7 @@
   // Радиусы, тени
   --radius-sm: 4px;
   --radius-md: 8px;
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-sm: 0 1px 3px rgb(0 0 0 / 10%);
   --transition: 0.25s ease;
 }
 

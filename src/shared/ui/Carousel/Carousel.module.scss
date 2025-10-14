@@ -27,8 +27,8 @@
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    background-color: rgb(0 0 0 / 0%);
+    box-shadow: 0 6px 18px rgb(0 0 0 / 8%);
     cursor: pointer;
     font-size: 22px;
     display: flex;
@@ -58,6 +58,7 @@
   .prev {
     left: 8px; /* Изменено с -8px на 8px */
   }
+
   .next {
     right: 8px; /* Изменено с -8px на 8px */
   }
@@ -70,7 +71,7 @@
   
   /* Глобальные стили для пагинации - простые и чистые */
   :global(.swiper-pagination-bullet) {
-    background-color: rgba(255, 255, 255, 0.4) !important;
+    background-color: rgb(255 255 255 / 40%) !important;
     opacity: 1 !important;
   }
   
@@ -92,7 +93,7 @@
   .wrapper .swiper-pagination-bullet {
     width: 8px;
     height: 8px;
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: rgb(255 255 255 / 40%);
     border-radius: 50%;
     cursor: pointer;
     transition: var(--transition);
@@ -105,18 +106,21 @@
   }
   
   /* Немного адаптивности/отступов */
-  @media (max-width: 480px) {
+  @media (width <= 480px) {
     .wrapper {
       padding: 0.5rem 50px; /* Уменьшаем отступы для мобильных */
     }
+
     .nav {
       width: 36px;
       height: 36px;
       font-size: 18px;
     }
+
     .prev {
       left: 4px; /* Уменьшаем отступ для мобильных */
     }
+
     .next {
       right: 4px; /* Уменьшаем отступ для мобильных */
     }

@@ -14,7 +14,7 @@
   gap: var(--space-lg);
   padding-top: var(--space-2xl);
   padding-bottom: var(--space-2xl);
-  border-bottom: 1px solid rgba(74, 124, 89, 0.4);
+  border-bottom: 1px solid rgb(74 124 89 / 40%);
 
   /* Стили для карточек при наведении */
   > div {
@@ -29,8 +29,8 @@
       z-index: 10;
       background: linear-gradient(
           135deg,
-          rgba(255, 255, 255, 0.4),
-          rgba(74, 124, 89, 0.9)
+          rgb(255 255 255 / 40%),
+          rgb(74 124 89 / 90%)
         )
         border-box;
     }
@@ -54,7 +54,7 @@
   }
 
   h2 {
-    color: var(--color-secondary);
+    color: var(--color-text-secondary);
   }
 
   /* Стили для span элементов - такой же шрифт как у p */
@@ -87,14 +87,14 @@
     right: 10px;
     background: linear-gradient(
       135deg,
-      rgba(0, 0, 0, 0.2),
-      rgba(219, 255, 203, 0.3)
+      rgb(0 0 0 / 20%),
+      rgb(219 255 203 / 30%)
     );
     color: white;
-    padding: 0px 10px 5px 10px;
+    padding: 0 10px 5px;
     border-radius: 5px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+    border: 1px solid rgb(0 0 0 / 20%);
+    box-shadow: 0 2px 2px 0 rgb(0 0 0 / 20%);
     transition: opacity 0.2s ease;
     z-index: 5;
   }

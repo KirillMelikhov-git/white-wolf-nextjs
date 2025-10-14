@@ -8,8 +8,8 @@
   border: 3px solid transparent;
   background: linear-gradient(
       135deg,
-      rgba(255, 255, 255, 0.2),
-      rgba(74, 124, 89, 0.15)
+      rgb(255 255 255 / 20%),
+      rgb(74 124 89 / 15%)
     )
     border-box;
   border-radius: var(--radius-md);
@@ -20,6 +20,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
   svg {
     fill: var(--color-text);
     color: var(--color-text);
