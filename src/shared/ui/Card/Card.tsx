@@ -10,7 +10,9 @@ export function Card({ card }: AboutCardProps) {
   const Image = card.image;
 
   return (
-    <div className={styles.card}>
+    <div
+      className={`${styles.card} ${card.salary ? styles.cardWithSalary : ''}`}
+    >
       <div className={styles.imageContainer}>
         {typeof card.image === 'string' ? (
           <img src={card.image} alt={card.title} loading="lazy" />
@@ -18,7 +20,9 @@ export function Card({ card }: AboutCardProps) {
           <Image />
         )}
       </div>
-      <div className={styles.textContainer}>
+      <div
+        className={`${styles.textContainer} ${card.salary ? styles.textContainerWithSalary : ''}`}
+      >
         <h2 className={styles.name}>{card.title}</h2>
         {card.profession ? <p>{card.profession}</p> : null}
         {card.university ? (
@@ -29,7 +33,7 @@ export function Card({ card }: AboutCardProps) {
         ) : (
           <p>{card.description}</p>
         )}
-        {card.salary ? <p>{card.salary}</p> : null}
+        {card.salary ? <p className={styles.salary}>{card.salary}</p> : null}
       </div>
     </div>
   );

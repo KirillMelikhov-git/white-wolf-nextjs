@@ -16,6 +16,12 @@
   padding: var(--space-md);
 }
 
+// Специальные стили для карточек с зарплатой
+.cardWithSalary {
+  justify-content: space-between;
+  min-height: 300px;
+}
+
 .imageContainer {
   display: flex;
   align-items: center;
@@ -34,6 +40,7 @@
   flex-direction: column;
   justify-content: space-between;
   gap: 20px;
+  flex-grow: 1;
 
   h2 {
     font-size: var(--font-size-xl);
@@ -42,6 +49,22 @@
   p {
     font-size: var(--font-size-lg);
   }
+}
+
+// Специальные стили для контейнера с зарплатой
+.textContainerWithSalary {
+  justify-content: space-between;
+}
+
+// Стили для зарплаты
+.salary {
+  margin-top: auto;
+  padding-top: var(--space-md);
+  border-top: 1px solid rgb(74 124 89 / 30%);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  font-size: var(--font-size-lg);
+  text-align: center;
 }
 
 .universityContainer {
