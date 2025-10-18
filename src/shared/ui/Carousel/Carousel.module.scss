@@ -1,137 +1,137 @@
 .wrapper {
-    position: relative;
-    width: 100%;
-    box-sizing: border-box;
-    overflow: hidden; /* Скрываем содержимое, выходящее за границы */
-    padding: 0 60px; /* Добавляем отступы для кнопок навигации */
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden; /* Скрываем содержимое, выходящее за границы */
+  padding: 0 60px; /* Добавляем отступы для кнопок навигации */
+}
+
+.swiper {
+  padding-bottom: 2.4rem; /* место для пагинации */
+  overflow: hidden; /* Дополнительная защита от переполнения */
+}
+
+/* Стили для слайдов */
+.swiper-slide {
+  overflow: hidden; /* Скрываем содержимое, выходящее за границы слайда */
+  box-sizing: border-box;
+}
+
+/* Навигационные кнопки */
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: rgb(0 0 0 / 0%);
+  box-shadow: 0 6px 18px rgb(0 0 0 / 8%);
+  cursor: pointer;
+  font-size: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    transform 0.18s ease,
+    opacity 0.18s ease;
+}
+
+/* Стили для SVG внутри кнопок */
+.nav svg {
+  width: 38px;
+  height: 38px;
+  color: var(--color-text);
+}
+
+.nav:hover {
+  background-color: var(--color-primary);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.nav:focus {
+  outline: 2px solid var(--color-primary);
+}
+
+.prev {
+  left: 8px; /* Изменено с -8px на 8px */
+}
+
+.next {
+  right: 8px; /* Изменено с -8px на 8px */
+}
+
+/* Переопределяем стандартные стили Swiper для навигации */
+.swiper-button-prev,
+.swiper-button-next {
+  display: none !important; /* Скрываем стандартные кнопки Swiper */
+}
+
+/* Глобальные стили для пагинации - простые и чистые */
+:global(.swiper-pagination-bullet) {
+  background-color: rgb(255 255 255 / 40%) !important;
+  opacity: 1 !important;
+}
+
+:global(.swiper-pagination-bullet-active) {
+  background-color: var(--color-primary) !important;
+  transform: scale(1.2) !important;
+}
+
+/* Пагинация (точки) - чистые стили в соответствии со стилем проекта */
+.wrapper .swiper-pagination-bullets {
+  bottom: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Неактивные точки - простые и чистые */
+.wrapper .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background-color: rgb(255 255 255 / 40%);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+/* Активная точка - только цвет и масштаб */
+.wrapper .swiper-pagination-bullet-active {
+  background-color: var(--color-primary);
+  transform: scale(1.2);
+}
+
+/* Немного адаптивности/отступов */
+@media (width <= 480px) {
+  .wrapper {
+    padding: 0.5rem 50px; /* Уменьшаем отступы для мобильных */
   }
-  
-  .swiper {
-    padding-bottom: 2.4rem; /* место для пагинации */
-    overflow: hidden; /* Дополнительная защита от переполнения */
-  }
-  
-  /* Стили для слайдов */
-  .swiper-slide {
-    overflow: hidden; /* Скрываем содержимое, выходящее за границы слайда */
-    box-sizing: border-box;
-  }
-  
-  /* Навигационные кнопки */
+
   .nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 20;
-    border: none;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background-color: rgb(0 0 0 / 0%);
-    box-shadow: 0 6px 18px rgb(0 0 0 / 8%);
-    cursor: pointer;
-    font-size: 22px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition:
-      transform 0.18s ease,
-      opacity 0.18s ease;
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
   }
-  
-  /* Стили для SVG внутри кнопок */
-  .nav svg {
-    width: 38px;
-    height: 38px;
-    color: var(--color-text);
-  }
-  
-  .nav:hover {
-    background-color: var(--color-primary);
-    transform: translateY(-50%) scale(1.05);
-  }
-  
-  .nav:focus {
-    outline: 2px solid var(--color-primary);
-  }
-  
+
   .prev {
-    left: 8px; /* Изменено с -8px на 8px */
+    left: 4px; /* Уменьшаем отступ для мобильных */
   }
 
   .next {
-    right: 8px; /* Изменено с -8px на 8px */
+    right: 4px; /* Уменьшаем отступ для мобильных */
   }
-  
-  /* Переопределяем стандартные стили Swiper для навигации */
-  .swiper-button-prev,
-  .swiper-button-next {
-    display: none !important; /* Скрываем стандартные кнопки Swiper */
-  }
-  
-  /* Глобальные стили для пагинации - простые и чистые */
-  :global(.swiper-pagination-bullet) {
-    background-color: rgb(255 255 255 / 40%) !important;
-    opacity: 1 !important;
-  }
-  
-  :global(.swiper-pagination-bullet-active) {
-    background-color: var(--color-primary) !important;
-    transform: scale(1.2) !important;
-  }
-  
-  /* Пагинация (точки) - чистые стили в соответствии со стилем проекта */
-  .wrapper .swiper-pagination-bullets {
-    bottom: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-  }
-  
-  /* Неактивные точки - простые и чистые */
+
+  /* Адаптивные стили для точек пагинации */
   .wrapper .swiper-pagination-bullet {
-    width: 8px;
-    height: 8px;
-    background-color: rgb(255 255 255 / 40%);
-    border-radius: 50%;
-    cursor: pointer;
-    transition: var(--transition);
+    width: 6px;
+    height: 6px;
   }
-  
-  /* Активная точка - только цвет и масштаб */
-  .wrapper .swiper-pagination-bullet-active {
-    background-color: var(--color-primary);
-    transform: scale(1.2);
+
+  .wrapper .swiper-pagination-bullets {
+    gap: 6px;
   }
-  
-  /* Немного адаптивности/отступов */
-  @media (width <= 480px) {
-    .wrapper {
-      padding: 0.5rem 50px; /* Уменьшаем отступы для мобильных */
-    }
-
-    .nav {
-      width: 36px;
-      height: 36px;
-      font-size: 18px;
-    }
-
-    .prev {
-      left: 4px; /* Уменьшаем отступ для мобильных */
-    }
-
-    .next {
-      right: 4px; /* Уменьшаем отступ для мобильных */
-    }
-  
-    /* Адаптивные стили для точек пагинации */
-    .wrapper .swiper-pagination-bullet {
-      width: 6px;
-      height: 6px;
-    }
-  
-    .wrapper .swiper-pagination-bullets {
-      gap: 6px;
-    }
-  }
+}

@@ -1,0 +1,135 @@
+.mapModal {
+  max-width: 600px;
+  width: 100%;
+}
+
+.mapContainer {
+  padding: 0;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.mapHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-lg);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    rgb(74 124 89 / 80%)
+  );
+  color: var(--color-white);
+}
+
+.mapTitle {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  margin: 0;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  color: var(--color-white);
+  font-size: var(--font-size-xl);
+  cursor: pointer;
+  padding: var(--space-sm);
+  border-radius: var(--radius-sm);
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background: rgb(255 255 255 / 20%);
+  }
+}
+
+.mapContent {
+  padding: var(--space-lg);
+}
+
+.address {
+  font-size: var(--font-size-base);
+  color: var(--color-gray-600);
+  margin-bottom: var(--space-md);
+  text-align: center;
+  font-weight: 500;
+}
+
+.map {
+  height: 400px;
+  width: 100%;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 10%);
+}
+
+.errorContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  background: rgb(254 226 226);
+  border-radius: var(--radius-md);
+  border: 2px solid rgb(248 113 113);
+  padding: var(--space-lg);
+  text-align: center;
+}
+
+.errorMessage {
+  color: rgb(153 27 27);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-md);
+}
+
+.errorHint {
+  color: rgb(107 114 128);
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+  margin-bottom: var(--space-lg);
+}
+
+.fallbackButton {
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    rgb(74 124 89 / 80%)
+  );
+  color: var(--color-white);
+  border: none;
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgb(74 124 89 / 40%);
+  }
+}
+
+@media (max-width: 768px) {
+  .mapModal {
+    max-width: calc(100vw - 40px);
+    margin: 20px;
+  }
+
+  .mapHeader {
+    padding: var(--space-md);
+  }
+
+  .mapTitle {
+    font-size: var(--font-size-lg);
+  }
+
+  .mapContent {
+    padding: var(--space-md);
+  }
+
+  .map {
+    height: 300px;
+  }
+}
