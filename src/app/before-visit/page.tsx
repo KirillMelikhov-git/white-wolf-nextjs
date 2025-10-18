@@ -1,16 +1,20 @@
-import { Metadata } from 'next';
+'use client';
 
+import { useState } from 'react';
+
+import { InteractiveText } from '@/shared/ui/InteractiveText';
+import { UrineCollectionModal } from '@/shared/ui/UrineCollectionModal';
+import { WarningText } from '@/shared/ui/WarningText';
 import { Header } from '@/widgets/Header';
 
 import styles from './page.module.scss';
 
-export const metadata: Metadata = {
-  title: 'Подготовка к визиту | White Wolf Veterinary Clinic',
-  description:
-    'Информация о том, как подготовиться к визиту в ветеринарную клинику White Wolf',
-};
-
 export default function BeforeVisitPage() {
+  const [isUrineModalOpen, setIsUrineModalOpen] = useState(false);
+
+  const handleUrineCollectionClick = () => {
+    setIsUrineModalOpen(true);
+  };
   return (
     <>
       <Header />
@@ -90,13 +94,17 @@ export default function BeforeVisitPage() {
                   <li>
                     Когда у Вашего питомца проблемы, связанные с
                     мочеиспусканием, например, Вы заметили кровь в моче,
-                    постарайтесь собрать мочу на анализ
+                    постарайтесь{' '}
+                    <InteractiveText onClick={handleUrineCollectionClick}>
+                      собрать мочу на анализ
+                    </InteractiveText>
                   </li>
                   <li>
-                    Если у Вашего питомца полностью отсутствует мочеиспускание и
-                    он часто присаживается в лоток — необходимо СРОЧНО
-                    обратиться в клинику, так как это состояние, угрожающее
-                    жизни животного.
+                    Если у Вашего питомца полностью{' '}
+                    <WarningText>отсутствует мочеиспускание</WarningText> и он
+                    часто присаживается в лоток — необходимо{' '}
+                    <WarningText>СРОЧНО</WarningText> обратиться в клинику, это
+                    состояние, угрожающее жизни животного!
                   </li>
                 </ul>
               </div>
@@ -149,7 +157,7 @@ export default function BeforeVisitPage() {
                 <h2 className={styles.sectionTitle}>Контакты</h2>
               </div>
               <div className={styles.contact}>
-                <p>Если у вас есть вопросы, звоните нам:</p>
+                <p>Если у Вас остались вопросы, звоните нам:</p>
                 <p className={styles.phone}>+7 (XXX) XXX-XX-XX</p>
               </div>
             </section>
@@ -162,6 +170,11 @@ export default function BeforeVisitPage() {
           </div>
         </div>
       </div>
+
+      <UrineCollectionModal
+        isOpen={isUrineModalOpen}
+        onClose={() => setIsUrineModalOpen(false)}
+      />
     </>
   );
 }
