@@ -1,0 +1,38 @@
+.vacanciesPage {
+  padding: var(--space-lg);
+  padding-top: 100px;
+  position: relative;
+  z-index: 2; // поверх фонового overlay
+}
+
+.heroSection {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contentContainer {
+  width: 100%;
+  padding: var(--space-xl);
+  background-color: rgb(0 0 0 / 50%);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  z-index: 2;
+  position: relative;
+}
+
+.title {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-white);
+  margin-bottom: var(--space-md);
+}
+
+.subtitle {
+  font-size: var(--font-size-lg);
+  color: var(--color-gray-300);
+  margin-bottom: var(--space-xl);
+}
