@@ -1,0 +1,139 @@
+.workBenefitsSection {
+  padding-top: var(--space-2xl);
+  padding-bottom: var(--space-2xl);
+  border-bottom: 1px solid rgb(74 124 89 / 40%);
+}
+
+.listsContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3xl);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+.listColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: opacity 0.3s ease;
+  opacity: 0.3; // Затемнены по умолчанию
+  border-radius: var(--radius-sm);
+
+  &:hover {
+    backdrop-filter: blur(10px);
+    opacity: 1; // Яркие при наведении
+  }
+}
+
+// Убираем дополнительные селекторы, так как теперь логика проще
+.listsContainer:hover .listColumn:not(:hover) {
+  opacity: 0.3; // Остаются затемненными
+}
+
+.listTitle {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-white);
+  margin-bottom: var(--space-xl);
+  text-align: center;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: var(--color-primary);
+    border-radius: 1px;
+  }
+}
+
+.benefitsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  width: 100%;
+  max-width: 500px;
+}
+
+.benefitItem {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  background: rgb(255 255 255 / 3%);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--color-primary);
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  backdrop-filter: blur(10px);
+
+  &:hover {
+    background: rgb(255 255 255 / 10%);
+    transform: translateX(4px);
+    box-shadow: 0 4px 12px rgb(0 0 0 / 20%);
+  }
+}
+
+// Дополнительный эффект для элементов в активной колонке
+.listColumn:hover .benefitItem {
+  border-left-color: var(--color-secondary);
+}
+
+.listColumn:hover .benefitItem:hover {
+  background: rgb(255 255 255 / 12%);
+  transform: translateX(6px);
+}
+
+.checkmark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background: var(--color-primary);
+  color: var(--color-white);
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: bold;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.benefitText {
+  color: var(--color-white);
+  font-size: var(--font-size-lg);
+  line-height: 1.6;
+  flex: 1;
+}
+
+// Адаптивность для мобильных устройств
+@media (max-width: 768px) {
+  .listsContainer {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+    padding: 0 var(--space-md);
+  }
+
+  .listTitle {
+    font-size: var(--font-size-lg);
+  }
+
+  .benefitsList {
+    max-width: 100%;
+  }
+
+  .benefitItem {
+    padding: var(--space-sm);
+  }
+}
