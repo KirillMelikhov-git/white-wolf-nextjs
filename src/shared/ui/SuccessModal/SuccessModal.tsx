@@ -1,7 +1,7 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { startTransition, useEffect, useState } from 'react';
 
 import { Button } from '@/shared/ui/Button';
 import { Modal } from '@/shared/ui/Modal';
@@ -14,19 +14,23 @@ export interface SuccessModalProps {
 }
 
 export const SuccessModal = ({ isOpen, onClose }: SuccessModalProps) => {
-  const [countdown, setCountdown] = useState(5);
+  const [countdown, setCountdown] = useState(10);
   const router = useRouter();
 
   useEffect(() => {
-    if (!isOpen) return;
+    if (!isOpen) {
+      return;
+    }
 
-    setCountdown(5);
+    setCountdown(10);
 
     const timer = setInterval(() => {
       setCountdown((prev) => {
         if (prev <= 1) {
           clearInterval(timer);
-          router.push('/before-visit');
+          startTransition(() => {
+            router.push('/before-visit');
+          });
           return 0;
         }
         return prev - 1;
