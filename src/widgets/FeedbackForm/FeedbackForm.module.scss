@@ -1,16 +1,15 @@
 .form {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 20px;
   width: 100%;
-  max-width: 800px;
   margin: 0 auto;
 }
 
 .formGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  gap: 16px;
 
   @media (width <= 768px) {
     grid-template-columns: 1fr;
@@ -19,15 +18,42 @@
 
 .submitButton {
   margin-top: 8px;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    rgb(74 124 89 / 70%)
+  );
+  border: none;
+  box-shadow: 0 3px 8px rgb(74 124 89 / 25%);
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgb(74 124 89 / 30%);
+    background: linear-gradient(
+      135deg,
+      rgb(74 124 89 / 80%),
+      var(--color-primary)
+    );
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
 }
 
 .successMessage {
   font-size: 14px;
   color: #38a169;
   padding: 12px 16px;
-  background: #f0fff4;
-  border-radius: 8px;
-  border-left: 4px solid #38a169;
+  background: linear-gradient(
+    135deg,
+    rgb(56 161 105 / 8%),
+    rgb(56 161 105 / 3%)
+  );
+  border-radius: var(--radius-md);
+  border-left: 3px solid #38a169;
+  border: 1px solid rgb(56 161 105 / 15%);
   animation: slide-in 0.3s ease;
 }
 
@@ -35,16 +61,17 @@
   font-size: 14px;
   color: #e53e3e;
   padding: 12px 16px;
-  background: #fff5f5;
-  border-radius: 8px;
-  border-left: 4px solid #e53e3e;
+  background: linear-gradient(135deg, rgb(229 62 62 / 8%), rgb(229 62 62 / 3%));
+  border-radius: var(--radius-md);
+  border-left: 3px solid #e53e3e;
+  border: 1px solid rgb(229 62 62 / 15%);
   animation: slide-in 0.3s ease;
 }
 
 @keyframes slide-in {
   from {
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(-8px);
   }
 
   to {
