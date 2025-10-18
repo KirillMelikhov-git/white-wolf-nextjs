@@ -8,6 +8,7 @@ import { IMaskInput } from 'react-imask';
 import { Button } from '@/shared/ui/Button';
 import { Input } from '@/shared/ui/Input';
 import { Textarea } from '@/shared/ui/Textarea';
+import { SuccessModal } from '@/shared/ui/SuccessModal';
 
 import { appointmentFormSchema, AppointmentFormSchema } from '../model/schema';
 
@@ -19,6 +20,7 @@ export const AppointmentForm = () => {
     'idle' | 'success' | 'error'
   >('idle');
   const [isPhoneFocused, setIsPhoneFocused] = useState(false);
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
 
   const {
     register,
@@ -49,6 +51,7 @@ export const AppointmentForm = () => {
       }
 
       setSubmitStatus('success');
+      setIsSuccessModalOpen(true);
       reset();
     } catch (error) {
       console.error('Ошибка отправки формы:', error);
@@ -128,18 +131,17 @@ export const AppointmentForm = () => {
         Записаться на приём
       </Button>
 
-      {submitStatus === 'success' && (
-        <div className={styles.successMessage}>
-          ✓ Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.
-        </div>
-      )}
-
       {submitStatus === 'error' && (
         <div className={styles.errorMessage}>
           ✗ Произошла ошибка при отправке. Пожалуйста, попробуйте позже или
           свяжитесь с нами по телефону.
         </div>
       )}
+
+      <SuccessModal
+        isOpen={isSuccessModalOpen}
+        onClose={() => setIsSuccessModalOpen(false)}
+      />
     </form>
   );
 };

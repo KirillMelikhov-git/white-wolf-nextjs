@@ -1,0 +1,37 @@
+# SMTP настройки для отправки email
+# Замените на ваши реальные данные
+
+# Хост SMTP сервера (например, smtp.gmail.com, smtp.mail.ru, smtp.yandex.ru)
+SMTP_HOST=smtp.gmail.com
+
+# Порт SMTP сервера (обычно 587 для TLS или 465 для SSL)
+SMTP_PORT=587
+
+# Ваш email адрес для отправки
+SMTP_USER=your-email@gmail.com
+
+# Пароль приложения (для Gmail) или обычный пароль
+SMTP_PASSWORD=your-app-password
+
+# Email адрес клиники, куда будут приходить заявки
+CLINIC_EMAIL=clinic@whitewolf.ru
+
+# Примеры настроек для популярных провайдеров:
+
+# Gmail:
+# SMTP_HOST=smtp.gmail.com
+# SMTP_PORT=587
+# SMTP_USER=your-email@gmail.com
+# SMTP_PASSWORD=your-app-password
+
+# Mail.ru:
+# SMTP_HOST=smtp.mail.ru
+# SMTP_PORT=587
+# SMTP_USER=your-email@mail.ru
+# SMTP_PASSWORD=your-password
+
+# Yandex:
+# SMTP_HOST=smtp.yandex.ru
+# SMTP_PORT=587
+# SMTP_USER=your-email@yandex.ru
+# SMTP_PASSWORD=your-password

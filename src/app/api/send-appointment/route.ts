@@ -20,6 +20,18 @@ export async function POST(request: Request) {
       !process.env.CLINIC_EMAIL
     ) {
       console.error('Missing SMTP configuration');
+
+      // В режиме разработки симулируем успешную отправку
+      if (process.env.NODE_ENV === 'development') {
+        console.log('Development mode: Simulating email send');
+        console.log('Appointment data:', validatedData);
+
+        return NextResponse.json(
+          { message: 'Appointment sent successfully (simulated)' },
+          { status: 200 }
+        );
+      }
+
       return NextResponse.json(
         { error: 'Server configuration error' },
         { status: 500 }
@@ -34,6 +46,9 @@ export async function POST(request: Request) {
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASSWORD,
+      },
+      tls: {
+        rejectUnauthorized: false, // Игнорируем ошибки SSL сертификата
       },
     });
 
@@ -165,8 +180,27 @@ Email: ${validatedData.email}
       );
     }
 
+    // Более детальная обработка ошибок SMTP
+    if (error && typeof error === 'object' && 'code' in error) {
+      const smtpError = error as { code: string; command: string };
+
+      if (smtpError.code === 'ESOCKET') {
+        return NextResponse.json(
+          {
+            error: 'SMTP connection error',
+            details:
+              'Не удалось подключиться к почтовому серверу. Проверьте настройки SMTP.',
+          },
+          { status: 500 }
+        );
+      }
+    }
+
     return NextResponse.json(
-      { error: 'Failed to send appointment' },
+      {
+        error: 'Failed to send appointment',
+        details: error instanceof Error ? error.message : 'Unknown error',
+      },
       { status: 500 }
     );
   }

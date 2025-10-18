@@ -5,10 +5,6 @@ export const appointmentFormSchema = z.object({
     .string()
     .min(1, 'ФИО обязательно для заполнения')
     .min(5, 'Введите полное ФИО (минимум 5 символов)')
-    .regex(
-      /^[А-Яа-яЁёA-Za-z\s-]+$/,
-      'ФИО может содержать только буквы, пробелы и дефисы'
-    )
     .refine((value) => value.trim().split(/\s+/).length >= 2, {
       message: 'Введите имя и фамилию',
     }),
