@@ -1,0 +1,81 @@
+.feedbackSection {
+  margin-top: var(--space-2xl);
+  padding: 60px 20px;
+  position: relative;
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+
+  @media (width <= 768px) {
+    padding: 40px 16px;
+  }
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.content {
+  text-align: center;
+}
+
+.title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: var(--color-text-secondary);
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--color-primary);
+    border-radius: 2px;
+  }
+
+  @media (width <= 768px) {
+    font-size: 28px;
+  }
+}
+
+.text {
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--color-white);
+  max-width: 800px;
+  margin: 0 auto;
+
+  @media (width <= 768px) {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+}
+
+.formLink {
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: inherit;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  padding: 0;
+  margin: 0;
+
+  &:hover {
+    color: var(--color-secondary);
+    text-decoration: none;
+    transform: translateY(-1px);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}

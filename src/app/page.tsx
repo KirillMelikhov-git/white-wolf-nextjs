@@ -1,6 +1,7 @@
 import { AboutCarousel } from '@/features/about-carousel';
 import { AppointmentSection } from '@/widgets/AppointmentSection';
 import { CardList } from '@/widgets/CardList';
+import { FeedbackSection } from '@/widgets/FeedbackSection';
 import { Footer } from '@/widgets/Footer';
 import { Header } from '@/widgets/Header';
 import { WorkersList } from '@/widgets/WorkersList';
@@ -18,6 +19,7 @@ export default function HomePage() {
             <CardList />
             <WorkersList />
             <AppointmentSection />
+            <FeedbackSection />
           </div>
         </section>
       </main>
