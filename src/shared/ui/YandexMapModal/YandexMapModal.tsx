@@ -22,7 +22,7 @@ export const YandexMapModal = ({
   isOpen,
   onClose,
   address = 'пгт. Рощино, ул. Советская, 4',
-  coordinates = [60.2512125, 30.2656504], // Координаты Рощино [широта, долгота]
+  coordinates = [60.258207, 29.598024], // Координаты клиники [широта, долгота]
 }: YandexMapModalProps) => {
   const mapRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<any>(null);

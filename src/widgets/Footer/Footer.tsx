@@ -64,7 +64,7 @@ export const Footer = () => {
         isOpen={isMapModalOpen}
         onClose={handleCloseMapModal}
         address="пгт. Рощино, ул. Советская, 4"
-        coordinates={[60.2512125, 30.2656504]}
+        coordinates={[60.258207, 29.598024]}
       />
     </>
   );
