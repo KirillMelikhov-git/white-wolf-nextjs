@@ -5,4 +5,5 @@ export interface ICard {
   university?: string;
   description?: string;
   image: string | React.ComponentType;
+  salary?: string;
 }

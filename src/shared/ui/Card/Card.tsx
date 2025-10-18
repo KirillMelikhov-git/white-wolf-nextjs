@@ -29,6 +29,7 @@ export function Card({ card }: AboutCardProps) {
         ) : (
           <p>{card.description}</p>
         )}
+        {card.salary ? <p>{card.salary}</p> : null}
       </div>
     </div>
   );
