@@ -1,10 +1,10 @@
 // Импорты стилей
-@import '@/shared/lib/styles/reset.scss';
-@import url('@/shared/lib/styles/global.scss');
-@import url('@/shared/lib/styles/typography.scss');
-@import url('swiper/css');
-@import url('swiper/css/navigation');
-@import url('swiper/css/pagination');
+@use '@/shared/lib/styles/reset.scss' as *;
+@use '@/shared/lib/styles/global.scss' as *;
+@use '@/shared/lib/styles/typography.scss' as *;
+@use 'swiper/css' as *;
+@use 'swiper/css/navigation' as *;
+@use 'swiper/css/pagination' as *;
 
 // Фоновое изображение для всего приложения
 body {
@@ -55,6 +55,8 @@ body {
   --font-size-lg: 1.125rem;
   --font-size-xl: 1.5rem;
   --font-size-2xl: 2rem;
+  --font-size-3xl: 2.5rem;
+  --font-weight-bold: 700;
 
   // Радиусы, тени
   --radius-sm: 4px;

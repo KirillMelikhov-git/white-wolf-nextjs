@@ -1,0 +1,1 @@
+export { VacancyCardList } from './ui';

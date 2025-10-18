@@ -1,0 +1,1 @@
+export { vacancyCards } from './model';
