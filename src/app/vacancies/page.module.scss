@@ -36,3 +36,43 @@
   color: var(--color-gray-300);
   margin-bottom: var(--space-xl);
 }
+
+.interviewSection {
+  margin-top: var(--space-2xl);
+  padding: 80px 20px;
+  position: relative;
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+
+  @media (width <= 768px) {
+    padding: 60px 16px;
+  }
+}
+
+.interviewHeader {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.interviewTitle {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--color-text-secondary);
+
+  @media (width <= 768px) {
+    font-size: 32px;
+  }
+}
+
+.interviewSubtitle {
+  font-size: 18px;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+
+  @media (width <= 768px) {
+    font-size: 16px;
+  }
+}
