@@ -8,7 +8,7 @@ import { z } from 'zod';
 import { Button } from '@/shared/ui/Button';
 import { Input } from '@/shared/ui/Input';
 import { Textarea } from '@/shared/ui/Textarea';
-import { InterviewSuccessModal } from '@/shared/ui/InterviewSuccessModal';
+import { FeedbackSuccessModal } from '@/shared/ui/FeedbackSuccessModal';
 
 import styles from './FeedbackForm.module.scss';
 
@@ -145,7 +145,7 @@ export const FeedbackForm = () => {
         </div>
       )}
 
-      <InterviewSuccessModal
+      <FeedbackSuccessModal
         isOpen={isSuccessModalOpen}
         onClose={() => setIsSuccessModalOpen(false)}
       />
