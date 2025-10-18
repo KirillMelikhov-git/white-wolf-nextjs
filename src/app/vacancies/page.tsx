@@ -14,6 +14,15 @@ export default function VacanciesPage() {
           <div className={styles.contentContainer}>
             <h1 className={styles.title}>Стань частью нашей команды!</h1>
             <VacancyCardList />
+
+            <div className={styles.locationInfo}>
+              <p className={styles.locationText}>
+                Территориально мы находимся в Рощино, но до нас очень просто и
+                быстро добраться! 25 минут на ласточке от Санкт-Петербурга до
+                клиники
+              </p>
+            </div>
+
             <WorkBenefitsList />
 
             <section className={styles.interviewSection}>

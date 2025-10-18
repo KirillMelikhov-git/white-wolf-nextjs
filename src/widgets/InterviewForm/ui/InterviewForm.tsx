@@ -11,7 +11,7 @@ import {
 } from '@/entities/interview-form/model/schema';
 import { Button } from '@/shared/ui/Button';
 import { Input } from '@/shared/ui/Input';
-import { SuccessModal } from '@/shared/ui/SuccessModal';
+import { InterviewSuccessModal } from '@/shared/ui/InterviewSuccessModal';
 import { Textarea } from '@/shared/ui/Textarea';
 
 import styles from './InterviewForm.module.scss';
@@ -159,7 +159,7 @@ export function InterviewForm() {
         </div>
       )}
 
-      <SuccessModal
+      <InterviewSuccessModal
         isOpen={isSuccessModalOpen}
         onClose={() => setIsSuccessModalOpen(false)}
       />
