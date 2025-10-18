@@ -1,12 +1,46 @@
 export function Administrator() {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-      <path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256 256-114.6 256-256S397.4 0 256 0zM256 448c-105.9 0-192-86.1-192-192S150.1 64 256 64s192 86.1 192 192S361.9 448 256 448z" />
-      <path d="M256 128c-70.7 0-128 57.3-128 128s57.3 128 128 128 128-57.3 128-128S326.7 128 256 128zM256 352c-53 0-96-43-96-96s43-96 96-96 96 43 96 96S309 352 256 352z" />
-      <path d="M200 240h112c8.8 0 16-7.2 16-16s-7.2-16-16-16H200c-8.8 0-16 7.2-16 16S191.2 240 200 240z" />
-      <path d="M256 208c8.8 0 16-7.2 16-16s-7.2-16-16-16-16 7.2-16 16S247.2 208 256 208z" />
-      <path d="M224 320c0 8.8 7.2 16 16 16s16-7.2 16-16v-16c0-8.8-7.2-16-16-16s-16 7.2-16 16V320z" />
-      <path d="M192 384h128c8.8 0 16-7.2 16-16s-7.2-16-16-16H192c-8.8 0-16 7.2-16 16S183.2 384 192 384z" />
+      {/* Компьютер/монитор */}
+      <rect
+        x="64"
+        y="96"
+        width="384"
+        height="256"
+        rx="16"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="32"
+      />
+      {/* Экран */}
+      <rect
+        x="80"
+        y="112"
+        width="352"
+        height="208"
+        rx="8"
+        fill="black"
+        opacity="0.3"
+      />
+      {/* Подставка */}
+      <rect x="192" y="352" width="128" height="32" fill="currentColor" />
+      {/* Клавиатура */}
+      <rect
+        x="128"
+        y="384"
+        width="256"
+        height="32"
+        rx="4"
+        fill="currentColor"
+      />
+      {/* Кнопки */}
+      <circle cx="160" cy="400" r="4" fill="currentColor" />
+      <circle cx="192" cy="400" r="4" fill="currentColor" />
+      <circle cx="224" cy="400" r="4" fill="currentColor" />
+      <circle cx="256" cy="400" r="4" fill="currentColor" />
+      <circle cx="288" cy="400" r="4" fill="currentColor" />
+      <circle cx="320" cy="400" r="4" fill="currentColor" />
+      <circle cx="352" cy="400" r="4" fill="currentColor" />
     </svg>
   );
 }
