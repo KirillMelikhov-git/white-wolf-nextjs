@@ -1,3 +1,4 @@
+import { Footer } from '@/widgets/Footer';
 import { Header } from '@/widgets/Header';
 import { InterviewForm } from '@/widgets/InterviewForm';
 import { VacancyCardList } from '@/widgets/VacancyCardList';
@@ -40,6 +41,7 @@ export default function VacanciesPage() {
           </div>
         </section>
       </main>
+      <Footer />
     </>
   );
 }

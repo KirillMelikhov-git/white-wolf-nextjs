@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { InteractiveText } from '@/shared/ui/InteractiveText';
 import { UrineCollectionModal } from '@/shared/ui/UrineCollectionModal';
 import { WarningText } from '@/shared/ui/WarningText';
+import { Footer } from '@/widgets/Footer';
 import { Header } from '@/widgets/Header';
 
 import styles from './page.module.scss';
@@ -175,6 +176,7 @@ export default function BeforeVisitPage() {
         isOpen={isUrineModalOpen}
         onClose={() => setIsUrineModalOpen(false)}
       />
+      <Footer />
     </>
   );
 }
