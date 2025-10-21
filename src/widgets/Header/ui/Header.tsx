@@ -42,11 +42,6 @@ export function Header() {
             </Link>
           </li>
           <li>
-            <Link href="/contacts" className={styles.navLink}>
-              Контакты
-            </Link>
-          </li>
-          <li>
             <Link href="/documents" className={styles.navLink}>
               Документы
             </Link>

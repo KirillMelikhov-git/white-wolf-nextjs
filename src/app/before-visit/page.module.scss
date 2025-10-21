@@ -31,11 +31,28 @@
 }
 
 .title {
-  font-size: var(--font-size-2xl);
+  font-size: var(--font-size-3xl);
   font-weight: 700;
   color: var(--color-text-secondary);
   margin: 0 0 16px 0;
   line-height: 1.2;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(
+      90deg,
+      var(--color-primary) 0%,
+      var(--color-secondary) 100%
+    );
+    border-radius: 2px;
+  }
 }
 
 .subtitle {
@@ -43,6 +60,42 @@
   color: var(--color-text);
   margin: 0;
   line-height: 1.5;
+}
+
+.contractInfo {
+  margin-top: 16px;
+  padding: 16px;
+  background: rgba(74, 124, 89, 0.1);
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--color-primary);
+}
+
+.contractText {
+  margin: 0;
+  font-size: 14px;
+  color: var(--color-text);
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.contractLink {
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  transition: all var(--transition);
+
+  &:hover {
+    color: var(--color-secondary);
+    text-decoration: underline;
+  }
+
+  &::after {
+    content: '↗';
+    margin-left: 4px;
+    font-size: 12px;
+    opacity: 0.7;
+  }
 }
 
 .sections {
@@ -173,6 +226,32 @@
   font-style: italic;
 }
 
+.rulesTitle {
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  text-align: center;
+  margin: 60px 0 40px 0;
+  line-height: 1.2;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(
+      90deg,
+      var(--color-primary) 0%,
+      var(--color-secondary) 100%
+    );
+    border-radius: 2px;
+  }
+}
+
 @media (width <= 768px) {
   .container {
     padding: var(--space-md);
@@ -184,11 +263,20 @@
   }
 
   .title {
-    font-size: 24px;
+    font-size: 28px;
   }
 
   .subtitle {
     font-size: 16px;
+  }
+
+  .contractInfo {
+    margin-top: 12px;
+    padding: 12px;
+  }
+
+  .contractText {
+    font-size: 13px;
   }
 
   .sections {
@@ -207,5 +295,10 @@
 
   .list li {
     text-align: left;
+  }
+
+  .rulesTitle {
+    font-size: 28px;
+    margin: 40px 0 30px 0;
   }
 }
