@@ -1,0 +1,44 @@
+.serviceCard {
+  background: linear-gradient(
+    135deg,
+    rgb(255 255 255 / 20%),
+    rgb(74 124 89 / 15%)
+  );
+  border: 2px solid transparent;
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  transition: var(--transition);
+  cursor: pointer;
+
+  &:hover {
+    background: linear-gradient(
+      135deg,
+      rgb(255 255 255 / 25%),
+      rgb(74 124 89 / 20%)
+    );
+    border-color: rgb(74 124 89 / 30%);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+  }
+}
+
+.serviceInfo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.serviceName {
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  color: var(--color-text);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.servicePrice {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  text-align: right;
+}

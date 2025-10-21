@@ -1,0 +1,40 @@
+.searchContainer {
+  margin-bottom: var(--space-xl);
+}
+
+.searchInput {
+  background: linear-gradient(
+    135deg,
+    rgb(255 255 255 / 20%),
+    rgb(74 124 89 / 15%)
+  );
+  border: 2px solid transparent;
+  border-radius: var(--radius-md);
+
+  :global(.inputWrapper) {
+    background: transparent;
+    border: none;
+  }
+
+  :global(.input) {
+    background: transparent;
+    border: none;
+    color: var(--color-text);
+    font-size: var(--font-size-lg);
+
+    &::placeholder {
+      color: rgb(255 255 255 / 70%);
+    }
+
+    &:focus {
+      outline: none;
+      background: rgb(255 255 255 / 10%);
+    }
+  }
+
+  :global(.label) {
+    color: var(--color-text);
+    font-weight: 500;
+    margin-bottom: var(--space-sm);
+  }
+}

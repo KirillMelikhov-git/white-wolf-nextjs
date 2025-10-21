@@ -42,8 +42,8 @@ export function Header() {
             </Link>
           </li>
           <li>
-            <Link href="/documents" className={styles.navLink}>
-              Документы
+            <Link href="#footer" className={styles.navLink}>
+              Контакты
             </Link>
           </li>
         </ul>
