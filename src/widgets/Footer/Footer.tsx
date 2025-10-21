@@ -25,7 +25,9 @@ export const Footer = () => {
             <div className={styles.infoSection}>
               <h3 className={styles.title}>Белый волк</h3>
               <p className={styles.description}>
-                Ветеринарная клиника с заботой о ваших питомцах
+                +7 (812) 996-30-00 <br />
+                +7 (921) 304-62-22 <br />
+                vetwolf2019@mail.ru
               </p>
             </div>
 
