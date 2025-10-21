@@ -6,6 +6,7 @@ import { useScrollDirection } from '@/shared/hooks/useScrollDirection';
 import { Logo } from '@/shared/ui/Logo';
 
 import styles from './Header.module.scss';
+import { SocialLinks } from './SocialLinks';
 
 export function Header() {
   const { scrollDirection, isScrolled } = useScrollDirection();
@@ -48,6 +49,8 @@ export function Header() {
           </li>
         </ul>
       </nav>
+
+      <SocialLinks />
     </header>
   );
 }

@@ -1,0 +1,44 @@
+.socialLinks {
+  display: flex;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  color: var(--color-text);
+  transition: var(--transition);
+  border-radius: var(--radius-sm);
+
+  &:hover {
+    color: var(--color-text-secondary);
+    transform: translateY(-2px);
+  }
+
+  svg {
+    width: 28px;
+    height: 28px;
+    fill: currentColor;
+  }
+}
+
+// Адаптивность для мобильных устройств
+@media (max-width: 768px) {
+  .socialLinks {
+    gap: var(--space-sm);
+  }
+
+  .socialLink {
+    width: 28px;
+    height: 28px;
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
+  }
+}
