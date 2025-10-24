@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useRef, useEffect } from 'react';
 
 import { ServiceCard } from '@/entities/service';
 import { SERVICES_DATA, type ServiceCategory } from '@/entities/service';
@@ -15,6 +15,7 @@ export default function ServicesPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] =
     useState<ServiceCategory | null>(null);
+  const categoryRefs = useRef<{ [key: string]: HTMLHeadingElement | null }>({});
 
   // Фильтрация услуг по поисковому запросу
   const filteredServices = useMemo(() => {
@@ -64,6 +65,27 @@ export default function ServicesPage() {
     setSearchQuery(query);
   };
 
+  useEffect(() => {
+    // Проверяем каждое название категории на переполнение
+    Object.values(categoryRefs.current).forEach((element) => {
+      if (element) {
+        const span = element.querySelector('span');
+        if (span) {
+          // Проверяем, превышает ли ширина текста ширину контейнера
+          const isOverflowing = span.scrollWidth > element.clientWidth;
+          if (isOverflowing) {
+            element.classList.add(styles.scrollable);
+            // Дублируем текст для бесшовной анимации
+            const text = span.textContent || '';
+            span.innerHTML = `${text}&nbsp;&nbsp;&nbsp;${text}`;
+          } else {
+            element.classList.remove(styles.scrollable);
+          }
+        }
+      }
+    });
+  }, [filteredServices]);
+
   return (
     <>
       <Header />
@@ -102,7 +124,29 @@ export default function ServicesPage() {
                     className={styles.categoryCard}
                     onClick={() => handleCategoryClick(category)}
                   >
-                    <h3 className={styles.categoryName}>{category.name}</h3>
+                    <div className={styles.categoryIcon}>
+                      <svg
+                        width="32"
+                        height="32"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                        <polyline points="22 4 12 14.01 9 11.01" />
+                      </svg>
+                    </div>
+                    <h3
+                      className={styles.categoryName}
+                      ref={(el) => {
+                        categoryRefs.current[category.id] = el;
+                      }}
+                    >
+                      <span>{category.name}</span>
+                    </h3>
                     <p className={styles.servicesCount}>
                       {category.services.length}{' '}
                       {category.services.length === 1
