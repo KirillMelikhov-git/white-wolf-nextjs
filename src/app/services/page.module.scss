@@ -254,26 +254,127 @@
   margin-top: var(--space-md);
 }
 
+// Адаптивность для планшетов
+@media (max-width: 1024px) {
+  .servicesPage {
+    padding: calc(var(--space-2xl) + var(--space-lg)) var(--space-md)
+      var(--space-xl);
+  }
+
+  .categoriesGrid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .categoryCard {
+    padding: var(--space-lg);
+  }
+
+  .categoryName {
+    font-size: var(--font-size-lg);
+  }
+
+  .servicesGrid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+// Адаптивность для мобильных
 @media (max-width: 768px) {
   .servicesPage {
-    padding: calc(var(--space-3xl) + var(--space-md)) var(--space-md)
+    padding: calc(var(--space-3xl) + var(--space-md)) var(--space-sm)
       var(--space-xl);
   }
 
   .container {
-    padding: var(--space-lg);
+    padding: var(--space-md);
+    border-width: 1px;
   }
 
   .title {
     font-size: var(--font-size-2xl);
     padding-top: var(--space-sm);
+    margin-bottom: var(--space-lg);
+  }
+
+  .categoriesTitle {
+    font-size: var(--font-size-xl);
+  }
+
+  .resultsTitle {
+    font-size: var(--font-size-lg);
   }
 
   .categoriesGrid {
     grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .categoryCard {
+    padding: var(--space-md);
+  }
+
+  .categoryIcon {
+    width: 48px;
+    height: 48px;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .categoryName {
+    font-size: var(--font-size-lg);
+  }
+
+  .servicesCount {
+    font-size: var(--font-size-sm);
+  }
+
+  .viewButton {
+    font-size: var(--font-size-sm);
   }
 
   .servicesGrid {
     grid-template-columns: 1fr;
+  }
+}
+
+// Адаптивность для маленьких экранов
+@media (max-width: 480px) {
+  .servicesPage {
+    padding: calc(var(--space-2xl) + var(--space-md)) var(--space-xs)
+      var(--space-lg);
+  }
+
+  .container {
+    padding: var(--space-sm);
+  }
+
+  .title {
+    font-size: var(--font-size-xl);
+  }
+
+  .categoriesTitle {
+    font-size: var(--font-size-lg);
+  }
+
+  .categoryCard {
+    padding: var(--space-sm);
+  }
+
+  .categoryIcon {
+    width: 40px;
+    height: 40px;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  .categoryName {
+    font-size: var(--font-size-base);
   }
 }

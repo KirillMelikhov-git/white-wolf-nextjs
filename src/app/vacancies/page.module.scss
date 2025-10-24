@@ -67,10 +67,6 @@
   border: 2px solid var(--color-primary);
   border-radius: var(--radius-md);
   color: var(--color-text);
-
-  @media (width <= 768px) {
-    padding: 60px 16px;
-  }
 }
 
 .interviewHeader {
@@ -83,10 +79,6 @@
   font-weight: 700;
   margin-bottom: 16px;
   color: var(--color-text-secondary);
-
-  @media (width <= 768px) {
-    font-size: 32px;
-  }
 }
 
 .interviewSubtitle {
@@ -94,8 +86,110 @@
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.6;
+}
 
-  @media (width <= 768px) {
-    font-size: 16px;
+// Адаптивность для планшетов
+@media (max-width: 1024px) {
+  .vacanciesPage {
+    padding: var(--space-md);
+    padding-top: 80px;
+  }
+
+  .contentContainer {
+    padding: var(--space-lg);
+  }
+
+  .interviewSection {
+    padding: 60px var(--space-md);
+  }
+}
+
+// Адаптивность для мобильных
+@media (max-width: 768px) {
+  .vacanciesPage {
+    padding: var(--space-sm);
+    padding-top: 70px;
+  }
+
+  .contentContainer {
+    padding: var(--space-md);
+    border-width: 1px;
+
+    .title {
+      font-size: var(--font-size-2xl);
+      margin-bottom: var(--space-sm);
+    }
+  }
+
+  .subtitle {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--space-lg);
+  }
+
+  .locationInfo {
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-lg);
+    padding: var(--space-md);
+  }
+
+  .locationText {
+    font-size: var(--font-size-base);
+  }
+
+  .interviewSection {
+    padding: var(--space-2xl) var(--space-sm);
+    border-width: 1px;
+  }
+
+  .interviewHeader {
+    margin-bottom: var(--space-xl);
+  }
+
+  .interviewTitle {
+    font-size: var(--font-size-2xl);
+  }
+
+  .interviewSubtitle {
+    font-size: var(--font-size-base);
+  }
+}
+
+// Адаптивность для маленьких экранов
+@media (max-width: 480px) {
+  .vacanciesPage {
+    padding: var(--space-xs);
+    padding-top: 60px;
+  }
+
+  .contentContainer {
+    padding: var(--space-sm);
+
+    .title {
+      font-size: var(--font-size-xl);
+    }
+  }
+
+  .subtitle {
+    font-size: var(--font-size-sm);
+  }
+
+  .locationInfo {
+    padding: var(--space-sm);
+  }
+
+  .locationText {
+    font-size: var(--font-size-sm);
+  }
+
+  .interviewSection {
+    padding: var(--space-xl) var(--space-xs);
+  }
+
+  .interviewTitle {
+    font-size: var(--font-size-xl);
+  }
+
+  .interviewSubtitle {
+    font-size: var(--font-size-sm);
   }
 }

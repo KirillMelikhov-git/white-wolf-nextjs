@@ -5,3 +5,26 @@
   gap: var(--space-lg);
   margin-top: var(--space-xl);
 }
+
+// Адаптивность для планшетов
+@media (max-width: 1024px) {
+  .vacancyCardList {
+    justify-content: center;
+    gap: var(--space-md);
+  }
+}
+
+// Адаптивность для мобильных
+@media (max-width: 768px) {
+  .vacancyCardList {
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+  }
+}
+
+// Адаптивность для маленьких экранов
+@media (max-width: 480px) {
+  .vacancyCardList {
+    gap: var(--space-sm);
+  }
+}

@@ -48,3 +48,74 @@
   font-size: 1.0625rem;
   line-height: 1.6;
 }
+
+// Адаптивность для планшетов
+@media (max-width: 1024px) {
+  .title {
+    font-size: var(--font-size-xl);
+  }
+
+  .text {
+    max-width: 90%;
+  }
+
+  .text h3 {
+    font-size: var(--font-size-lg);
+  }
+
+  .text p,
+  .vacLink {
+    font-size: var(--font-size-base);
+  }
+}
+
+// Адаптивность для мобильных
+@media (max-width: 768px) {
+  .section {
+    padding-bottom: var(--space-md);
+  }
+
+  .title {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-md);
+  }
+
+  .slide {
+    gap: var(--space-sm);
+  }
+
+  .image {
+    border-radius: var(--radius-sm);
+  }
+
+  .text {
+    max-width: 100%;
+  }
+
+  .text h3 {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--space-xs);
+  }
+
+  .text p,
+  .vacLink {
+    font-size: var(--font-size-sm);
+    line-height: 1.5;
+  }
+}
+
+// Адаптивность для маленьких экранов
+@media (max-width: 480px) {
+  .title {
+    font-size: var(--font-size-base);
+  }
+
+  .text h3 {
+    font-size: var(--font-size-sm);
+  }
+
+  .text p,
+  .vacLink {
+    font-size: 14px;
+  }
+}

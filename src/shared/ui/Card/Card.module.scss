@@ -77,3 +77,85 @@
   display: flex;
   flex-direction: column;
 }
+
+// Адаптивность для планшетов
+@media (max-width: 1024px) {
+  .card {
+    width: 30%;
+    min-width: 250px;
+  }
+
+  .textContainer {
+    h2 {
+      font-size: var(--font-size-lg);
+    }
+
+    p {
+      font-size: var(--font-size-base);
+    }
+  }
+
+  .salary {
+    font-size: var(--font-size-base);
+  }
+}
+
+// Адаптивность для мобильных
+@media (max-width: 768px) {
+  .card {
+    width: 45%;
+    min-width: 200px;
+    padding: var(--space-sm);
+    gap: var(--space-md);
+  }
+
+  .cardWithSalary {
+    min-height: 250px;
+  }
+
+  .textContainer {
+    gap: var(--space-md);
+
+    h2 {
+      font-size: var(--font-size-base);
+    }
+
+    p {
+      font-size: var(--font-size-sm);
+    }
+  }
+
+  .salary {
+    font-size: var(--font-size-sm);
+    padding-top: var(--space-sm);
+  }
+}
+
+// Адаптивность для маленьких экранов
+@media (max-width: 480px) {
+  .card {
+    width: 100%;
+    max-width: 300px;
+    gap: var(--space-sm);
+  }
+
+  .cardWithSalary {
+    min-height: 220px;
+  }
+
+  .textContainer {
+    gap: var(--space-sm);
+
+    h2 {
+      font-size: var(--font-size-sm);
+    }
+
+    p {
+      font-size: 14px;
+    }
+  }
+
+  .imageContainer svg {
+    width: 40%;
+  }
+}

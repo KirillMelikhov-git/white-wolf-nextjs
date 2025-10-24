@@ -33,6 +33,13 @@ body {
     z-index: 1;
     pointer-events: none;
   }
+
+  // Улучшение производительности на мобильных
+  @media (max-width: 768px) {
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center;
+  }
 }
 
 // CSS переменные

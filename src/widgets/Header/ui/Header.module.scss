@@ -10,7 +10,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 3;
+  z-index: 1000;
   text-decoration: none;
   text-shadow: 0 0 10px rgb(0 0 0 / 10%);
   letter-spacing: 0.05em;
@@ -40,9 +40,12 @@
     gap: var(--space-lg);
     font-size: var(--font-size-xl);
     font-weight: 700;
+    z-index: 1001;
   }
 
   .logoImg {
+    transition: transform 0.3s ease;
+
     &:hover {
       transform: rotate(10deg);
     }
@@ -64,8 +67,11 @@
     }
   }
 
-  // Стили для социальных ссылок
-  :global(.socialLinks) {
+  .mobileSocialLinks {
+    display: none;
+  }
+
+  .desktopSocialLinks {
     flex: 0 0 auto;
     display: flex;
     gap: var(--space-md);
@@ -79,6 +85,103 @@
 
     &:hover {
       color: var(--color-text-secondary);
+    }
+  }
+
+  // Адаптивность для планшетов и мобильных
+  @media (max-width: 1024px) {
+    padding: 0 var(--space-lg);
+    height: 60px;
+
+    .containerLogo {
+      gap: var(--space-md);
+      font-size: var(--font-size-lg);
+
+      .logoText {
+        display: none;
+      }
+    }
+
+    .nav {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      max-width: 400px;
+      height: 100vh;
+      background-color: var(--color-primary);
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: 80px var(--space-xl) var(--space-xl);
+      transition: right 0.3s ease-in-out;
+      box-shadow: -5px 0 15px rgb(0 0 0 / 20%);
+      overflow-y: auto;
+
+      &.navOpen {
+        right: 0;
+      }
+
+      .menu {
+        flex-direction: column;
+        gap: var(--space-xl);
+        width: 100%;
+        font-size: var(--font-size-xl);
+
+        li {
+          width: 100%;
+          text-align: left;
+          padding: var(--space-md) 0;
+          border-bottom: 1px solid rgba(255 255 255 / 10%);
+
+          &:last-child {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+
+    .mobileSocialLinks {
+      display: flex;
+      justify-content: center;
+      margin-top: var(--space-2xl);
+      padding-top: var(--space-2xl);
+      border-top: 1px solid rgba(255 255 255 / 20%);
+    }
+
+    .desktopSocialLinks {
+      display: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 0 var(--space-md);
+
+    .nav {
+      max-width: 100%;
+      padding: 70px var(--space-lg) var(--space-lg);
+
+      .menu {
+        font-size: var(--font-size-lg);
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 0 var(--space-sm);
+    height: 56px;
+
+    .containerLogo {
+      gap: var(--space-sm);
+      font-size: var(--font-size-base);
+    }
+
+    .nav {
+      padding: 60px var(--space-md) var(--space-md);
+
+      .menu {
+        gap: var(--space-lg);
+        font-size: var(--font-size-base);
+      }
     }
   }
 }

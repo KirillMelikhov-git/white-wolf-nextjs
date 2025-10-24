@@ -78,3 +78,30 @@
     transform: rotate(360deg);
   }
 }
+
+// Адаптивность для мобильных
+@media (max-width: 768px) {
+  .button {
+    padding: 12px 24px;
+    font-size: 15px;
+  }
+
+  .spinner {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+// Адаптивность для маленьких экранов
+@media (max-width: 480px) {
+  .button {
+    padding: 10px 20px;
+    font-size: 14px;
+    gap: 6px;
+  }
+
+  .spinner {
+    width: 12px;
+    height: 12px;
+  }
+}

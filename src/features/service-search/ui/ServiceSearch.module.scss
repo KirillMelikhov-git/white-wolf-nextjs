@@ -38,3 +38,47 @@
     margin-bottom: var(--space-sm);
   }
 }
+
+// Адаптивность для планшетов
+@media (max-width: 1024px) {
+  .searchInput {
+    :global(.input) {
+      font-size: var(--font-size-base);
+    }
+  }
+}
+
+// Адаптивность для мобильных
+@media (max-width: 768px) {
+  .searchContainer {
+    margin-bottom: var(--space-lg);
+  }
+
+  .searchInput {
+    :global(.input) {
+      font-size: var(--font-size-sm);
+      padding: var(--space-sm) var(--space-md);
+    }
+
+    :global(.label) {
+      font-size: var(--font-size-sm);
+      margin-bottom: var(--space-xs);
+    }
+  }
+}
+
+// Адаптивность для маленьких экранов
+@media (max-width: 480px) {
+  .searchContainer {
+    margin-bottom: var(--space-md);
+  }
+
+  .searchInput {
+    border-width: 1px;
+
+    :global(.input) {
+      font-size: 14px;
+      padding: var(--space-xs) var(--space-sm);
+    }
+  }
+}

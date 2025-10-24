@@ -5,10 +5,6 @@
   border: 2px solid var(--color-primary);
   border-radius: var(--radius-md);
   color: var(--color-text);
-
-  @media (width <= 768px) {
-    padding: 40px 16px;
-  }
 }
 
 .container {
@@ -38,10 +34,6 @@
     background: var(--color-primary);
     border-radius: 2px;
   }
-
-  @media (width <= 768px) {
-    font-size: 28px;
-  }
 }
 
 .text {
@@ -50,11 +42,6 @@
   color: var(--color-white);
   max-width: 800px;
   margin: 0 auto;
-
-  @media (width <= 768px) {
-    font-size: 16px;
-    line-height: 1.6;
-  }
 }
 
 .formLink {
@@ -77,5 +64,64 @@
 
   &:active {
     transform: translateY(0);
+  }
+}
+
+// Адаптивность для планшетов
+@media (max-width: 1024px) {
+  .feedbackSection {
+    padding: 50px var(--space-md);
+  }
+
+  .title {
+    font-size: 32px;
+  }
+
+  .text {
+    font-size: 17px;
+  }
+}
+
+// Адаптивность для мобильных
+@media (max-width: 768px) {
+  .feedbackSection {
+    padding: var(--space-2xl) var(--space-sm);
+    border-width: 1px;
+  }
+
+  .title {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-md);
+
+    &::after {
+      width: 60px;
+      height: 2px;
+      bottom: -10px;
+    }
+  }
+
+  .text {
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+  }
+}
+
+// Адаптивность для маленьких экранов
+@media (max-width: 480px) {
+  .feedbackSection {
+    padding: var(--space-xl) var(--space-xs);
+    margin-top: var(--space-xl);
+  }
+
+  .title {
+    font-size: var(--font-size-xl);
+
+    &::after {
+      width: 50px;
+    }
+  }
+
+  .text {
+    font-size: var(--font-size-sm);
   }
 }

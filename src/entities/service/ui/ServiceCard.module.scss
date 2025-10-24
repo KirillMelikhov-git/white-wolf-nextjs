@@ -128,3 +128,61 @@
   transition: all 0.3s ease;
   box-shadow: 0 2px 4px rgb(0 0 0 / 10%);
 }
+
+// Адаптивность для планшетов
+@media (max-width: 1024px) {
+  .serviceCard {
+    padding: var(--space-md);
+  }
+
+  .serviceName {
+    font-size: var(--font-size-sm);
+    min-height: 3.3em;
+  }
+
+  .servicePrice {
+    font-size: var(--font-size-lg);
+    padding: var(--space-xs) var(--space-sm);
+  }
+}
+
+// Адаптивность для мобильных
+@media (max-width: 768px) {
+  .serviceCard {
+    padding: var(--space-sm);
+
+    &:hover {
+      transform: translateY(-2px) scale(1.01);
+    }
+  }
+
+  .serviceInfo {
+    gap: var(--space-sm);
+  }
+
+  .serviceName {
+    font-size: 14px;
+    min-height: 3em;
+    -webkit-line-clamp: 2;
+  }
+
+  .servicePrice {
+    font-size: var(--font-size-base);
+    padding: var(--space-xs) var(--space-sm);
+  }
+}
+
+// Адаптивность для маленьких экранов
+@media (max-width: 480px) {
+  .serviceCard {
+    padding: var(--space-xs);
+  }
+
+  .serviceName {
+    font-size: 13px;
+  }
+
+  .servicePrice {
+    font-size: var(--font-size-sm);
+  }
+}

@@ -60,3 +60,35 @@
   color: #e53e3e;
   margin-top: -4px;
 }
+
+// Адаптивность для мобильных
+@media (max-width: 768px) {
+  .label {
+    font-size: 13px;
+  }
+
+  .input {
+    padding: 10px 14px;
+    font-size: 15px;
+  }
+
+  .errorMessage {
+    font-size: 12px;
+  }
+}
+
+// Адаптивность для маленьких экранов
+@media (max-width: 480px) {
+  .label {
+    font-size: 12px;
+  }
+
+  .input {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  .errorMessage {
+    font-size: 11px;
+  }
+}
