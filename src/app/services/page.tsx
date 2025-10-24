@@ -6,13 +6,19 @@ import { Footer } from '@/widgets/Footer';
 import { Header } from '@/widgets/Header';
 import { ServiceSearch } from '@/features/service-search';
 import { ServiceCard } from '@/entities/service';
-import { SERVICES_DATA, type Service } from '@/entities/service';
+import {
+  SERVICES_DATA,
+  type Service,
+  type ServiceCategory,
+} from '@/entities/service';
+import { ServicesModal } from '@/shared/ui/ServicesModal';
 
 import styles from './page.module.scss';
 
 export default function ServicesPage() {
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [selectedCategory, setSelectedCategory] =
+    useState<ServiceCategory | null>(null);
 
   // Фильтрация услуг по поисковому запросу
   const filteredServices = useMemo(() => {
@@ -50,14 +56,16 @@ export default function ServicesPage() {
     );
   }, [searchQuery, allServices]);
 
-  const handleCategoryClick = (categoryId: string) => {
-    setSelectedCategory(selectedCategory === categoryId ? null : categoryId);
-    setSearchQuery(''); // Очищаем поиск при выборе категории
+  const handleCategoryClick = (category: ServiceCategory) => {
+    setSelectedCategory(category);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedCategory(null);
   };
 
   const handleSearch = (query: string) => {
     setSearchQuery(query);
-    setSelectedCategory(null); // Сбрасываем выбранную категорию при поиске
   };
 
   return (
@@ -93,30 +101,51 @@ export default function ServicesPage() {
               <h2 className={styles.categoriesTitle}>Категории услуг</h2>
               <div className={styles.categoriesGrid}>
                 {filteredServices.map((category) => (
-                  <div key={category.id} className={styles.categoryCard}>
-                    <button
-                      className={styles.categoryButton}
-                      onClick={() => handleCategoryClick(category.id)}
-                    >
-                      <h3 className={styles.categoryName}>{category.name}</h3>
-                      <p className={styles.servicesCount}>
-                        {category.services.length} услуг
-                      </p>
-                      <div className={styles.expandIcon}>
-                        {selectedCategory === category.id ? '−' : '+'}
-                      </div>
-                    </button>
-
-                    {selectedCategory === category.id && (
-                      <div className={styles.servicesList}>
-                        <div className={styles.servicesGrid}>
-                          {category.services.map((service) => (
-                            <ServiceCard key={service.id} service={service} />
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                  </div>
+                  <button
+                    key={category.id}
+                    className={styles.categoryCard}
+                    onClick={() => handleCategoryClick(category)}
+                  >
+                    <div className={styles.categoryIcon}>
+                      <svg
+                        width="32"
+                        height="32"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                        <polyline points="22 4 12 14.01 9 11.01" />
+                      </svg>
+                    </div>
+                    <h3 className={styles.categoryName}>{category.name}</h3>
+                    <p className={styles.servicesCount}>
+                      {category.services.length}{' '}
+                      {category.services.length === 1
+                        ? 'услуга'
+                        : category.services.length < 5
+                          ? 'услуги'
+                          : 'услуг'}
+                    </p>
+                    <div className={styles.viewButton}>
+                      <span>Смотреть услуги</span>
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <polyline points="9 18 15 12 9 6" />
+                      </svg>
+                    </div>
+                  </button>
                 ))}
               </div>
             </div>
@@ -124,6 +153,16 @@ export default function ServicesPage() {
         </div>
       </main>
       <Footer />
+
+      {/* Модальное окно с услугами категории */}
+      {selectedCategory && (
+        <ServicesModal
+          isOpen={!!selectedCategory}
+          onClose={handleCloseModal}
+          categoryName={selectedCategory.name}
+          services={selectedCategory.services}
+        />
+      )}
     </>
   );
 }
