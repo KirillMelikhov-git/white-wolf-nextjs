@@ -21,8 +21,8 @@ export function CardWithAnimation({
   onOutView,
 }: CardWithAnimationProps) {
   const { ref, isInView } = useInViewAnimation<HTMLDivElement>({
-    threshold: 0.4,
-    rootMargin: '-10% 0px -45% 0px',
+    threshold: 0.85,
+    rootMargin: '0% 0px -30% 0px',
     triggerOnce: false,
   });
 

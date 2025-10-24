@@ -17,6 +17,7 @@ export function useInViewAnimation<T extends HTMLElement>(
 
   const ref = useRef<T>(null);
   const [isInView, setIsInView] = useState(false);
+  const wasInViewRef = useRef(false);
 
   useEffect(() => {
     const element = ref.current;
@@ -24,17 +25,23 @@ export function useInViewAnimation<T extends HTMLElement>(
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        const ratio = entry.intersectionRatio;
+
+        if (ratio >= threshold && !wasInViewRef.current) {
+          // Активация: элемент достиг нужного порога видимости
           setIsInView(true);
+          wasInViewRef.current = true;
           if (triggerOnce) {
             observer.disconnect();
           }
-        } else if (!triggerOnce) {
+        } else if (ratio === 0 && wasInViewRef.current && !triggerOnce) {
+          // Деактивация: элемент полностью вышел из экрана
           setIsInView(false);
+          wasInViewRef.current = false;
         }
       },
       {
-        threshold,
+        threshold: [0, threshold], // Следим за двумя порогами: 0 (полностью вне) и threshold (активация)
         rootMargin,
       }
     );
