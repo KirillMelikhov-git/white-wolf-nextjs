@@ -16,6 +16,7 @@ export default function ServicesPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] =
     useState<ServiceCategory | null>(null);
+  const [activeServiceIds, setActiveServiceIds] = useState<string[]>([]);
   const categoryRefs = useRef<{ [key: string]: HTMLHeadingElement | null }>({});
 
   // Фильтрация услуг по поисковому запросу
@@ -105,7 +106,25 @@ export default function ServicesPage() {
               {searchResults.length > 0 ? (
                 <div className={styles.servicesGrid}>
                   {searchResults.map((service) => (
-                    <ServiceCard key={service.id} service={service} />
+                    <ServiceCard
+                      key={service.id}
+                      service={service}
+                      isActive={activeServiceIds.includes(service.id)}
+                      onInView={(id: string) =>
+                        setActiveServiceIds((prev) => {
+                          if (!prev.includes(id)) {
+                            const newIds = [...prev, id];
+                            return newIds.slice(-3); // Оставляем только последние 3
+                          }
+                          return prev;
+                        })
+                      }
+                      onOutView={(id: string) =>
+                        setActiveServiceIds((prev) =>
+                          prev.filter((activeId) => activeId !== id)
+                        )
+                      }
+                    />
                   ))}
                 </div>
               ) : (

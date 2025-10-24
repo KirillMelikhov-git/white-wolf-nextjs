@@ -111,54 +111,57 @@
     transition: all 0.3s ease;
   }
 
-  &:hover {
-    background: linear-gradient(
-      135deg,
-      rgb(255 255 255 / 25%),
-      rgb(74 124 89 / 18%)
-    );
-    border-color: rgb(74 124 89 / 45%);
-    transform: translateY(-6px) scale(1.02);
-    box-shadow:
-      0 12px 32px rgb(0 0 0 / 25%),
-      0 4px 12px rgb(74 124 89 / 35%);
-
-    &::before {
-      opacity: 1;
-    }
-
-    &::after {
-      width: 140px;
-      height: 140px;
-      background: radial-gradient(
-        circle at bottom right,
-        rgb(244 162 97 / 20%),
-        transparent 70%
-      );
-    }
-
-    .categoryIcon {
-      transform: scale(1.1) rotate(5deg);
+  // Hover эффекты только на устройствах с мышкой
+  @media (hover: hover) {
+    &:hover {
       background: linear-gradient(
         135deg,
-        rgb(74 124 89 / 30%),
-        rgb(42 157 143 / 30%)
+        rgb(255 255 255 / 25%),
+        rgb(74 124 89 / 18%)
       );
-      box-shadow: 0 4px 12px rgb(74 124 89 / 40%);
-    }
+      border-color: rgb(74 124 89 / 45%);
+      transform: translateY(-6px) scale(1.02);
+      box-shadow:
+        0 12px 32px rgb(0 0 0 / 25%),
+        0 4px 12px rgb(74 124 89 / 35%);
 
-    .viewButton {
-      transform: translateX(4px);
-      color: var(--color-text-secondary);
+      &::before {
+        opacity: 1;
+      }
 
-      svg {
+      &::after {
+        width: 140px;
+        height: 140px;
+        background: radial-gradient(
+          circle at bottom right,
+          rgb(244 162 97 / 20%),
+          transparent 70%
+        );
+      }
+
+      .categoryIcon {
+        transform: scale(1.1) rotate(5deg);
+        background: linear-gradient(
+          135deg,
+          rgb(74 124 89 / 30%),
+          rgb(42 157 143 / 30%)
+        );
+        box-shadow: 0 4px 12px rgb(74 124 89 / 40%);
+      }
+
+      .viewButton {
         transform: translateX(4px);
+        color: var(--color-text-secondary);
+
+        svg {
+          transform: translateX(4px);
+        }
       }
     }
-  }
 
-  &:active {
-    transform: translateY(-3px) scale(1.01);
+    &:active {
+      transform: translateY(-3px) scale(1.01);
+    }
   }
 }
 
@@ -205,8 +208,10 @@
   }
 }
 
-.categoryCard:hover .categoryName.scrollable span {
-  animation: marquee 8s linear infinite;
+@media (hover: hover) {
+  .categoryCard:hover .categoryName.scrollable span {
+    animation: marquee 8s linear infinite;
+  }
 }
 
 @keyframes marquee {
@@ -215,6 +220,67 @@
   }
   100% {
     transform: translateX(-50%);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+// Эффект для категорий на мобильных (всегда яркие)
+@media (max-width: 1024px) {
+  .categoriesGrid {
+    .categoryCard {
+      background: linear-gradient(
+        135deg,
+        rgb(255 255 255 / 25%),
+        rgb(74 124 89 / 18%)
+      );
+      border-color: rgb(74 124 89 / 45%);
+      box-shadow:
+        0 12px 32px rgb(0 0 0 / 25%),
+        0 4px 12px rgb(74 124 89 / 35%);
+
+      &::before {
+        opacity: 1;
+      }
+
+      &::after {
+        width: 140px;
+        height: 140px;
+        background: radial-gradient(
+          circle at bottom right,
+          rgb(244 162 97 / 20%),
+          transparent 70%
+        );
+      }
+
+      .categoryIcon {
+        background: linear-gradient(
+          135deg,
+          rgb(74 124 89 / 50%),
+          rgb(42 157 143 / 45%)
+        );
+        border: 2px solid rgb(74 124 89 / 60%);
+        box-shadow:
+          0 4px 12px rgb(74 124 89 / 50%),
+          inset 0 1px 0 rgb(255 255 255 / 20%);
+
+        svg {
+          filter: drop-shadow(0 1px 2px rgb(0 0 0 / 30%));
+          color: rgb(255 255 255 / 95%);
+        }
+      }
+
+      .viewButton {
+        color: var(--color-text-secondary);
+      }
+    }
   }
 }
 
@@ -252,6 +318,42 @@
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: var(--space-md);
   margin-top: var(--space-md);
+
+  // Эффект при попадании в область видимости (для мобильных)
+  @media (max-width: 1024px) {
+    > :global(.inView) {
+      background: linear-gradient(
+        135deg,
+        rgb(255 255 255 / 25%),
+        rgb(74 124 89 / 18%)
+      ) !important;
+      border-color: rgb(74 124 89 / 40%) !important;
+      transform: translateY(-4px) scale(1.02) !important;
+      box-shadow:
+        0 8px 24px rgb(0 0 0 / 20%),
+        0 4px 8px rgb(74 124 89 / 30%) !important;
+
+      &::before {
+        opacity: 1 !important;
+        animation: shimmer 2s infinite !important;
+      }
+
+      &::after {
+        width: 80px !important;
+        height: 80px !important;
+        background: radial-gradient(
+          circle,
+          rgb(74 124 89 / 25%),
+          transparent 70%
+        ) !important;
+      }
+
+      > div > div:last-child {
+        transform: scale(1.05) !important;
+        text-shadow: 0 2px 8px rgb(74 124 89 / 40%) !important;
+      }
+    }
+  }
 }
 
 // Адаптивность для планшетов

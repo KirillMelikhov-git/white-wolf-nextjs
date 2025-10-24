@@ -1,5 +1,7 @@
 'use client';
 
+import { useEffect } from 'react';
+
 import { useInViewAnimation } from '@/shared/hooks';
 import { type ServiceCategory } from '@/entities/service';
 
@@ -9,22 +11,40 @@ interface CategoryCardProps {
   category: ServiceCategory;
   onClick: (category: ServiceCategory) => void;
   categoryRef: (el: HTMLHeadingElement | null) => void;
+  isActive?: boolean;
+  onInView?: (id: string) => void;
+  onOutView?: (id: string) => void;
 }
 
 export function CategoryCard({
   category,
   onClick,
   categoryRef,
+  isActive = false,
+  onInView,
+  onOutView,
 }: CategoryCardProps) {
   const { ref, isInView } = useInViewAnimation<HTMLButtonElement>({
-    threshold: 0.3,
+    threshold: 0.4,
+    rootMargin: '-10% 0px -45% 0px',
     triggerOnce: false,
   });
+
+  useEffect(() => {
+    if (isInView && onInView) {
+      onInView(category.id);
+    } else if (!isInView && onOutView) {
+      onOutView(category.id);
+    }
+  }, [isInView, category.id, onInView, onOutView]);
+
+  // Если есть управление извне (isActive), используем его, иначе используем isInView
+  const shouldHighlight = onInView !== undefined ? isActive : isInView;
 
   return (
     <button
       ref={ref}
-      className={`${styles.categoryCard} ${isInView ? styles.inView : ''}`}
+      className={`${styles.categoryCard} ${shouldHighlight ? 'inView' : ''}`}
       onClick={() => onClick(category)}
     >
       <div className={styles.categoryIcon}>

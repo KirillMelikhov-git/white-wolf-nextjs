@@ -43,41 +43,44 @@
     transition: all 0.3s ease;
   }
 
-  &:hover {
-    background: linear-gradient(
-      135deg,
-      rgb(255 255 255 / 25%),
-      rgb(74 124 89 / 18%)
-    );
-    border-color: rgb(74 124 89 / 40%);
-    transform: translateY(-4px) scale(1.02);
-    box-shadow:
-      0 8px 24px rgb(0 0 0 / 20%),
-      0 4px 8px rgb(74 124 89 / 30%);
-
-    &::before {
-      opacity: 1;
-      animation: shimmer 2s infinite;
-    }
-
-    &::after {
-      width: 80px;
-      height: 80px;
-      background: radial-gradient(
-        circle,
-        rgb(74 124 89 / 25%),
-        transparent 70%
+  // Hover эффекты только на устройствах с мышкой
+  @media (hover: hover) {
+    &:hover {
+      background: linear-gradient(
+        135deg,
+        rgb(255 255 255 / 25%),
+        rgb(74 124 89 / 18%)
       );
+      border-color: rgb(74 124 89 / 40%);
+      transform: translateY(-4px) scale(1.02);
+      box-shadow:
+        0 8px 24px rgb(0 0 0 / 20%),
+        0 4px 8px rgb(74 124 89 / 30%);
+
+      &::before {
+        opacity: 1;
+        animation: shimmer 2s infinite;
+      }
+
+      &::after {
+        width: 80px;
+        height: 80px;
+        background: radial-gradient(
+          circle,
+          rgb(74 124 89 / 25%),
+          transparent 70%
+        );
+      }
+
+      .servicePrice {
+        transform: scale(1.05);
+        text-shadow: 0 2px 8px rgb(74 124 89 / 40%);
+      }
     }
 
-    .servicePrice {
-      transform: scale(1.05);
-      text-shadow: 0 2px 8px rgb(74 124 89 / 40%);
+    &:active {
+      transform: translateY(-2px) scale(1.01);
     }
-  }
-
-  &:active {
-    transform: translateY(-2px) scale(1.01);
   }
 }
 
@@ -150,10 +153,6 @@
 @media (max-width: 768px) {
   .serviceCard {
     padding: var(--space-sm);
-
-    &:hover {
-      transform: translateY(-2px) scale(1.01);
-    }
   }
 
   .serviceInfo {

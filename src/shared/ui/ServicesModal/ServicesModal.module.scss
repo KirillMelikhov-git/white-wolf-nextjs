@@ -2,12 +2,12 @@
   max-width: 900px;
   width: 100%;
   max-height: 85vh;
-  background: linear-gradient(135deg, rgb(26 32 44 / 95%), rgb(45 55 72 / 95%));
+  background: linear-gradient(135deg, rgb(25 30 28 / 90%), rgb(35 45 40 / 92%));
   backdrop-filter: blur(20px);
-  border: 1px solid rgb(74 124 89 / 30%);
+  border: 2px solid var(--color-primary);
   box-shadow:
-    0 25px 50px rgb(0 0 0 / 30%),
-    0 0 0 1px rgb(255 255 255 / 10%);
+    0 25px 50px rgb(0 0 0 / 40%),
+    0 0 0 1px rgb(74 124 89 / 30%);
 }
 
 .header {
@@ -15,10 +15,10 @@
   align-items: center;
   justify-content: space-between;
   padding: var(--space-xl) var(--space-xl) var(--space-lg);
-  border-bottom: 1px solid rgb(74 124 89 / 20%);
+  border-bottom: 1px solid rgb(74 124 89 / 40%);
   position: sticky;
   top: 0;
-  background: linear-gradient(135deg, rgb(26 32 44 / 98%), rgb(45 55 72 / 98%));
+  background: linear-gradient(135deg, rgb(25 30 28 / 94%), rgb(35 45 40 / 95%));
   backdrop-filter: blur(10px);
   z-index: 10;
 }
@@ -39,8 +39,12 @@
 }
 
 .closeButton {
-  background: rgb(255 255 255 / 10%);
-  border: 1px solid rgb(74 124 89 / 30%);
+  background: linear-gradient(
+    135deg,
+    rgb(74 124 89 / 20%),
+    rgb(42 157 143 / 20%)
+  );
+  border: 1px solid rgb(74 124 89 / 40%);
   border-radius: 8px;
   width: 40px;
   height: 40px;
@@ -53,10 +57,15 @@
   flex-shrink: 0;
 
   &:hover {
-    background: rgb(255 255 255 / 15%);
-    border-color: rgb(74 124 89 / 50%);
+    background: linear-gradient(
+      135deg,
+      rgb(74 124 89 / 30%),
+      rgb(42 157 143 / 30%)
+    );
+    border-color: var(--color-primary);
     transform: rotate(90deg);
     color: var(--color-text-secondary);
+    box-shadow: 0 4px 12px rgb(74 124 89 / 30%);
   }
 
   &:active {
