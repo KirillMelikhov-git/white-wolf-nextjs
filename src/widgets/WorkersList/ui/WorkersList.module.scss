@@ -57,22 +57,25 @@
       transition: opacity 0.3s ease;
     }
 
-    &:hover {
-      transform: translateY(-8px);
-      z-index: 10;
-      text-decoration: none;
-      box-shadow:
-        0 20px 25px -5px rgb(74 124 89 / 20%),
-        0 10px 10px -5px rgb(74 124 89 / 15%);
-      background: linear-gradient(
-          135deg,
-          rgb(255 255 255 / 50%),
-          rgb(74 124 89 / 25%)
-        )
-        border-box;
+    // Hover эффекты только на устройствах с мышкой
+    @media (hover: hover) {
+      &:hover {
+        transform: translateY(-8px);
+        z-index: 10;
+        text-decoration: none;
+        box-shadow:
+          0 20px 25px -5px rgb(74 124 89 / 20%),
+          0 10px 10px -5px rgb(74 124 89 / 15%);
+        background: linear-gradient(
+            135deg,
+            rgb(255 255 255 / 50%),
+            rgb(74 124 89 / 25%)
+          )
+          border-box;
 
-      &::before {
-        opacity: 1;
+        &::before {
+          opacity: 1;
+        }
       }
     }
   }
@@ -97,14 +100,16 @@
     box-shadow: 0 8px 16px -4px rgb(0 0 0 / 15%);
   }
 
-  /* Эффекты для изображения при наведении */
-  > div:hover img,
-  > a:hover img {
-    transform: scale(1.1);
-    border-color: rgb(74 124 89 / 40%);
-    box-shadow:
-      0 12px 24px -6px rgb(74 124 89 / 30%),
-      0 0 0 1px rgb(255 255 255 / 50%);
+  /* Эффекты для изображения при наведении (только на устройствах с мышкой) */
+  @media (hover: hover) {
+    > div:hover img,
+    > a:hover img {
+      transform: scale(1.1);
+      border-color: rgb(74 124 89 / 40%);
+      box-shadow:
+        0 12px 24px -6px rgb(74 124 89 / 30%),
+        0 0 0 1px rgb(255 255 255 / 50%);
+    }
   }
 
   /* Имя специалиста */
@@ -117,9 +122,11 @@
     transition: color 0.3s ease;
   }
 
-  > div:hover h2,
-  > a:hover h2 {
-    color: var(--color-text-secondary);
+  @media (hover: hover) {
+    > div:hover h2,
+    > a:hover h2 {
+      color: var(--color-text-secondary);
+    }
   }
 
   /* Профессия */
@@ -132,9 +139,11 @@
     margin-bottom: var(--space-sm);
   }
 
-  > div:hover p:nth-of-type(1),
-  > a:hover p:nth-of-type(1) {
-    color: var(--color-white);
+  @media (hover: hover) {
+    > div:hover p:nth-of-type(1),
+    > a:hover p:nth-of-type(1) {
+      color: var(--color-white);
+    }
   }
 
   /* Университет */
@@ -150,6 +159,84 @@
   /* Описание - полностью скрываем */
   p:last-child {
     display: none;
+  }
+
+  /* Эффект при попадании в область видимости (для мобильных) */
+  @media (max-width: 1024px) {
+    // Применяем эффекты только через inView
+    > :global(div.inView),
+    > :global(a.inView) {
+      transform: translateY(-8px) !important;
+      z-index: 10 !important;
+      box-shadow:
+        0 20px 25px -5px rgb(74 124 89 / 20%),
+        0 10px 10px -5px rgb(74 124 89 / 15%) !important;
+      background: linear-gradient(
+          135deg,
+          rgb(255 255 255 / 50%),
+          rgb(74 124 89 / 25%)
+        )
+        border-box !important;
+
+      &::before {
+        opacity: 1 !important;
+      }
+
+      img {
+        transform: scale(1.1) !important;
+        border-color: rgb(74 124 89 / 40%) !important;
+        box-shadow:
+          0 12px 24px -6px rgb(74 124 89 / 30%),
+          0 0 0 1px rgb(255 255 255 / 50%) !important;
+      }
+
+      h2 {
+        color: var(--color-text-secondary) !important;
+      }
+
+      p:nth-of-type(1) {
+        color: var(--color-white) !important;
+      }
+    }
+
+    // Сохраняем выделение активной карточки даже при hover
+    > :global(div.inView:hover),
+    > :global(a.inView:hover) {
+      transform: translateY(-8px) !important;
+      z-index: 10 !important;
+      box-shadow:
+        0 20px 25px -5px rgb(74 124 89 / 20%),
+        0 10px 10px -5px rgb(74 124 89 / 15%) !important;
+      background: linear-gradient(
+          135deg,
+          rgb(255 255 255 / 50%),
+          rgb(74 124 89 / 25%)
+        )
+        border-box !important;
+
+      &::before {
+        opacity: 1 !important;
+      }
+    }
+
+    > :global(div.inView:hover) img,
+    > :global(a.inView:hover) img {
+      transform: scale(1.1) !important;
+      border-color: rgb(74 124 89 / 40%) !important;
+      box-shadow:
+        0 12px 24px -6px rgb(74 124 89 / 30%),
+        0 0 0 1px rgb(255 255 255 / 50%) !important;
+    }
+
+    > :global(div.inView:hover) h2,
+    > :global(a.inView:hover) h2 {
+      color: var(--color-text-secondary) !important;
+    }
+
+    > :global(div.inView:hover) p:nth-of-type(1),
+    > :global(a.inView:hover) p:nth-of-type(1) {
+      color: var(--color-white) !important;
+    }
   }
 
   /* Адаптивность */
@@ -178,10 +265,6 @@
     > a {
       height: 378px;
       max-width: 336px;
-
-      &:hover {
-        transform: translateY(-4px);
-      }
     }
 
     img {

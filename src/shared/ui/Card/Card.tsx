@@ -40,7 +40,7 @@ export function Card({ card, isInView = false, cardRef }: AboutCardProps) {
     </>
   );
 
-  const cardClasses = `${styles.card} ${card.salary ? styles.cardWithSalary : ''} ${isInView ? styles.inView : ''}`;
+  const cardClasses = `${styles.card} ${card.salary ? styles.cardWithSalary : ''} ${isInView ? 'inView' : ''}`;
 
   if (card.link) {
     return (
