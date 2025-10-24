@@ -17,21 +17,44 @@ export const UrineCollectionModal = ({
     <Modal isOpen={isOpen} onClose={onClose}>
       <div className={styles.content}>
         <div className={styles.header}>
-          <div className={styles.icon}>
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none">
-              <path
-                d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+          <div className={styles.headerContent}>
+            <div className={styles.icon}>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+            <div className={styles.headerText}>
+              <h2 className={styles.title}>Инструкция по сбору мочи</h2>
+              <p className={styles.subtitle}>
+                Правильный сбор мочи важен для точной диагностики
+              </p>
+            </div>
           </div>
-          <h2 className={styles.title}>Инструкция по сбору мочи</h2>
-          <p className={styles.subtitle}>
-            Правильный сбор мочи важен для точной диагностики
-          </p>
+          <button
+            className={styles.closeButton}
+            onClick={onClose}
+            aria-label="Закрыть"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
         </div>
 
         <div className={styles.sections}>
