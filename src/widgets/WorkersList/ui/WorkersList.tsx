@@ -21,7 +21,11 @@ export function WorkersList() {
             isActive={activeCardId === card.id}
             onInView={(id) => setActiveCardId(id)}
             onOutView={(id) => {
-              if (activeCardId === id) setActiveCardId(null);
+              if (activeCardId === id) {
+                setTimeout(() => {
+                  setActiveCardId(null);
+                }, 100);
+              }
             }}
           />
         ))}
