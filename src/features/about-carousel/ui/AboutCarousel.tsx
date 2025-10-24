@@ -13,7 +13,12 @@ export const AboutCarousel = () => {
       <Carousel
         items={aboutSliders}
         getKey={(s) => s.id}
-        slidesPerView={2}
+        slidesPerView={1}
+        breakpoints={{
+          768: {
+            slidesPerView: 2,
+          },
+        }}
         renderItem={(slide) => (
           <div className={styles.slide}>
             <img
