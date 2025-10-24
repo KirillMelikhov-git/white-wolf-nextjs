@@ -7,7 +7,7 @@ import styles from './Card.module.scss';
 interface AboutCardProps {
   card: ICard;
   isInView?: boolean;
-  cardRef?: React.RefObject<HTMLDivElement>;
+  cardRef?: React.RefObject<HTMLDivElement | null>;
 }
 
 export function Card({ card, isInView = false, cardRef }: AboutCardProps) {
@@ -46,7 +46,7 @@ export function Card({ card, isInView = false, cardRef }: AboutCardProps) {
     return (
       <Link
         href={card.link}
-        ref={cardRef as any}
+        ref={cardRef as React.Ref<HTMLAnchorElement>}
         className={`${cardClasses} ${styles.cardLink}`}
       >
         {cardContent}

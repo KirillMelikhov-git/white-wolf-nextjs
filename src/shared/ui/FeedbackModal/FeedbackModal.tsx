@@ -1,6 +1,5 @@
 'use client';
 
-import { Button } from '@/shared/ui/Button';
 import { Modal } from '@/shared/ui/Modal';
 import { FeedbackForm } from '@/widgets/FeedbackForm';
 
