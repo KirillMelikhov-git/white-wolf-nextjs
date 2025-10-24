@@ -1,0 +1,12 @@
+version: '3.8'
+
+# Этот файл используется для локальной разработки и переопределяет настройки из docker-compose.yml
+# Автоматически применяется при запуске docker compose up
+
+services:
+  whitewolf:
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '10m'
+        max-file: '3'
