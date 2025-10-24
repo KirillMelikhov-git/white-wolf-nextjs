@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import { type ICard } from '@/shared/ui/Card/types';
 
 import styles from './Card.module.scss';
@@ -9,10 +11,8 @@ interface AboutCardProps {
 export function Card({ card }: AboutCardProps) {
   const Image = card.image;
 
-  return (
-    <div
-      className={`${styles.card} ${card.salary ? styles.cardWithSalary : ''}`}
-    >
+  const cardContent = (
+    <>
       <div className={styles.imageContainer}>
         {typeof card.image === 'string' ? (
           <img src={card.image} alt={card.title} loading="lazy" />
@@ -35,6 +35,25 @@ export function Card({ card }: AboutCardProps) {
         )}
         {card.salary ? <p className={styles.salary}>{card.salary}</p> : null}
       </div>
+    </>
+  );
+
+  if (card.link) {
+    return (
+      <Link
+        href={card.link}
+        className={`${styles.card} ${card.salary ? styles.cardWithSalary : ''} ${styles.cardLink}`}
+      >
+        {cardContent}
+      </Link>
+    );
+  }
+
+  return (
+    <div
+      className={`${styles.card} ${card.salary ? styles.cardWithSalary : ''}`}
+    >
+      {cardContent}
     </div>
   );
 }

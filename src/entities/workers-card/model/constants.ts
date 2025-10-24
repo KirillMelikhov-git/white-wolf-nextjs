@@ -60,5 +60,6 @@ export const workersCards: ICard[] = [
     image: '/images/background.png',
     title: 'Стать частью команды!',
     description: 'Ознакомьтесь со списокм вакансий.',
+    link: '/vacancies',
   },
 ];

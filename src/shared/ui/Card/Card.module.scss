@@ -16,6 +16,12 @@
   padding: var(--space-md);
 }
 
+// Стиль для кликабельной карточки (ссылки)
+.cardLink {
+  text-decoration: none;
+  color: inherit;
+}
+
 // Специальные стили для карточек с зарплатой
 .cardWithSalary {
   justify-content: space-between;

@@ -18,8 +18,9 @@
   padding-bottom: var(--space-2xl);
   border-bottom: 1px solid rgb(74 124 89 / 40%);
 
-  /* Стили для карточек */
-  > div {
+  /* Стили для карточек (как div, так и a/Link) */
+  > div,
+  > a {
     transition:
       transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
       box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
@@ -56,6 +57,7 @@
     &:hover {
       transform: translateY(-8px);
       z-index: 10;
+      text-decoration: none;
       box-shadow:
         0 20px 25px -5px rgb(74 124 89 / 20%),
         0 10px 10px -5px rgb(74 124 89 / 15%);
@@ -93,7 +95,8 @@
   }
 
   /* Эффекты для изображения при наведении */
-  > div:hover img {
+  > div:hover img,
+  > a:hover img {
     transform: scale(1.05);
     border-color: rgb(74 124 89 / 40%);
     box-shadow:
@@ -111,7 +114,8 @@
     transition: color 0.3s ease;
   }
 
-  > div:hover h2 {
+  > div:hover h2,
+  > a:hover h2 {
     color: var(--color-text-secondary);
   }
 
@@ -125,7 +129,8 @@
     margin-bottom: var(--space-sm);
   }
 
-  > div:hover p:nth-of-type(1) {
+  > div:hover p:nth-of-type(1),
+  > a:hover p:nth-of-type(1) {
     opacity: 0;
     transform: translateY(-10px);
   }
@@ -141,7 +146,8 @@
     margin-bottom: var(--space-xs);
   }
 
-  > div:hover span {
+  > div:hover span,
+  > a:hover span {
     opacity: 0;
     transform: translateY(-10px);
   }
@@ -174,14 +180,16 @@
   }
 
   /* Показываем описание при наведении */
-  > div:hover p:last-child {
+  > div:hover p:last-child,
+  > a:hover p:last-child {
     opacity: 1;
     transform: translateY(0);
   }
 
   /* Адаптивность */
   @media (max-width: 1200px) {
-    > div {
+    > div,
+    > a {
       height: 400px;
     }
 
