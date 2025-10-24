@@ -75,25 +75,14 @@
   border-left: 3px solid var(--color-primary);
   transition:
     background-color 0.2s ease,
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+    border-left-color 0.2s ease;
   backdrop-filter: blur(10px);
-
-  &:hover {
-    background: rgb(255 255 255 / 10%);
-    transform: translateX(4px);
-    box-shadow: 0 4px 12px rgb(0 0 0 / 20%);
-  }
 }
 
-// Дополнительный эффект для элементов в активной колонке
+// Эффект для всех элементов при наведении на колонку
 .listColumn:hover .benefitItem {
+  background: rgb(255 255 255 / 10%);
   border-left-color: var(--color-secondary);
-}
-
-.listColumn:hover .benefitItem:hover {
-  background: rgb(255 255 255 / 12%);
-  transform: translateX(6px);
 }
 
 .checkmark {

@@ -27,7 +27,7 @@
       background 0.3s ease;
     cursor: pointer;
     position: relative;
-    height: 420px;
+    height: 441px;
     overflow: visible;
     backdrop-filter: blur(10px);
     box-shadow:
@@ -86,8 +86,8 @@
   /* Фото специалиста */
   img {
     border-radius: 50%;
-    width: 160px;
-    height: 160px;
+    width: 168px;
+    height: 168px;
     object-fit: cover;
     object-position: center;
     flex-shrink: 0;
@@ -193,12 +193,12 @@
   @media (max-width: 1200px) {
     > div,
     > a {
-      height: 400px;
+      height: 420px;
     }
 
     img {
-      width: 140px;
-      height: 140px;
+      width: 147px;
+      height: 147px;
     }
 
     h2 {
@@ -213,8 +213,8 @@
 
     > div,
     > a {
-      height: 360px;
-      max-width: 320px;
+      height: 378px;
+      max-width: 336px;
 
       &:hover {
         transform: translateY(-4px);
@@ -222,8 +222,8 @@
     }
 
     img {
-      width: 120px;
-      height: 120px;
+      width: 126px;
+      height: 126px;
     }
 
     h2 {
@@ -254,13 +254,13 @@
 
     > div,
     > a {
-      height: 320px;
-      max-width: 280px;
+      height: 336px;
+      max-width: 294px;
     }
 
     img {
-      width: 100px;
-      height: 100px;
+      width: 105px;
+      height: 105px;
       border-width: 3px;
     }
 
