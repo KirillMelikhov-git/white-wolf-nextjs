@@ -19,6 +19,10 @@ COPY . .
 # Переменные окружения для сборки (если нужны)
 ENV NEXT_TELEMETRY_DISABLED 1
 
+# Build-time переменная для Яндекс Карт (ОБЯЗАТЕЛЬНО для NEXT_PUBLIC_*)
+ARG NEXT_PUBLIC_YANDEX_MAPS_API_KEY
+ENV NEXT_PUBLIC_YANDEX_MAPS_API_KEY=${NEXT_PUBLIC_YANDEX_MAPS_API_KEY}
+
 # Сборка Next.js приложения
 RUN npm run build
 
