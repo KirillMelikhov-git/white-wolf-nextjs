@@ -1,8 +1,10 @@
 'use client';
 
+import Link from 'next/link';
 import { useState } from 'react';
 
-import { YandexMapModal } from '../../shared/ui/YandexMapModal';
+import { Instagram, Telegram, VK } from '@/shared/ui/Icons';
+import { YandexMapModal } from '@/shared/ui/YandexMapModal';
 
 import styles from './Footer.module.scss';
 
@@ -34,10 +36,35 @@ export const Footer = () => {
             <div className={styles.socialSection}>
               <h3 className={styles.title}>Мы в соцсетях</h3>
               <div className={styles.socialIcons}>
-                {/* TODO: Добавить иконки соцсетей */}
-                <div className={styles.socialPlaceholder}>
-                  <span>Социальные сети</span>
-                </div>
+                <Link
+                  href="https://www.instagram.com/vetwolf_?igsh=cGhpbGFuYWM2Z2lk"
+                  className={styles.socialLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                >
+                  <Instagram />
+                </Link>
+
+                <Link
+                  href="https://vk.com/vetwolf2019"
+                  className={styles.socialLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="VK"
+                >
+                  <VK />
+                </Link>
+
+                <Link
+                  href="https://t.me/your_clinic"
+                  className={styles.socialLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Telegram"
+                >
+                  <Telegram />
+                </Link>
               </div>
             </div>
 

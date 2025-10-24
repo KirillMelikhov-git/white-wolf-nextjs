@@ -88,20 +88,50 @@
 
 .socialIcons {
   display: flex;
-  gap: var(--space-md);
+  gap: var(--space-lg);
   justify-content: center;
   flex-wrap: wrap;
+  align-items: center;
 }
 
-.socialPlaceholder {
-  padding: var(--space-md);
-  background: rgb(255 255 255 / 5%);
-  border-radius: var(--radius-md);
-  border: 1px dashed rgb(74 124 89 / 40%);
-  color: var(--color-gray-400);
-  font-size: var(--font-size-sm);
-  min-width: 120px;
-  text-align: center;
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(
+    135deg,
+    rgb(74 124 89 / 20%),
+    rgb(255 255 255 / 10%)
+  );
+  border-radius: 50%;
+  color: var(--color-text);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid rgb(74 124 89 / 30%);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
+
+  &:hover {
+    color: var(--color-text-secondary);
+    transform: translateY(-4px) scale(1.1);
+    background: linear-gradient(
+      135deg,
+      rgb(74 124 89 / 40%),
+      rgb(255 255 255 / 20%)
+    );
+    border-color: var(--color-text-secondary);
+    box-shadow: 0 8px 20px rgb(244 162 97 / 30%);
+  }
+
+  &:active {
+    transform: translateY(-2px) scale(1.05);
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+  }
 }
 
 .description {
@@ -144,5 +174,19 @@
   .mapButton {
     padding: var(--space-sm) var(--space-md);
     font-size: var(--font-size-sm);
+  }
+
+  .socialIcons {
+    gap: var(--space-md);
+  }
+
+  .socialLink {
+    width: 40px;
+    height: 40px;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
   }
 }

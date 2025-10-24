@@ -8,7 +8,7 @@ export function SocialLinks() {
   return (
     <div className={styles.socialLinks}>
       <Link
-        href="https://instagram.com/your_clinic" // TODO: Вставьте ссылку на Instagram
+        href="https://www.instagram.com/vetwolf_?igsh=cGhpbGFuYWM2Z2lk"
         className={styles.socialLink}
         target="_blank"
         rel="noopener noreferrer"
@@ -18,7 +18,7 @@ export function SocialLinks() {
       </Link>
 
       <Link
-        href="https://vk.com/your_clinic" // TODO: Вставьте ссылку на VK
+        href="https://vk.com/vetwolf2019"
         className={styles.socialLink}
         target="_blank"
         rel="noopener noreferrer"
