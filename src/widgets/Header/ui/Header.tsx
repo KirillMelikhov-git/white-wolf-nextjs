@@ -43,6 +43,19 @@ export function Header() {
     setIsMenuOpen(false);
   };
 
+  const handleContactsClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    setIsMenuOpen(false);
+
+    const footer = document.getElementById('footer');
+    if (footer) {
+      footer.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  };
+
   return (
     <header
       className={`${styles.header} ${
@@ -91,7 +104,7 @@ export function Header() {
             <Link
               href="#footer"
               className={styles.navLink}
-              onClick={handleLinkClick}
+              onClick={handleContactsClick}
             >
               Контакты
             </Link>
