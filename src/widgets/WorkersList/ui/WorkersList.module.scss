@@ -149,11 +149,12 @@
   /* Университет */
   span {
     font-size: var(--font-size-sm);
-    color: rgb(74 124 89 / 70%);
+    color: rgb(150 200 165 / 90%);
     font-style: italic;
     display: block;
     line-height: 1.4;
     margin-bottom: var(--space-xs);
+    text-shadow: 0 1px 2px rgb(0 0 0 / 20%);
   }
 
   /* Описание - полностью скрываем */
