@@ -1,14 +1,20 @@
 .servicesPage {
   min-height: 100vh;
-  padding: var(--space-2xl) 0;
+  padding: calc(var(--space-2xl) + var(--space-xl)) var(--space-lg)
+    var(--space-2xl);
   position: relative;
   z-index: 2;
 }
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 var(--space-lg);
+  width: 100%;
+  padding: var(--space-xl);
+  background-color: rgb(0 0 0 / 50%);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  z-index: 2;
 }
 
 .title {
@@ -17,6 +23,7 @@
   color: var(--color-text);
   text-align: center;
   margin-bottom: var(--space-xl);
+  padding-top: var(--space-lg);
 }
 
 .searchResults {
@@ -42,7 +49,7 @@
 }
 
 .categoriesTitle {
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-2xl);
   color: var(--color-text);
   margin-bottom: var(--space-lg);
   text-align: center;
@@ -226,12 +233,18 @@
 }
 
 @media (max-width: 768px) {
+  .servicesPage {
+    padding: calc(var(--space-3xl) + var(--space-md)) var(--space-md)
+      var(--space-xl);
+  }
+
   .container {
-    padding: 0 var(--space-md);
+    padding: var(--space-lg);
   }
 
   .title {
     font-size: var(--font-size-2xl);
+    padding-top: var(--space-sm);
   }
 
   .categoriesGrid {

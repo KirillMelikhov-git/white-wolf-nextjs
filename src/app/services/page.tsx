@@ -2,16 +2,12 @@
 
 import { useState, useMemo } from 'react';
 
+import { ServiceCard } from '@/entities/service';
+import { SERVICES_DATA, type ServiceCategory } from '@/entities/service';
+import { ServiceSearch } from '@/features/service-search';
+import { ServicesModal } from '@/shared/ui/ServicesModal';
 import { Footer } from '@/widgets/Footer';
 import { Header } from '@/widgets/Header';
-import { ServiceSearch } from '@/features/service-search';
-import { ServiceCard } from '@/entities/service';
-import {
-  SERVICES_DATA,
-  type Service,
-  type ServiceCategory,
-} from '@/entities/service';
-import { ServicesModal } from '@/shared/ui/ServicesModal';
 
 import styles from './page.module.scss';
 
@@ -81,7 +77,7 @@ export default function ServicesPage() {
             // Показываем результаты поиска
             <div className={styles.searchResults}>
               <h2 className={styles.resultsTitle}>
-                Результаты поиска по запросу "{searchQuery}"
+                Результаты поиска по запросу &quot;{searchQuery}&quot;
               </h2>
               {searchResults.length > 0 ? (
                 <div className={styles.servicesGrid}>
@@ -106,21 +102,6 @@ export default function ServicesPage() {
                     className={styles.categoryCard}
                     onClick={() => handleCategoryClick(category)}
                   >
-                    <div className={styles.categoryIcon}>
-                      <svg
-                        width="32"
-                        height="32"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                        <polyline points="22 4 12 14.01 9 11.01" />
-                      </svg>
-                    </div>
                     <h3 className={styles.categoryName}>{category.name}</h3>
                     <p className={styles.servicesCount}>
                       {category.services.length}{' '}
