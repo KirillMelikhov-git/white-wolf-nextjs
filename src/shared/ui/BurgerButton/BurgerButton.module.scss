@@ -1,7 +1,8 @@
 .burgerButton {
   display: none;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
   width: 32px;
   height: 32px;
   background: transparent;
@@ -21,22 +22,38 @@
     background: var(--color-text);
     border-radius: 10px;
     transition: all 0.3s ease;
-    position: relative;
+    position: absolute;
     transform-origin: center;
+    left: 0;
+
+    &:nth-child(1) {
+      top: 6px;
+    }
+
+    &:nth-child(2) {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &:nth-child(3) {
+      bottom: 6px;
+    }
   }
 
   &.open {
     .line:nth-child(1) {
-      transform: rotate(45deg) translateY(10px);
+      top: 50%;
+      transform: translateY(-50%) rotate(45deg);
     }
 
     .line:nth-child(2) {
       opacity: 0;
-      transform: translateX(-20px);
     }
 
     .line:nth-child(3) {
-      transform: rotate(-45deg) translateY(-10px);
+      bottom: auto;
+      top: 50%;
+      transform: translateY(-50%) rotate(-45deg);
     }
   }
 
