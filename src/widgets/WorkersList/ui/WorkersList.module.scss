@@ -189,6 +189,49 @@
     transform: translateY(0);
   }
 
+  /* Эффект при появлении в области видимости (для мобильных) */
+  @media (max-width: 1024px) {
+    > div.inView,
+    > a.inView {
+      transform: translateY(-4px);
+      box-shadow:
+        0 12px 24px -5px rgb(74 124 89 / 20%),
+        0 6px 10px -5px rgb(74 124 89 / 15%);
+      background: linear-gradient(
+        135deg,
+        rgb(255 255 255 / 45%),
+        rgb(74 124 89 / 22%)
+      );
+
+      &::before {
+        opacity: 1;
+      }
+
+      img {
+        transform: scale(1.05);
+        border-color: rgb(74 124 89 / 40%);
+        box-shadow:
+          0 12px 24px -6px rgb(74 124 89 / 30%),
+          0 0 0 1px rgb(255 255 255 / 50%);
+      }
+
+      h2 {
+        color: var(--color-text-secondary);
+      }
+
+      p:nth-of-type(1),
+      span {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+
+      p:last-child {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+
   /* Адаптивность */
   @media (max-width: 1200px) {
     > div,

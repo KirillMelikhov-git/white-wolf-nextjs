@@ -9,6 +9,7 @@ import { ServicesModal } from '@/shared/ui/ServicesModal';
 import { Footer } from '@/widgets/Footer';
 import { Header } from '@/widgets/Header';
 
+import { CategoryCard } from './CategoryCard';
 import styles from './page.module.scss';
 
 export default function ServicesPage() {
@@ -119,54 +120,14 @@ export default function ServicesPage() {
               <h2 className={styles.categoriesTitle}>Категории услуг</h2>
               <div className={styles.categoriesGrid}>
                 {filteredServices.map((category) => (
-                  <button
+                  <CategoryCard
                     key={category.id}
-                    className={styles.categoryCard}
-                    onClick={() => handleCategoryClick(category)}
-                  >
-                    <div className={styles.categoryIcon}>
-                      <svg
-                        width="32"
-                        height="32"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                      >
-                        {/* Медицинский крест */}
-                        <path d="M9 3H15V9H21V15H15V21H9V15H3V9H9V3Z" />
-                      </svg>
-                    </div>
-                    <h3
-                      className={styles.categoryName}
-                      ref={(el) => {
-                        categoryRefs.current[category.id] = el;
-                      }}
-                    >
-                      <span>{category.name}</span>
-                    </h3>
-                    <p className={styles.servicesCount}>
-                      {category.services.length}{' '}
-                      {category.services.length === 1
-                        ? 'услуга'
-                        : category.services.length < 5
-                          ? 'услуги'
-                          : 'услуг'}
-                    </p>
-                    <div className={styles.viewButton}>
-                      <span>Смотреть услуги</span>
-                      <svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <polyline points="9 18 15 12 9 6" />
-                      </svg>
-                    </div>
-                  </button>
+                    category={category}
+                    onClick={handleCategoryClick}
+                    categoryRef={(el) => {
+                      categoryRefs.current[category.id] = el;
+                    }}
+                  />
                 ))}
               </div>
             </div>

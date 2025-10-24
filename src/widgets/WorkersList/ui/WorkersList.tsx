@@ -1,5 +1,7 @@
+'use client';
+
 import { workersCards } from '@/entities/workers-card/model';
-import { Card } from '@/shared/ui/Card';
+import { CardWithAnimation } from '@/shared/ui/Card';
 
 import styles from './WorkersList.module.scss';
 
@@ -9,7 +11,7 @@ export function WorkersList() {
       <h2 className={styles.title}>Наши специалисты</h2>
       <div className={styles.cardList}>
         {workersCards.map((card) => (
-          <Card key={card.id} card={card} />
+          <CardWithAnimation key={card.id} card={card} />
         ))}
       </div>
     </>

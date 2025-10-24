@@ -78,6 +78,23 @@
   flex-direction: column;
 }
 
+// Эффект при появлении в области видимости (для мобильных)
+@media (max-width: 1024px) {
+  .card.inView {
+    transform: translateY(-4px);
+    box-shadow:
+      0 8px 16px rgb(0 0 0 / 15%),
+      0 4px 8px rgb(74 124 89 / 20%);
+    background: linear-gradient(
+      135deg,
+      rgb(255 255 255 / 25%),
+      rgb(74 124 89 / 20%)
+    );
+    border-color: rgb(74 124 89 / 35%);
+    transition: all 0.4s ease;
+  }
+}
+
 // Адаптивность для планшетов
 @media (max-width: 1024px) {
   .card {

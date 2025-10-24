@@ -6,9 +6,11 @@ import styles from './Card.module.scss';
 
 interface AboutCardProps {
   card: ICard;
+  isInView?: boolean;
+  cardRef?: React.RefObject<HTMLDivElement>;
 }
 
-export function Card({ card }: AboutCardProps) {
+export function Card({ card, isInView = false, cardRef }: AboutCardProps) {
   const Image = card.image;
 
   const cardContent = (
@@ -38,11 +40,14 @@ export function Card({ card }: AboutCardProps) {
     </>
   );
 
+  const cardClasses = `${styles.card} ${card.salary ? styles.cardWithSalary : ''} ${isInView ? styles.inView : ''}`;
+
   if (card.link) {
     return (
       <Link
         href={card.link}
-        className={`${styles.card} ${card.salary ? styles.cardWithSalary : ''} ${styles.cardLink}`}
+        ref={cardRef as any}
+        className={`${cardClasses} ${styles.cardLink}`}
       >
         {cardContent}
       </Link>
@@ -50,9 +55,7 @@ export function Card({ card }: AboutCardProps) {
   }
 
   return (
-    <div
-      className={`${styles.card} ${card.salary ? styles.cardWithSalary : ''}`}
-    >
+    <div ref={cardRef} className={cardClasses}>
       {cardContent}
     </div>
   );

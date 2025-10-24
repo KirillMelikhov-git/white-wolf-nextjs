@@ -1,3 +1,7 @@
+'use client';
+
+import { useInViewAnimation } from '@/shared/hooks';
+
 import { type Service } from '@/entities/service';
 
 import styles from './ServiceCard.module.scss';
@@ -7,8 +11,16 @@ interface ServiceCardProps {
 }
 
 export function ServiceCard({ service }: ServiceCardProps) {
+  const { ref, isInView } = useInViewAnimation<HTMLDivElement>({
+    threshold: 0.3,
+    triggerOnce: false,
+  });
+
   return (
-    <div className={styles.serviceCard}>
+    <div
+      ref={ref}
+      className={`${styles.serviceCard} ${isInView ? styles.inView : ''}`}
+    >
       <div className={styles.serviceInfo}>
         <h3 className={styles.serviceName}>{service.name}</h3>
         <div className={styles.servicePrice}>{service.price}</div>
