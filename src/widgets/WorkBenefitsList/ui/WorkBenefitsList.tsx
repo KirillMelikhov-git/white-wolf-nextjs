@@ -1,3 +1,7 @@
+'use client';
+
+import { useInViewAnimation } from '@/shared/hooks';
+
 import styles from './WorkBenefitsList.module.scss';
 
 const weOffer = [
@@ -19,10 +23,25 @@ const weExpect = [
 ];
 
 export function WorkBenefitsList() {
+  const { ref: offerRef, isInView: offerInView } =
+    useInViewAnimation<HTMLDivElement>({
+      threshold: 0.8,
+      triggerOnce: false,
+    });
+
+  const { ref: expectRef, isInView: expectInView } =
+    useInViewAnimation<HTMLDivElement>({
+      threshold: 0.8,
+      triggerOnce: false,
+    });
+
   return (
     <section className={styles.workBenefitsSection}>
       <div className={styles.listsContainer}>
-        <div className={styles.listColumn}>
+        <div
+          ref={offerRef}
+          className={`${styles.listColumn} ${offerInView ? styles.inView : ''}`}
+        >
           <h3 className={styles.listTitle}>Мы предлагаем</h3>
           <ul className={styles.benefitsList}>
             {weOffer.map((benefit, index) => (
@@ -34,7 +53,10 @@ export function WorkBenefitsList() {
           </ul>
         </div>
 
-        <div className={styles.listColumn}>
+        <div
+          ref={expectRef}
+          className={`${styles.listColumn} ${expectInView ? styles.inView : ''}`}
+        >
           <h3 className={styles.listTitle}>От вас мы ждём</h3>
           <ul className={styles.benefitsList}>
             {weExpect.map((requirement, index) => (

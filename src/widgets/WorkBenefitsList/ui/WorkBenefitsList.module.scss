@@ -107,6 +107,38 @@
   flex: 1;
 }
 
+// Эффект при попадании в область видимости (для мобильных)
+@media (max-width: 1024px) {
+  // Полностью отключаем hover эффекты на мобильных
+  .listColumn {
+    pointer-events: auto;
+  }
+
+  .listColumn:hover {
+    backdrop-filter: blur(10px);
+    opacity: 0.3; // Не меняется при hover
+  }
+
+  .listsContainer:hover .listColumn:not(:hover) {
+    opacity: 0.3; // Остаются такими же
+  }
+
+  .listColumn:hover .benefitItem {
+    background: rgb(255 255 255 / 3%); // Не меняется
+    border-left-color: var(--color-primary); // Не меняется
+  }
+
+  // Применяем эффекты только через inView
+  .listColumn.inView {
+    opacity: 1 !important;
+
+    .benefitItem {
+      background: rgb(255 255 255 / 10%) !important;
+      border-left-color: var(--color-secondary) !important;
+    }
+  }
+}
+
 // Адаптивность для мобильных устройств
 @media (max-width: 768px) {
   .listsContainer {
