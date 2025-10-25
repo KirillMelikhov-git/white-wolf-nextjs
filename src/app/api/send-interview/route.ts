@@ -12,7 +12,20 @@ const positionLabels = {
 
 export async function POST(request: Request) {
   try {
-    const body = await request.json();
+    // Получаем FormData вместо JSON
+    const formData = await request.formData();
+
+    // Извлекаем поля из FormData
+    const body = {
+      fullName: formData.get('fullName') as string,
+      phone: formData.get('phone') as string,
+      email: formData.get('email') as string,
+      position: formData.get('position') as string,
+      experience: formData.get('experience') as string,
+    };
+
+    // Получаем файл резюме (необязательно)
+    const resumeFile = formData.get('resume') as File | null;
 
     // Валидация данных
     const validatedData = interviewFormSchema.parse(body);
@@ -58,6 +71,17 @@ export async function POST(request: Request) {
       },
     });
 
+    // Подготовка вложения с резюме (если есть)
+    const attachments = [];
+    if (resumeFile && resumeFile.size > 0) {
+      const buffer = Buffer.from(await resumeFile.arrayBuffer());
+      attachments.push({
+        filename: resumeFile.name,
+        content: buffer,
+        contentType: resumeFile.type,
+      });
+    }
+
     // Формирование HTML письма
     const htmlContent = `
       <!DOCTYPE html>
@@ -102,6 +126,14 @@ export async function POST(request: Request) {
               border-radius: 4px;
               border-left: 3px solid #4a7c59;
             }
+            .attachment-note {
+              padding: 12px;
+              background: #e6f7ff;
+              border-radius: 4px;
+              border-left: 3px solid #1890ff;
+              margin-top: 20px;
+              color: #0050b3;
+            }
             .footer {
               margin-top: 20px;
               padding-top: 20px;
@@ -143,6 +175,8 @@ export async function POST(request: Request) {
                 <div class="field-value">${validatedData.experience}</div>
               </div>
               
+              ${resumeFile ? `<div class="attachment-note">📎 К письму прикреплено резюме: ${resumeFile.name}</div>` : ''}
+              
               <div class="footer">
                 Заявка отправлена через форму на сайте<br>
                 ${new Date().toLocaleString('ru-RU', { timeZone: 'Europe/Moscow' })}
@@ -167,9 +201,11 @@ export async function POST(request: Request) {
 Email: ${validatedData.email}
 Должность: ${positionLabels[validatedData.position as keyof typeof positionLabels]}
 Опыт работы: ${validatedData.experience}
+${resumeFile ? `\nПрикреплено резюме: ${resumeFile.name}` : ''}
 
 Дата: ${new Date().toLocaleString('ru-RU', { timeZone: 'Europe/Moscow' })}
       `,
+      attachments: attachments.length > 0 ? attachments : undefined,
     });
 
     return NextResponse.json(

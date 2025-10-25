@@ -10,6 +10,7 @@ import {
   InterviewFormSchema,
 } from '@/entities/interview-form/model/schema';
 import { Button } from '@/shared/ui/Button';
+import { FileInput } from '@/shared/ui/FileInput';
 import { Input } from '@/shared/ui/Input';
 import { InterviewSuccessModal } from '@/shared/ui/InterviewSuccessModal';
 import { Textarea } from '@/shared/ui/Textarea';
@@ -23,6 +24,7 @@ export function InterviewForm() {
   >('idle');
   const [isPhoneFocused, setIsPhoneFocused] = useState(false);
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
+  const [resumeFile, setResumeFile] = useState<File | null>(null);
 
   const {
     register,
@@ -40,12 +42,22 @@ export function InterviewForm() {
     setSubmitStatus('idle');
 
     try {
+      // Используем FormData для отправки файла
+      const formData = new FormData();
+      formData.append('fullName', data.fullName);
+      formData.append('phone', data.phone);
+      formData.append('email', data.email);
+      formData.append('position', data.position);
+      formData.append('experience', data.experience);
+
+      // Добавляем файл резюме, если он выбран
+      if (resumeFile) {
+        formData.append('resume', resumeFile);
+      }
+
       const response = await fetch('/api/send-interview', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
+        body: formData,
       });
 
       if (!response.ok) {
@@ -55,6 +67,7 @@ export function InterviewForm() {
       setSubmitStatus('success');
       setIsSuccessModalOpen(true);
       reset();
+      setResumeFile(null);
     } catch {
       setSubmitStatus('error');
     } finally {
@@ -136,6 +149,13 @@ export function InterviewForm() {
         {...register('experience')}
         required
         rows={5}
+      />
+
+      <FileInput
+        label="Резюме (необязательно)"
+        accept=".pdf,.doc,.docx"
+        maxSizeMB={5}
+        onChange={setResumeFile}
       />
 
       <Button

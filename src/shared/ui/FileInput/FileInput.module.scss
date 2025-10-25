@@ -1,0 +1,178 @@
+.fileInputWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.required {
+  color: #e53e3e;
+}
+
+.fileInputContainer {
+  position: relative;
+}
+
+.hiddenInput {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.uploadButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-secondary)
+  );
+  color: var(--color-text);
+  border: 2px solid var(--color-primary);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: inherit;
+  box-shadow: 0 2px 8px rgb(74 124 89 / 20%);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgb(74 124 89 / 30%);
+    border-color: var(--color-text-secondary);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  svg {
+    transition: transform 0.3s ease;
+  }
+
+  &:hover svg {
+    transform: rotate(90deg);
+  }
+}
+
+.fileInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, rgb(25 30 28 / 70%), rgb(35 45 40 / 80%));
+  border: 2px solid var(--color-primary);
+  border-radius: 8px;
+  gap: 12px;
+  animation: slideIn 0.3s ease;
+}
+
+.fileDetails {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
+}
+
+.fileIcon {
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+.fileName {
+  color: var(--color-text);
+  font-size: 14px;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.removeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: rgb(229 62 62 / 15%);
+  border: 1px solid rgb(229 62 62 / 30%);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #e53e3e;
+  flex-shrink: 0;
+
+  &:hover {
+    background: rgb(229 62 62 / 25%);
+    border-color: #e53e3e;
+    transform: rotate(90deg);
+  }
+
+  &:active {
+    transform: rotate(90deg) scale(0.95);
+  }
+}
+
+.hint {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  opacity: 0.8;
+  line-height: 1.4;
+}
+
+.errorMessage {
+  font-size: 13px;
+  color: #e53e3e;
+  padding: 8px 12px;
+  background: #fff5f5;
+  border-radius: 6px;
+  border-left: 3px solid #e53e3e;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Адаптивность для мобильных
+@media (max-width: 768px) {
+  .uploadButton {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+
+  .fileInfo {
+    padding: 10px 12px;
+  }
+
+  .fileName {
+    font-size: 13px;
+  }
+
+  .hint {
+    font-size: 11px;
+  }
+}
