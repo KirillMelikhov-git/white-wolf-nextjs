@@ -1,4 +1,5 @@
 import { AboutCarousel } from '@/features/about-carousel';
+import { VacancyNotification } from '@/shared/ui/VacancyNotification';
 import { AppointmentSection } from '@/widgets/AppointmentSection';
 import { CardList } from '@/widgets/CardList';
 import { FeedbackSection } from '@/widgets/FeedbackSection';
@@ -24,6 +25,7 @@ export default function HomePage() {
         </section>
       </main>
       <Footer />
+      <VacancyNotification />
     </>
   );
 }

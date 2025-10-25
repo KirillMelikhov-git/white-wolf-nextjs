@@ -1,0 +1,1 @@
+export { VacancyNotification } from './VacancyNotification';
