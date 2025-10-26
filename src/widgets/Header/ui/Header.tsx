@@ -71,6 +71,12 @@ export function Header() {
         </Link>
       </div>
 
+      <div className={styles.mobileTitle}>
+        <Link href="/" className={styles.navLink} onClick={handleLinkClick}>
+          <span>Белый волк</span>
+        </Link>
+      </div>
+
       <nav className={`${styles.nav} ${isMenuOpen ? styles.navOpen : ''}`}>
         <ul className={styles.menu}>
           <li>

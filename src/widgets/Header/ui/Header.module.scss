@@ -51,6 +51,10 @@
     }
   }
 
+  .mobileTitle {
+    display: none;
+  }
+
   .nav {
     display: flex;
     flex: 1 1 auto;
@@ -100,6 +104,16 @@
       .logoText {
         display: none;
       }
+    }
+
+    .mobileTitle {
+      display: flex;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: var(--font-size-xl);
+      font-weight: 700;
+      z-index: 999;
     }
 
     .nav {
@@ -156,6 +170,10 @@
   @media (max-width: 768px) {
     padding: 0 var(--space-md);
 
+    .mobileTitle {
+      font-size: var(--font-size-xl);
+    }
+
     .nav {
       max-width: 100%;
       padding: 70px var(--space-lg) var(--space-lg);
@@ -173,6 +191,10 @@
     .containerLogo {
       gap: var(--space-sm);
       font-size: var(--font-size-base);
+    }
+
+    .mobileTitle {
+      font-size: var(--font-size-xl);
     }
 
     .nav {

@@ -1,9 +1,11 @@
 import type { ICard } from '@/shared/ui/Card/types';
 
+import worker1 from '../assets/worker-1.jpg';
+
 export const workersCards: ICard[] = [
   {
     id: 'workers-card-1',
-    image: '/images/IMG_3875.jpg',
+    image: worker1.src,
     title: 'Мелихова Анастасия Сергеевна',
     profession: 'Терапевт, хирург, специалист УЗИ',
     university: 'Ивановская ГСХА',

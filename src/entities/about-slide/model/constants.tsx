@@ -1,3 +1,5 @@
+import slide6 from '../assets/slide-6.jpg';
+
 import type { AboutSlide } from './types';
 
 export const aboutSliders: AboutSlide[] = [
@@ -36,6 +38,13 @@ export const aboutSliders: AboutSlide[] = [
   },
   {
     id: 'about-6',
+    title: 'Магазин товаров для питомцев',
+    description:
+      'У нас есть магазин товаров для питомцев, где вы можете купить различные товары для вашего питомца.',
+    image: slide6.src,
+  },
+  {
+    id: 'about-7',
     title: 'Стань частью команды!',
     description: 'Хочешь вместе с нами помогать зверушкам? ',
     link: {
