@@ -1,3 +1,6 @@
+import slide2 from '../assets/slide-2.jpg';
+import slide3 from '../assets/slide-3.jpg';
+import slide4 from '../assets/slide-4.jpg';
 import slide6 from '../assets/slide-6.jpg';
 
 import type { AboutSlide } from './types';
@@ -14,20 +17,20 @@ export const aboutSliders: AboutSlide[] = [
     id: 'about-2',
     title: 'Мы растём ради ваших питомцев',
     description:
-      'Новая операционная - ещё больше возможностей для заботы о ваших питомцах!.',
-    image: '/images/background.png',
+      'Новая операционная - ещё больше возможностей для заботы о ваших питомцах!',
+    image: slide2.src,
   },
   {
     id: 'about-3',
-    title: 'Команда профессионалов',
-    description: 'Наши коллектив - с любовью к животным и большим опытом.',
-    image: '/images/background.png',
+    title: 'Бережно относимся к каждому посетителю',
+    description: 'У нас есть лифт прямо в операционную, чтобы не тревожить пациентов.',
+    image: slide3.src,
   },
   {
     id: 'about-4',
     title: 'Современное оборудование',
     description: 'Точные диагнозы благодаря современному оборудованию',
-    image: '/images/background.png',
+    image: slide4.src,
   },
   {
     id: 'about-5',
