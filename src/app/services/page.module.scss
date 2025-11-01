@@ -205,19 +205,10 @@
   &.scrollable {
     overflow: hidden;
     white-space: nowrap;
-  }
-}
 
-@media (hover: hover) {
-  .categoryCard:hover .categoryName.scrollable span {
-    animation: marquee 8s linear infinite;
-  }
-}
-
-// Добавляем анимацию для всех scrollable элементов на устройствах с точным указателем
-@media (pointer: fine) {
-  .categoryCard .categoryName.scrollable span {
-    animation: marquee 8s linear infinite;
+    span {
+      animation: marquee 8s linear infinite;
+    }
   }
 }
 
