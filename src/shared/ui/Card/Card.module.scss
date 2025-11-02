@@ -22,6 +22,22 @@
   color: inherit;
 }
 
+// Специальные стили для карточки вакансий
+.vacancyCard {
+  border: 3px solid rgb(74 124 89 / 50%);
+  position: relative;
+
+  @media (hover: hover) {
+    &:hover {
+      border-color: rgb(74 124 89 / 70%);
+      transform: translateY(-6px);
+      box-shadow:
+        0 16px 32px -8px rgb(74 124 89 / 25%),
+        0 0 0 3px rgb(74 124 89 / 30%);
+    }
+  }
+}
+
 // Специальные стили для карточек с зарплатой
 .cardWithSalary {
   justify-content: space-between;
@@ -78,6 +94,31 @@
   flex-direction: column;
 }
 
+// Подсказка о переходе к вакансиям
+.linkHint {
+  margin-top: auto;
+  padding-top: var(--space-md);
+  border-top: 2px solid rgb(74 124 89 / 30%);
+  font-weight: 600;
+  font-size: var(--font-size-base);
+  color: var(--color-primary);
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  padding-right: 20px;
+
+  @media (hover: hover) {
+    .vacancyCard:hover & {
+      color: var(--color-text-secondary);
+      border-color: rgb(74 124 89 / 50%);
+
+      &::after {
+        transform: translateY(-50%) translateX(4px);
+      }
+    }
+  }
+}
+
 // Адаптивность для планшетов
 @media (max-width: 1024px) {
   .card {
@@ -97,6 +138,11 @@
 
   .salary {
     font-size: var(--font-size-base);
+  }
+
+  .linkHint {
+    font-size: var(--font-size-sm);
+    padding-right: 18px;
   }
 }
 
@@ -129,6 +175,12 @@
     font-size: var(--font-size-sm);
     padding-top: var(--space-sm);
   }
+
+  .linkHint {
+    font-size: var(--font-size-sm);
+    padding-top: var(--space-sm);
+    padding-right: 16px;
+  }
 }
 
 // Адаптивность для маленьких экранов
@@ -157,5 +209,10 @@
 
   .imageContainer svg {
     width: 40%;
+  }
+
+  .linkHint {
+    font-size: 14px;
+    padding-right: 14px;
   }
 }

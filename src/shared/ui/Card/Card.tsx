@@ -12,6 +12,7 @@ interface AboutCardProps {
 
 export function Card({ card, isInView = false, cardRef }: AboutCardProps) {
   const Image = card.image;
+  const isVacancyCard = card.link === '/vacancies';
 
   const cardContent = (
     <>
@@ -36,11 +37,14 @@ export function Card({ card, isInView = false, cardRef }: AboutCardProps) {
           <p>{card.description}</p>
         )}
         {card.salary ? <p className={styles.salary}>{card.salary}</p> : null}
+        {isVacancyCard && (
+          <div className={styles.linkHint}>Перейти к вакансиям →</div>
+        )}
       </div>
     </>
   );
 
-  const cardClasses = `${styles.card} ${card.salary ? styles.cardWithSalary : ''} ${isInView ? 'inView' : ''}`;
+  const cardClasses = `${styles.card} ${card.salary ? styles.cardWithSalary : ''} ${isVacancyCard ? styles.vacancyCard : ''} ${isInView ? 'inView' : ''}`;
 
   if (card.link) {
     return (
