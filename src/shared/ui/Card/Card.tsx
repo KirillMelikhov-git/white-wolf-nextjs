@@ -17,7 +17,23 @@ export function Card({ card, isInView = false, cardRef }: AboutCardProps) {
   const cardContent = (
     <>
       <div className={styles.imageContainer}>
-        {typeof card.image === 'string' ? (
+        {isVacancyCard ? (
+          <div className={styles.plusContainer}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className={styles.plusIcon}
+            >
+              <line x1="12" y1="5" x2="12" y2="19" />
+              <line x1="5" y1="12" x2="19" y2="12" />
+            </svg>
+          </div>
+        ) : typeof card.image === 'string' ? (
           <img src={card.image} alt={card.title} loading="lazy" />
         ) : (
           <Image />

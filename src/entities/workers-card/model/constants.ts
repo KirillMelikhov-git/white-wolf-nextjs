@@ -1,6 +1,7 @@
 import type { ICard } from '@/shared/ui/Card/types';
 
 import worker1 from '../assets/worker-1.jpg';
+import worker8 from '../assets/worker-8.png';
 
 export const workersCards: ICard[] = [
   {
@@ -59,7 +60,7 @@ export const workersCards: ICard[] = [
   },
   {
     id: 'workers-card-8',
-    image: '/images/background.png',
+    image: worker8.src,
     title: 'Стать частью команды!',
     description: 'Ознакомьтесь со списокм вакансий.',
     link: '/vacancies',

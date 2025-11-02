@@ -110,6 +110,14 @@
         0 12px 24px -6px rgb(74 124 89 / 30%),
         0 0 0 1px rgb(255 255 255 / 50%);
     }
+
+    > a:hover :global(.plusContainer) {
+      transform: scale(1.1);
+      border-color: rgb(74 124 89 / 40%);
+      box-shadow:
+        0 12px 24px -6px rgb(74 124 89 / 30%),
+        0 0 0 1px rgb(255 255 255 / 50%);
+    }
   }
 
   /* Имя специалиста */
@@ -191,6 +199,14 @@
           0 0 0 1px rgb(255 255 255 / 50%) !important;
       }
 
+      :global(.plusContainer) {
+        transform: scale(1.1) !important;
+        border-color: rgb(74 124 89 / 40%) !important;
+        box-shadow:
+          0 12px 24px -6px rgb(74 124 89 / 30%),
+          0 0 0 1px rgb(255 255 255 / 50%) !important;
+      }
+
       h2 {
         color: var(--color-text-secondary) !important;
       }
@@ -229,6 +245,14 @@
         0 0 0 1px rgb(255 255 255 / 50%) !important;
     }
 
+    > :global(a.inView:hover) :global(.plusContainer) {
+      transform: scale(1.1) !important;
+      border-color: rgb(74 124 89 / 40%) !important;
+      box-shadow:
+        0 12px 24px -6px rgb(74 124 89 / 30%),
+        0 0 0 1px rgb(255 255 255 / 50%) !important;
+    }
+
     > :global(div.inView:hover) h2,
     > :global(a.inView:hover) h2 {
       color: var(--color-text-secondary) !important;
@@ -252,6 +276,16 @@
       height: 147px;
     }
 
+    :global(.plusContainer) {
+      width: 147px;
+      height: 147px;
+
+      :global(.plusIcon) {
+        width: 56px;
+        height: 56px;
+      }
+    }
+
     h2 {
       font-size: var(--font-size-lg);
     }
@@ -271,6 +305,16 @@
     img {
       width: 126px;
       height: 126px;
+    }
+
+    :global(.plusContainer) {
+      width: 126px;
+      height: 126px;
+
+      :global(.plusIcon) {
+        width: 48px;
+        height: 48px;
+      }
     }
 
     h2 {
@@ -301,6 +345,17 @@
       width: 105px;
       height: 105px;
       border-width: 3px;
+    }
+
+    :global(.plusContainer) {
+      width: 105px;
+      height: 105px;
+      border-width: 3px;
+
+      :global(.plusIcon) {
+        width: 42px;
+        height: 42px;
+      }
     }
 
     h2 {
