@@ -24,7 +24,7 @@ export const workersCards: ICard[] = [
     id: 'workers-card-3',
     image: '/images/background.png',
     title: 'Замыцкая Оксана Геннадьевна',
-    profession: 'Иммунолог, цитолог',
+    profession: 'Иммунолог, цитолог, дерматолог',
     university: 'ОГАУ',
     description: 'Специализация: дерматология, цитология.',
   },
