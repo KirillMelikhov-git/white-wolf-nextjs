@@ -1,6 +1,9 @@
 import type { ICard } from '@/shared/ui/Card/types';
 
 import worker1 from '../assets/worker-1.jpg';
+import worker3 from '../assets/worker-3.png';
+import worker4 from '../assets/worker-4.jpg';
+import worker6 from '../assets/worker-6.jpg';
 import worker8 from '../assets/worker-8.png';
 
 export const workersCards: ICard[] = [
@@ -10,8 +13,6 @@ export const workersCards: ICard[] = [
     title: 'Мелихова Анастасия Сергеевна',
     profession: 'Терапевт, хирург, специалист УЗИ',
     university: 'Ивановская ГСХА',
-    description:
-      'Cпециализация: терапия, хирургия, специалист по ультразвуковой диагностике.',
   },
   {
     id: 'workers-card-2',
@@ -19,47 +20,35 @@ export const workersCards: ICard[] = [
     title: 'Лисковская Елена Сергеевна',
     profession: 'Хирург-онколог, химиотерапевт, терапевт',
     university: 'СПБГА ветеринарной медицины',
-    description: 'Специализация: онкология, хирургия.',
   },
   {
     id: 'workers-card-3',
-    image: '/images/background.png',
+    image: worker3.src,
     title: 'Замыцкая Оксана Геннадьевна',
     profession: 'Иммунолог, цитолог, дерматолог',
     university: 'ОГАУ',
-    description: 'Специализация: дерматология, цитология.',
   },
   {
     id: 'workers-card-4',
-    image: '/images/background.png',
-    title: 'Белоусова Мария Романовна',
-    profession: 'Терапевт, инфекционист, нефролог',
-    university: 'СПБГА ветеринарной медицины',
-    description:
-      'Специализация: терапия, специалист по ультразвуковой диагностике.',
+    image: worker4.src,
+    title: 'Шувалова Анастасия Романовна',
+    profession: 'Терапевт, хирург',
+    university: 'Ивановская ГСХА',
   },
   {
     id: 'workers-card-5',
-    image: '/images/background.png',
-    title: 'Занина Елизавета Сергеевна',
-    profession: 'Терапевт, анестезиолог, ассистент хирурга',
-    university: 'СПБГА ветеринарной медицины',
-    description: 'Специализация: терапия.',
-  },
-  {
-    id: 'workers-card-6',
     image: '/images/background.png',
     title: 'Агеева Рита Фяридовна',
     profession: 'Ассистент ветеринарного терапевта, хирурга',
   },
   {
-    id: 'workers-card-7',
-    image: '/images/background.png',
+    id: 'workers-card-6',
+    image: worker6.src,
     title: 'Иващенко Мария Станиславовна',
-    profession: 'Администратор клиники',
+    profession: 'Ассистент ветеринарного терапевта, хирурга',
   },
   {
-    id: 'workers-card-8',
+    id: 'workers-card-7',
     image: worker8.src,
     title: 'Стать частью команды!',
     description: 'Ознакомьтесь со списокм вакансий.',

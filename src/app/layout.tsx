@@ -2,8 +2,11 @@ import type { Metadata } from 'next';
 import './globals.scss';
 
 export const metadata: Metadata = {
-  title: 'White Wolf Veterinary Clinic',
-  description: 'Professional veterinary care for your pets',
+  title: 'Белый Волк',
+  description: 'Ветеринарная клиника Белый Волк',
+  icons: {
+    icon: '/images/icon.svg',
+  },
 };
 
 export default function RootLayout({
