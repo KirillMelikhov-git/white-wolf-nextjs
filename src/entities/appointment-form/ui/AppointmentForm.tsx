@@ -7,8 +7,8 @@ import { IMaskInput } from 'react-imask';
 
 import { Button } from '@/shared/ui/Button';
 import { Input } from '@/shared/ui/Input';
-import { Textarea } from '@/shared/ui/Textarea';
 import { SuccessModal } from '@/shared/ui/SuccessModal';
+import { Textarea } from '@/shared/ui/Textarea';
 
 import { appointmentFormSchema, AppointmentFormSchema } from '../model/schema';
 

@@ -1,6 +1,7 @@
 import type { ICard } from '@/shared/ui/Card/types';
 
 import worker1 from '../assets/worker-1.jpg';
+import worker2 from '../assets/worker-2.jpg';
 import worker3 from '../assets/worker-3.png';
 import worker4 from '../assets/worker-4.jpg';
 import worker6 from '../assets/worker-6.jpg';
@@ -16,7 +17,7 @@ export const workersCards: ICard[] = [
   },
   {
     id: 'workers-card-2',
-    image: '/images/background.png',
+    image: worker2.src,
     title: 'Лисковская Елена Сергеевна',
     profession: 'Хирург-онколог, химиотерапевт, терапевт',
     university: 'СПБГА ветеринарной медицины',
