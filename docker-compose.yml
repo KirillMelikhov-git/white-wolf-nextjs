@@ -54,11 +54,11 @@ services:
     labels:
       - 'traefik.enable=true'
       - 'traefik.http.routers.whitewolf.entrypoints=http'
-      - 'traefik.http.routers.whitewolf.rule=Host(`yourdomain.com`) || Host(`www.yourdomain.com`)'
+      - 'traefik.http.routers.whitewolf.rule=Host(`vetwolf.ru`) || Host(`www.vetwolf.ru`)'
       - 'traefik.http.middlewares.whitewolf-https-redirect.redirectscheme.scheme=https'
       - 'traefik.http.routers.whitewolf.middlewares=whitewolf-https-redirect'
       - 'traefik.http.routers.whitewolf-secure.entrypoints=https'
-      - 'traefik.http.routers.whitewolf-secure.rule=Host(`yourdomain.com`) || Host(`www.yourdomain.com`)'
+      - 'traefik.http.routers.whitewolf-secure.rule=Host(`vetwolf.ru`) || Host(`www.vetwolf.ru`)'
       - 'traefik.http.routers.whitewolf-secure.tls=true'
       - 'traefik.http.routers.whitewolf-secure.tls.certresolver=letsencrypt'
       - 'traefik.http.routers.whitewolf-secure.service=whitewolf'
