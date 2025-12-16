@@ -1,0 +1,1 @@
+export { dockCards } from './model';

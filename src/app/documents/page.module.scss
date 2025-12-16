@@ -1,0 +1,195 @@
+.documentsPage {
+  padding: var(--space-lg);
+  padding-top: 100px;
+  position: relative;
+  z-index: 2; // поверх фонового overlay
+}
+
+.heroSection {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contentContainer {
+  width: 100%;
+  padding: var(--space-xl);
+  background-color: rgb(0 0 0 / 50%);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  z-index: 2;
+  position: relative;
+}
+
+.contentContainer .title {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-white);
+  margin-bottom: var(--space-md);
+}
+
+.subtitle {
+  font-size: var(--font-size-lg);
+  color: var(--color-gray-300);
+  margin-bottom: var(--space-xl);
+}
+
+.locationInfo {
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-xl);
+  padding: var(--space-lg);
+  padding-bottom: var(--space-lg);
+  background: linear-gradient(
+      135deg,
+      rgb(255 255 255 / 10%),
+      rgb(74 124 89 / 15%)
+    )
+    border-box;
+  border-radius: var(--radius-md);
+  border-left: 4px solid var(--color-primary);
+  text-align: center;
+}
+
+.locationText {
+  font-size: var(--font-size-lg);
+  color: var(--color-white);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.interviewSection {
+  margin-top: var(--space-2xl);
+  padding: 80px 20px;
+  position: relative;
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+}
+
+.interviewHeader {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.interviewTitle {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--color-text-secondary);
+}
+
+.interviewSubtitle {
+  font-size: 18px;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+// Адаптивность для планшетов
+@media (max-width: 1024px) {
+  .vacanciesPage {
+    padding: var(--space-md);
+    padding-top: 80px;
+  }
+
+  .contentContainer {
+    padding: var(--space-lg);
+  }
+
+  .interviewSection {
+    padding: 60px var(--space-md);
+  }
+}
+
+// Адаптивность для мобильных
+@media (max-width: 768px) {
+  .vacanciesPage {
+    padding: var(--space-sm);
+    padding-top: 70px;
+  }
+
+  .contentContainer {
+    padding: var(--space-md);
+    border-width: 1px;
+
+    .title {
+      font-size: var(--font-size-2xl);
+      margin-bottom: var(--space-sm);
+    }
+  }
+
+  .subtitle {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--space-lg);
+  }
+
+  .locationInfo {
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-lg);
+    padding: var(--space-md);
+  }
+
+  .locationText {
+    font-size: var(--font-size-base);
+  }
+
+  .interviewSection {
+    padding: var(--space-2xl) var(--space-sm);
+    border-width: 1px;
+  }
+
+  .interviewHeader {
+    margin-bottom: var(--space-xl);
+  }
+
+  .interviewTitle {
+    font-size: var(--font-size-2xl);
+  }
+
+  .interviewSubtitle {
+    font-size: var(--font-size-base);
+  }
+}
+
+// Адаптивность для маленьких экранов
+@media (max-width: 480px) {
+  .vacanciesPage {
+    padding: var(--space-xs);
+    padding-top: 60px;
+  }
+
+  .contentContainer {
+    padding: var(--space-sm);
+
+    .title {
+      font-size: var(--font-size-xl);
+    }
+  }
+
+  .subtitle {
+    font-size: var(--font-size-sm);
+  }
+
+  .locationInfo {
+    padding: var(--space-sm);
+  }
+
+  .locationText {
+    font-size: var(--font-size-sm);
+  }
+
+  .interviewSection {
+    padding: var(--space-xl) var(--space-xs);
+  }
+
+  .interviewTitle {
+    font-size: var(--font-size-xl);
+  }
+
+  .interviewSubtitle {
+    font-size: var(--font-size-sm);
+  }
+}

@@ -34,12 +34,12 @@ export default function BeforeVisitPage() {
               <p className={styles.contractText}>
                 Также предлагаем Вам ознакомиться с{' '}
                 <a
-                  href="https://docs.google.com/document/d/18Q5MHFUCDW_5eItbNn416HRhzCzw5LTT/edit"
+                  href="/documents"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.contractLink}
                 >
-                  договором на оказание услуг
+                  нашими документами
                 </a>
               </p>
             </div>

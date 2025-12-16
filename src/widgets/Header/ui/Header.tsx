@@ -108,6 +108,15 @@ export function Header() {
           </li>
           <li>
             <Link
+              href="/documents"
+              className={styles.navLink}
+              onClick={handleLinkClick}
+            >
+              Документы
+            </Link>
+          </li>
+          <li>
+            <Link
               href="#footer"
               className={styles.navLink}
               onClick={handleContactsClick}

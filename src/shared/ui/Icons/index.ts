@@ -5,6 +5,7 @@ export { Quality } from './Quality';
 export { Veterinarian } from './Veterinarian';
 export { Assistant } from './Assistant';
 export { Administrator } from './Administrator';
+export { Documents } from './Dockuments';
 
 // Social icons
 export * from './Social';
