@@ -1,0 +1,272 @@
+// Полупрозрачный оверлей
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgb(0 0 0 / 60%);
+  backdrop-filter: blur(4px);
+  z-index: 999;
+  animation: fadeIn 0.3s ease-out;
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+// Центральная модалка
+.notification {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  max-width: calc(100vw - 48px);
+  background: linear-gradient(135deg, rgb(25 30 28 / 95%), rgb(35 45 40 / 97%));
+  backdrop-filter: blur(20px);
+  border: 2px solid var(--color-primary);
+  border-radius: 16px;
+  box-shadow:
+    0 20px 40px rgb(0 0 0 / 40%),
+    0 0 0 1px rgb(74 124 89 / 30%),
+    0 8px 32px rgb(74 124 89 / 20%);
+  z-index: 1000;
+  overflow: hidden;
+  animation: slideInScale 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+  @keyframes slideInScale {
+    from {
+      transform: translate(-50%, -50%) scale(0.9);
+      opacity: 0;
+    }
+
+    to {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+  }
+}
+
+.closeButton {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(74 124 89 / 15%);
+  border: 1px solid rgb(74 124 89 / 30%);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--color-text-secondary);
+  z-index: 2;
+
+  &:hover {
+    background: rgb(74 124 89 / 25%);
+    border-color: var(--color-primary);
+    transform: rotate(90deg);
+    color: var(--color-text);
+  }
+
+  &:active {
+    transform: rotate(90deg) scale(0.9);
+  }
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.content {
+  padding: 32px;
+  padding-right: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+
+.icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  background: linear-gradient(
+    135deg,
+    rgb(230 126 34 / 20%),
+    rgb(231 111 81 / 25%)
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(230 126 34);
+  border: 1px solid rgb(230 126 34 / 40%);
+  flex-shrink: 0;
+  animation: iconPulse 2s ease-in-out infinite;
+
+  @keyframes iconPulse {
+    0%,
+    100% {
+      box-shadow: 0 0 20px rgb(230 126 34 / 30%);
+    }
+
+    50% {
+      box-shadow: 0 0 30px rgb(230 126 34 / 50%);
+    }
+  }
+
+  svg {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  margin: 0;
+  line-height: 1.3;
+  background: linear-gradient(
+    135deg,
+    var(--color-text),
+    var(--color-text-secondary)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.description {
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  margin: 0;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.subdescription {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin: 0;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+// Адаптивность для планшетов
+@media (max-width: 1024px) {
+  .notification {
+    width: 460px;
+  }
+
+  .content {
+    padding: 28px;
+    padding-right: 56px;
+  }
+}
+
+// Адаптивность для мобильных устройств
+@media (max-width: 768px) {
+  .notification {
+    width: calc(100vw - 32px);
+    max-width: 420px;
+    border-radius: 12px;
+  }
+
+  .content {
+    padding: 24px;
+    padding-right: 52px;
+    gap: 16px;
+  }
+
+  .icon {
+    width: 56px;
+    height: 56px;
+
+    svg {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  .title {
+    font-size: var(--font-size-lg);
+  }
+
+  .description {
+    font-size: var(--font-size-sm);
+  }
+
+  .subdescription {
+    font-size: 0.8125rem; // 13px
+  }
+
+  .closeButton {
+    width: 32px;
+    height: 32px;
+    top: 12px;
+    right: 12px;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
+
+// Адаптивность для маленьких экранов
+@media (max-width: 480px) {
+  .notification {
+    width: calc(100vw - 24px);
+  }
+
+  .content {
+    padding: 20px;
+    padding-right: 48px;
+    gap: 14px;
+  }
+
+  .icon {
+    width: 52px;
+    height: 52px;
+
+    svg {
+      width: 28px;
+      height: 28px;
+    }
+  }
+
+  .title {
+    font-size: var(--font-size-base);
+  }
+
+  .closeButton {
+    width: 30px;
+    height: 30px;
+    top: 10px;
+    right: 10px;
+
+    svg {
+      width: 14px;
+      height: 14px;
+    }
+  }
+}
