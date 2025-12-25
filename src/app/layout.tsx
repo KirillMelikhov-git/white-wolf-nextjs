@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
+
 import './globals.scss';
+import YandexMetrika from '@/components/YandexMetrika';
 
 export const metadata: Metadata = {
   title: 'Белый Волк',
@@ -16,7 +18,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body>{children}</body>
+      <body>
+        {children}
+        <YandexMetrika />
+      </body>
     </html>
   );
 }
