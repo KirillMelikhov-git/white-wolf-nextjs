@@ -2,8 +2,8 @@
 
 import { useEffect } from 'react';
 
-import { useInViewAnimation } from '@/shared/hooks';
 import { type ServiceCategory } from '@/entities/service';
+import { useInViewAnimation } from '@/shared/hooks';
 
 import styles from './page.module.scss';
 

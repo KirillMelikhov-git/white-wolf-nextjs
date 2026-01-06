@@ -1,5 +1,5 @@
 import { AboutCarousel } from '@/features/about-carousel';
-import { NewYearNotification } from '@/shared/ui/NewYearNotification';
+// import { NewYearNotification } from '@/shared/ui/NewYearNotification';
 import { VacancyNotification } from '@/shared/ui/VacancyNotification';
 import { AppointmentSection } from '@/widgets/AppointmentSection';
 import { CardList } from '@/widgets/CardList';
@@ -17,7 +17,7 @@ export default function HomePage() {
       <main className={styles.homePage}>
         <section className={styles.heroSection}>
           <div className={styles.contentContainer}>
-            <NewYearNotification />
+            {/* <NewYearNotification /> */}
             <AboutCarousel />
             <CardList />
             <WorkersList />
