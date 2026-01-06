@@ -1,10 +1,20 @@
 import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: 'Вакансии - White Wolf Veterinary Clinic',
+import { createMetadata } from '@/shared/lib/seo';
+
+export const metadata: Metadata = createMetadata({
+  title: 'Вакансии',
   description:
-    'Присоединяйтесь к нашей команде профессионалов ветеринарной клиники',
-};
+    'Открытые вакансии в ветеринарной клинике Белый Волк. Присоединяйтесь к нашей команде профессионалов: ветеринары, ассистенты, администраторы.',
+  keywords: [
+    'вакансии ветклиники',
+    'работа ветеринаром',
+    'вакансии белый волк',
+    'работа с животными',
+    'карьера ветеринара',
+  ],
+  url: '/vacancies',
+});
 
 export default function VacanciesLayout({
   children,

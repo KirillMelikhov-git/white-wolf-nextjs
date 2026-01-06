@@ -1,9 +1,21 @@
 import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: 'Услуги | Белый волк',
-  description: 'Полный список ветеринарных услуг клиники Белый волк',
-};
+import { createMetadata } from '@/shared/lib/seo';
+
+export const metadata: Metadata = createMetadata({
+  title: 'Услуги',
+  description:
+    'Полный спектр ветеринарных услуг клиники Белый Волк: диагностика, лечение, хирургия, вакцинация, груминг и другие услуги для ваших питомцев.',
+  keywords: [
+    'ветеринарные услуги',
+    'лечение животных',
+    'вакцинация',
+    'хирургия',
+    'диагностика',
+    'груминг',
+  ],
+  url: '/services',
+});
 
 export default function ServicesLayout({
   children,

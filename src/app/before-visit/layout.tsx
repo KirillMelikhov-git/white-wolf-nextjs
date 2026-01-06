@@ -1,11 +1,20 @@
 import { Metadata } from 'next';
 import { ReactNode } from 'react';
 
-export const metadata: Metadata = {
-  title: 'Подготовка к визиту | White Wolf Veterinary Clinic',
+import { createMetadata } from '@/shared/lib/seo';
+
+export const metadata: Metadata = createMetadata({
+  title: 'Подготовка к визиту',
   description:
-    'Информация о том, как подготовиться к визиту в ветеринарную клинику White Wolf',
-};
+    'Полезная информация о том, как подготовиться к визиту в ветеринарную клинику Белый Волк: что взять с собой, как подготовить питомца, список необходимых документов.',
+  keywords: [
+    'подготовка к визиту',
+    'визит к ветеринару',
+    'документы для ветклиники',
+    'первый визит',
+  ],
+  url: '/before-visit',
+});
 
 interface BeforeVisitLayoutProps {
   children: ReactNode;
