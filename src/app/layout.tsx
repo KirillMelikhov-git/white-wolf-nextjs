@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 
 import { StructuredData } from '@/components/StructuredData';
 import YandexMetrika from '@/components/YandexMetrika';
+import { PromoNotification } from '@/shared/ui/PromoNotification';
 import {
   createLocalBusinessSchema,
   createMetadata,
@@ -48,6 +49,7 @@ export default function RootLayout({
       </head>
       <body>
         {children}
+        <PromoNotification />
         <YandexMetrika />
       </body>
     </html>
