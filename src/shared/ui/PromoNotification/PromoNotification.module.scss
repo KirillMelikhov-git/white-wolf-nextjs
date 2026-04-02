@@ -265,6 +265,7 @@
   background-clip: text;
   filter: drop-shadow(0 0 6px rgb(185 28 28 / 50%));
   animation: freeLabelGlow 2s ease-in-out infinite;
+  text-transform: uppercase;
 
   @keyframes freeLabelGlow {
     0%, 100% { filter: drop-shadow(0 0 4px rgb(185 28 28 / 40%)); }
