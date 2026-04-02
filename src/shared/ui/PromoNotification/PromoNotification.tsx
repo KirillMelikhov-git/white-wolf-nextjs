@@ -118,12 +118,17 @@ export const PromoNotification = () => {
               <PromoCard
                 photoSrc={CAT_PHOTO}
                 placeholderIcon={<Cat size={40} strokeWidth={1.5} />}
-                title="Стерилизация кошки"
-                imageAlt="Стерилизация кошки"
+                title="Лапраскопическая стерилизация кошки"
+                imageAlt="Лапраскопическая стерилизация кошки"
               >
-                <div className={styles.priceRow}>
-                  <span className={styles.oldPrice}>10&nbsp;000&nbsp;₽</span>
-                  <span className={styles.newPrice}>8&nbsp;000&nbsp;₽</span>
+                <div className={styles.priceBlock}>
+                  <div className={styles.wasLabel}>Было</div>
+                  <div className={styles.priceRow}>
+                    <span className={styles.oldPrice}>10&nbsp;000&nbsp;₽</span>
+                    <span className={styles.arrow}>→</span>
+                    <span className={styles.newPrice}>8&nbsp;000&nbsp;₽</span>
+                  </div>
+                  <div className={styles.saveBadge}>Экономия 2&nbsp;000&nbsp;₽ · −20%</div>
                 </div>
               </PromoCard>
 

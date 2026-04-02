@@ -17,7 +17,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 812px;
+  width: 1015px;
   max-width: calc(100vw - 40px);
   background: linear-gradient(135deg, rgb(20 26 24 / 97%), rgb(30 40 35 / 98%));
   backdrop-filter: blur(20px);
@@ -77,35 +77,46 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  padding: 22px 24px 18px;
-  font-size: 1.25rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
+  gap: 14px;
+  padding: 26px 24px 22px;
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   border-bottom: 1px solid rgb(74 124 89 / 20%);
-  background: linear-gradient(135deg, #f97316, #ea580c);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: headerPulse 2.5s ease-in-out infinite;
+  animation: headerFlare 1.8s ease-in-out infinite;
+
+  span {
+    background: linear-gradient(90deg, #f97316, #fbbf24, #f97316);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: textShine 1.8s linear infinite;
+    filter: drop-shadow(0 0 8px rgb(249 115 22 / 60%));
+  }
 
   svg {
     flex-shrink: 0;
     color: #f97316;
-    -webkit-text-fill-color: initial;
-    opacity: 0.9;
-    animation: iconPulse 2.5s ease-in-out infinite;
+    filter: drop-shadow(0 0 6px rgb(249 115 22 / 80%));
+    animation: iconSpin 1.8s ease-in-out infinite;
   }
 
-  @keyframes headerPulse {
-    0%, 100% { opacity: 1; }
-    50%       { opacity: 0.7; }
+  @keyframes textShine {
+    0%   { background-position: 0% center; }
+    100% { background-position: 200% center; }
   }
 
-  @keyframes iconPulse {
-    0%, 100% { transform: scale(1);   opacity: 0.9; }
-    50%       { transform: scale(1.2); opacity: 1; }
+  @keyframes headerFlare {
+    0%, 100% { filter: drop-shadow(0 0 0px transparent); }
+    50%       { filter: drop-shadow(0 2px 18px rgb(249 115 22 / 45%)); }
+  }
+
+  @keyframes iconSpin {
+    0%, 100% { transform: scale(1) rotate(0deg);   }
+    25%       { transform: scale(1.3) rotate(-15deg); }
+    75%       { transform: scale(1.3) rotate(15deg);  }
   }
 }
 
@@ -156,11 +167,25 @@
 }
 
 .cardTitle {
-  font-size: var(--font-size-base);
-  font-weight: 600;
+  font-size: 1.35rem;
+  font-weight: 700;
   color: var(--color-text);
   margin: 0;
   line-height: 1.35;
+}
+
+.priceBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.wasLabel {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgb(220 80 80 / 80%);
 }
 
 .priceRow {
@@ -171,37 +196,77 @@
 }
 
 .oldPrice {
-  font-size: var(--font-size-base);
-  color: rgb(180 180 180 / 70%);
+  font-size: 1.1rem;
+  color: rgb(180 180 180 / 60%);
   text-decoration: line-through;
-  text-decoration-color: rgb(220 80 80 / 70%);
-  font-weight: 500;
+  text-decoration-color: rgb(220 80 80 / 90%);
+  text-decoration-thickness: 2px;
+  font-weight: 600;
+}
+
+.arrow {
+  font-size: 1.1rem;
+  color: rgb(249 115 22 / 80%);
+  font-weight: 700;
+  animation: arrowPulse 1.2s ease-in-out infinite;
+
+  @keyframes arrowPulse {
+    0%, 100% { transform: translateX(0);    opacity: 0.7; }
+    50%       { transform: translateX(4px); opacity: 1; }
+  }
 }
 
 .newPrice {
-  font-size: var(--font-size-xl);
-  font-weight: 700;
-  background: linear-gradient(135deg, var(--color-text-secondary), #f97316);
+  font-size: 1.6rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #f97316, #fbbf24);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   line-height: 1;
+  filter: drop-shadow(0 0 8px rgb(249 115 22 / 50%));
+  animation: newPriceGlow 2s ease-in-out infinite;
+
+  @keyframes newPriceGlow {
+    0%, 100% { filter: drop-shadow(0 0 4px rgb(249 115 22 / 40%)); }
+    50%       { filter: drop-shadow(0 0 14px rgb(249 115 22 / 80%)); }
+  }
+}
+
+.saveBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  background: linear-gradient(135deg, rgb(74 124 89 / 25%), rgb(74 124 89 / 35%));
+  border: 1px solid rgb(110 185 130 / 40%);
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: rgb(110 185 130);
+  letter-spacing: 0.03em;
+  width: fit-content;
 }
 
 .cardPromo {
-  font-size: var(--font-size-base);
+  font-size: 1.35rem;
   color: rgb(200 215 205);
   margin: 0;
   line-height: 1.4;
 }
 
 .freeLabel {
-  font-weight: 700;
-  color: rgb(110 185 130);
-  background: linear-gradient(135deg, rgb(74 124 89), rgb(110 185 130));
+  font-weight: 800;
+  background: linear-gradient(135deg, #f97316, #fbbf24);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  filter: drop-shadow(0 0 6px rgb(249 115 22 / 50%));
+  animation: freeLabelGlow 2s ease-in-out infinite;
+
+  @keyframes freeLabelGlow {
+    0%, 100% { filter: drop-shadow(0 0 4px rgb(249 115 22 / 40%)); }
+    50%       { filter: drop-shadow(0 0 14px rgb(249 115 22 / 85%)); }
+  }
 }
 
 // Анимация закрытия модалки
@@ -312,7 +377,7 @@
 // Планшеты
 @media (max-width: 1024px) {
   .modal {
-    width: 756px;
+    width: 945px;
   }
 }
 
