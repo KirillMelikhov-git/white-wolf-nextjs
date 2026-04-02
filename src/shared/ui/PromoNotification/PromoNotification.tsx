@@ -9,6 +9,8 @@ import styles from './PromoNotification.module.scss';
 const CAT_PHOTO = '/images/promo-cat.webp';
 const DOG_PHOTO = '/images/promo-dog.webp';
 
+type ModalState = 'hidden' | 'open' | 'closing' | 'minimized';
+
 const PromoCard = ({
   photoSrc,
   placeholderIcon,
@@ -48,33 +50,55 @@ const PromoCard = ({
 };
 
 export const PromoNotification = () => {
-  const [isVisible, setIsVisible] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
+  const [modalState, setModalState] = useState<ModalState>('hidden');
 
   const handleClose = () => {
-    setIsVisible(false);
+    setModalState('closing');
+    setTimeout(() => setModalState('minimized'), 380);
+  };
+
+  const handleOpen = () => {
+    setModalState('open');
   };
 
   useEffect(() => {
-    setIsMounted(true);
-
     const showTimer = setTimeout(() => {
-      setIsVisible(true);
+      setModalState('open');
     }, 600);
 
-    return () => {
-      clearTimeout(showTimer);
-    };
+    return () => clearTimeout(showTimer);
   }, []);
 
-  if (!isMounted) return null;
+  const isModalVisible = modalState === 'open' || modalState === 'closing';
 
   return (
     <>
-      {isVisible && (
+      {/* Плавающий значок */}
+      {modalState === 'minimized' && (
+        <button
+          className={styles.floatingButton}
+          onClick={handleOpen}
+          aria-label="Открыть акции"
+          type="button"
+        >
+          <Tag size={20} strokeWidth={2} />
+          <span className={styles.badge}>1</span>
+        </button>
+      )}
+
+      {/* Модалка */}
+      {isModalVisible && (
         <>
-          <div className={styles.overlay} onClick={handleClose} />
-          <div className={styles.modal} role="dialog" aria-modal="true" aria-label="Акции">
+          <div
+            className={`${styles.overlay} ${modalState === 'closing' ? styles.overlayClosing : ''}`}
+            onClick={handleClose}
+          />
+          <div
+            className={`${styles.modal} ${modalState === 'closing' ? styles.modalClosing : ''}`}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Акции"
+          >
             <button
               className={styles.closeButton}
               onClick={handleClose}

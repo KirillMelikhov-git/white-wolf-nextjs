@@ -186,6 +186,111 @@
   background-clip: text;
 }
 
+// Анимация закрытия модалки
+.modalClosing {
+  animation: shrinkToCorner 0.38s cubic-bezier(0.4, 0, 1, 1) forwards;
+
+  @keyframes shrinkToCorner {
+    from {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+
+    to {
+      transform: translate(calc(-50% + 47vw), calc(-50% - 36vh)) scale(0.08);
+      opacity: 0;
+    }
+  }
+}
+
+.overlayClosing {
+  animation: fadeOut 0.38s ease-out forwards;
+
+  @keyframes fadeOut {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+  }
+}
+
+// Плавающая кнопка-значок
+.floatingButton {
+  position: fixed;
+  top: 82px; // 70px header + 12px gap
+  right: 20px;
+  z-index: 999;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  color: #fff;
+  box-shadow:
+    0 4px 16px rgb(249 115 22 / 50%),
+    0 2px 6px rgb(0 0 0 / 30%);
+  animation: buttonAppear 0.35s cubic-bezier(0.16, 1, 0.3, 1), pulse 2.2s ease-in-out 0.35s infinite;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    transform: scale(1.1);
+    box-shadow:
+      0 6px 24px rgb(249 115 22 / 65%),
+      0 2px 8px rgb(0 0 0 / 35%);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  @keyframes buttonAppear {
+    from {
+      transform: scale(0);
+      opacity: 0;
+    }
+
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      box-shadow:
+        0 4px 16px rgb(249 115 22 / 50%),
+        0 2px 6px rgb(0 0 0 / 30%);
+    }
+
+    50% {
+      box-shadow:
+        0 4px 28px rgb(249 115 22 / 80%),
+        0 0 0 8px rgb(249 115 22 / 18%),
+        0 2px 6px rgb(0 0 0 / 30%);
+    }
+  }
+}
+
+.badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  width: 18px;
+  height: 18px;
+  background: #fff;
+  color: #ea580c;
+  font-size: 11px;
+  font-weight: 800;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 25%);
+}
+
 // Планшеты
 @media (max-width: 1024px) {
   .modal {
@@ -194,6 +299,12 @@
 }
 
 // Мобильные
+@media (max-width: 768px) {
+  .floatingButton {
+    top: 72px; // 60px header + 12px gap
+  }
+}
+
 @media (max-width: 600px) {
   .modal {
     width: calc(100vw - 32px);
@@ -236,6 +347,14 @@
 }
 
 // Маленькие экраны
+@media (max-width: 480px) {
+  .floatingButton {
+    top: 68px; // 56px header + 12px gap
+    width: 56px;
+    height: 56px;
+  }
+}
+
 @media (max-width: 400px) {
   .modal {
     width: calc(100vw - 24px);
