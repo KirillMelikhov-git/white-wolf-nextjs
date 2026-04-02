@@ -408,27 +408,31 @@
   }
 
   .cardImageWrap {
-    height: 196px;
+    height: 150px;
   }
 
   .card {
-    gap: 10px;
+    gap: 8px;
   }
 
   .cardTitle {
-    font-size: var(--font-size-sm);
+    font-size: 1rem;
   }
 
   .oldPrice {
-    font-size: var(--font-size-sm);
+    font-size: 0.9rem;
   }
 
   .newPrice {
-    font-size: var(--font-size-base);
+    font-size: 1.3rem;
   }
 
   .cardPromo {
-    font-size: var(--font-size-sm);
+    font-size: 1rem;
+  }
+
+  .header {
+    font-size: 1.2rem;
   }
 }
 
@@ -447,10 +451,27 @@
   }
 
   .header {
-    padding: 14px 16px 12px;
+    padding: 14px 16px 18px;
+    font-size: 0.85rem;
   }
 
   .cards {
     padding: 12px 16px 18px;
+  }
+
+  .cardTitle {
+    font-size: 0.85rem;
+  }
+
+  .oldPrice {
+    font-size: 0.8rem;
+  }
+
+  .newPrice {
+    font-size: 1.1rem;
+  }
+
+  .cardPromo {
+    font-size: 0.85rem;
   }
 }
