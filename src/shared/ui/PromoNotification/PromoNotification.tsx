@@ -109,8 +109,9 @@ export const PromoNotification = () => {
             </button>
 
             <div className={styles.header}>
-              <Tag size={18} strokeWidth={2} />
-              <span>Акции</span>
+              <Tag size={20} strokeWidth={2} />
+              <span>Весенняя акция</span>
+              <Tag size={20} strokeWidth={2} />
             </div>
 
             <div className={styles.cards}>
