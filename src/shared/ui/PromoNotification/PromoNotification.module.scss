@@ -17,7 +17,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 1015px;
+  width: 1180px;
   max-width: calc(100vw - 40px);
   background: linear-gradient(135deg, rgb(20 26 24 / 97%), rgb(30 40 35 / 98%));
   backdrop-filter: blur(20px);
@@ -79,7 +79,7 @@
   justify-content: center;
   gap: 14px;
   padding: 26px 24px 22px;
-  font-size: 1.6rem;
+  font-size: 2.2rem;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -87,19 +87,19 @@
   animation: headerFlare 1.8s ease-in-out infinite;
 
   span {
-    background: linear-gradient(90deg, #f97316, #fbbf24, #f97316);
+    background: linear-gradient(90deg, #c0392b, #e53e00, #c0392b);
     background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     animation: textShine 1.8s linear infinite;
-    filter: drop-shadow(0 0 8px rgb(249 115 22 / 60%));
+    filter: drop-shadow(0 0 8px rgb(192 57 43 / 60%));
   }
 
   svg {
     flex-shrink: 0;
-    color: #f97316;
-    filter: drop-shadow(0 0 6px rgb(249 115 22 / 80%));
+    color: #c0392b;
+    filter: drop-shadow(0 0 6px rgb(192 57 43 / 80%));
     animation: iconSpin 1.8s ease-in-out infinite;
   }
 
@@ -110,7 +110,7 @@
 
   @keyframes headerFlare {
     0%, 100% { filter: drop-shadow(0 0 0px transparent); }
-    50%       { filter: drop-shadow(0 2px 18px rgb(249 115 22 / 45%)); }
+    50%       { filter: drop-shadow(0 2px 18px rgb(192 57 43 / 45%)); }
   }
 
   @keyframes iconSpin {
@@ -138,7 +138,7 @@
 .cardImageWrap {
   position: relative;
   width: 100%;
-  height: 224px;
+  height: 300px;
   border-radius: 12px;
   overflow: hidden;
   background: rgb(30 40 35);
@@ -164,10 +164,12 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+  align-items: center;
+  text-align: center;
 }
 
 .cardTitle {
-  font-size: 1.35rem;
+  font-size: 1.75rem;
   font-weight: 700;
   color: var(--color-text);
   margin: 0;
@@ -191,12 +193,13 @@
 .priceRow {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   flex-wrap: wrap;
 }
 
 .oldPrice {
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   color: rgb(180 180 180 / 60%);
   text-decoration: line-through;
   text-decoration-color: rgb(220 80 80 / 90%);
@@ -206,7 +209,7 @@
 
 .arrow {
   font-size: 1.1rem;
-  color: rgb(249 115 22 / 80%);
+  color: rgb(192 57 43 / 80%);
   font-weight: 700;
   animation: arrowPulse 1.2s ease-in-out infinite;
 
@@ -217,19 +220,19 @@
 }
 
 .newPrice {
-  font-size: 1.6rem;
+  font-size: 2.4rem;
   font-weight: 800;
-  background: linear-gradient(135deg, #f97316, #fbbf24);
+  background: linear-gradient(135deg, #b91c1c, #e53e00);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   line-height: 1;
-  filter: drop-shadow(0 0 8px rgb(249 115 22 / 50%));
+  filter: drop-shadow(0 0 8px rgb(185 28 28 / 50%));
   animation: newPriceGlow 2s ease-in-out infinite;
 
   @keyframes newPriceGlow {
-    0%, 100% { filter: drop-shadow(0 0 4px rgb(249 115 22 / 40%)); }
-    50%       { filter: drop-shadow(0 0 14px rgb(249 115 22 / 80%)); }
+    0%, 100% { filter: drop-shadow(0 0 4px rgb(185 28 28 / 40%)); }
+    50%       { filter: drop-shadow(0 0 14px rgb(185 28 28 / 80%)); }
   }
 }
 
@@ -248,7 +251,7 @@
 }
 
 .cardPromo {
-  font-size: 1.35rem;
+  font-size: 1.75rem;
   color: rgb(200 215 205);
   margin: 0;
   line-height: 1.4;
@@ -256,16 +259,16 @@
 
 .freeLabel {
   font-weight: 800;
-  background: linear-gradient(135deg, #f97316, #fbbf24);
+  background: linear-gradient(135deg, #b91c1c, #e53e00);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 0 6px rgb(249 115 22 / 50%));
+  filter: drop-shadow(0 0 6px rgb(185 28 28 / 50%));
   animation: freeLabelGlow 2s ease-in-out infinite;
 
   @keyframes freeLabelGlow {
-    0%, 100% { filter: drop-shadow(0 0 4px rgb(249 115 22 / 40%)); }
-    50%       { filter: drop-shadow(0 0 14px rgb(249 115 22 / 85%)); }
+    0%, 100% { filter: drop-shadow(0 0 4px rgb(185 28 28 / 40%)); }
+    50%       { filter: drop-shadow(0 0 14px rgb(185 28 28 / 85%)); }
   }
 }
 
@@ -377,7 +380,7 @@
 // Планшеты
 @media (max-width: 1024px) {
   .modal {
-    width: 945px;
+    width: 1100px;
   }
 }
 
