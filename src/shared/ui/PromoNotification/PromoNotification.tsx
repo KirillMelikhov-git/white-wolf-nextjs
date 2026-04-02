@@ -1,9 +1,51 @@
 'use client';
 
-import { Cat, Syringe, Tag, X } from 'lucide-react';
+import { Cat, Dog, Tag, X } from 'lucide-react';
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
 import styles from './PromoNotification.module.scss';
+
+const CAT_PHOTO = '/images/promo-cat.webp';
+const DOG_PHOTO = '/images/promo-dog.webp';
+
+const PromoCard = ({
+  photoSrc,
+  placeholderIcon,
+  title,
+  children,
+  imageAlt,
+}: {
+  photoSrc: string;
+  placeholderIcon: React.ReactNode;
+  title: string;
+  children: React.ReactNode;
+  imageAlt: string;
+}) => {
+  const [imgError, setImgError] = useState(false);
+
+  return (
+    <div className={styles.card}>
+      <div className={styles.cardImageWrap}>
+        {imgError ? (
+          <div className={styles.cardImagePlaceholder}>{placeholderIcon}</div>
+        ) : (
+          <Image
+            src={photoSrc}
+            alt={imageAlt}
+            fill
+            className={styles.cardImage}
+            onError={() => setImgError(true)}
+          />
+        )}
+      </div>
+      <div className={styles.cardBody}>
+        <p className={styles.cardTitle}>{title}</p>
+        {children}
+      </div>
+    </div>
+  );
+};
 
 export const PromoNotification = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -48,37 +90,29 @@ export const PromoNotification = () => {
             </div>
 
             <div className={styles.cards}>
-              {/* Карточка 1: Кастрация кошки */}
-              <div className={styles.card}>
-                <div className={styles.cardIcon}>
-                  <Cat size={28} strokeWidth={1.5} />
+              <PromoCard
+                photoSrc={CAT_PHOTO}
+                placeholderIcon={<Cat size={40} strokeWidth={1.5} />}
+                title="Стерилизация кошки"
+                imageAlt="Стерилизация кошки"
+              >
+                <div className={styles.priceRow}>
+                  <span className={styles.oldPrice}>10&nbsp;000&nbsp;₽</span>
+                  <span className={styles.newPrice}>8&nbsp;000&nbsp;₽</span>
                 </div>
-                <div className={styles.cardBody}>
-                  <p className={styles.cardTitle}>Стерилизация кошки</p>
-                  <div className={styles.priceRow}>
-                    <span className={styles.oldPrice}>10&nbsp;000&nbsp;₽</span>
-                    <span className={styles.newPrice}>8&nbsp;000&nbsp;₽</span>
-                  </div>
-                </div>
-              </div>
+              </PromoCard>
 
-              <div className={styles.divider} />
-
-              {/* Карточка 2: Стрижка когтей */}
-              <div className={styles.card}>
-                <div className={`${styles.cardIcon} ${styles.cardIconGreen}`}>
-                  <Syringe size={28} strokeWidth={1.5} />
-                </div>
-                <div className={styles.cardBody}>
-                  <p className={styles.cardTitle}>
-                    При вакцинации кошек и собак
-                  </p>
-                  <p className={styles.cardPromo}>
-                    Стрижка когтей&nbsp;
-                    <span className={styles.freeLabel}>бесплатно</span>
-                  </p>
-                </div>
-              </div>
+              <PromoCard
+                photoSrc={DOG_PHOTO}
+                placeholderIcon={<Dog size={40} strokeWidth={1.5} />}
+                title="При вакцинации кошек и собак"
+                imageAlt="Вакцинация"
+              >
+                <p className={styles.cardPromo}>
+                  Стрижка когтей&nbsp;
+                  <span className={styles.freeLabel}>бесплатно</span>
+                </p>
+              </PromoCard>
             </div>
           </div>
         </>
