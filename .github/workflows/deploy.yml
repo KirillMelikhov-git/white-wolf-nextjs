@@ -25,6 +25,7 @@ jobs:
           rsync -az --delete \
             --exclude='.git' \
             --exclude='node_modules' \
+            --exclude='traefik/acme.json' \
             ./ ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:/opt/projects/white-wolf-nextjs/
 
       - name: Deploy to server
