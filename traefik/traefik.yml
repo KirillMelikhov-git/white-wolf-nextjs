@@ -27,6 +27,5 @@ certificatesResolvers:
   letsencrypt:
     acme:
       email: vetwolf2019@mail.ru
-      storage: acme.json
-      httpChallenge:
-        entryPoint: http
+      storage: /acme.json
+      tlsChallenge: {}

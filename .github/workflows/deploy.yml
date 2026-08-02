@@ -42,5 +42,5 @@ jobs:
 
       - name: Health check
         run: |
-          sleep 30
+          sleep 60
           curl -f https://${{ secrets.DOMAIN }} || exit 1
