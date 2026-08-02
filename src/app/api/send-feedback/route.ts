@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { z } from 'zod';
 
+import { personalDataConsentSchema } from '@/shared/lib/validation/personalDataConsent';
+
 const feedbackFormSchema = z.object({
   fullName: z
     .string()
@@ -28,6 +30,8 @@ const feedbackFormSchema = z.object({
     .string()
     .min(10, 'Сообщение должно содержать минимум 10 символов')
     .max(1000, 'Сообщение не должно превышать 1000 символов'),
+
+  personalDataConsent: personalDataConsentSchema,
 });
 
 export async function POST(request: Request) {

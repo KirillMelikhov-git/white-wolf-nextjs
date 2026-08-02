@@ -10,6 +10,7 @@ import {
   InterviewFormSchema,
 } from '@/entities/interview-form/model/schema';
 import { Button } from '@/shared/ui/Button';
+import { ConsentCheckbox } from '@/shared/ui/ConsentCheckbox';
 import { FileInput } from '@/shared/ui/FileInput';
 import { Input } from '@/shared/ui/Input';
 import { InterviewSuccessModal } from '@/shared/ui/InterviewSuccessModal';
@@ -35,6 +36,9 @@ export function InterviewForm() {
   } = useForm<InterviewFormSchema>({
     resolver: zodResolver(interviewFormSchema),
     mode: 'onBlur',
+    defaultValues: {
+      personalDataConsent: false,
+    },
   });
 
   const onSubmit = async (data: InterviewFormSchema) => {
@@ -49,6 +53,7 @@ export function InterviewForm() {
       formData.append('email', data.email);
       formData.append('position', data.position);
       formData.append('experience', data.experience);
+      formData.append('personalDataConsent', String(data.personalDataConsent));
 
       // Добавляем файл резюме, если он выбран
       if (resumeFile) {
@@ -156,6 +161,12 @@ export function InterviewForm() {
         accept=".pdf,.doc,.docx"
         maxSizeMB={5}
         onChange={setResumeFile}
+      />
+
+      <ConsentCheckbox
+        id="interview-personal-data-consent"
+        error={errors.personalDataConsent?.message}
+        {...register('personalDataConsent')}
       />
 
       <Button

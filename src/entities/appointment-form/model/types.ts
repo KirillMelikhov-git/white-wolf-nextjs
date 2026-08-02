@@ -4,6 +4,7 @@ export interface AppointmentFormData {
   email: string;
   petName: string;
   description: string;
+  personalDataConsent: boolean;
 }
 
 export interface AppointmentFormState {

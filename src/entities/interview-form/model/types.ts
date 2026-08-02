@@ -4,6 +4,7 @@ export interface InterviewFormData {
   email: string;
   position: string;
   experience: string;
+  personalDataConsent: boolean;
 }
 
 export interface InterviewFormState {

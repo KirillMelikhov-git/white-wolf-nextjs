@@ -22,6 +22,7 @@ export async function POST(request: Request) {
       email: formData.get('email') as string,
       position: formData.get('position') as string,
       experience: formData.get('experience') as string,
+      personalDataConsent: formData.get('personalDataConsent') === 'true',
     };
 
     // Получаем файл резюме (необязательно)

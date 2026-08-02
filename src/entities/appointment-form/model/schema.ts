@@ -1,5 +1,7 @@
 import { z } from 'zod';
 
+import { personalDataConsentSchema } from '@/shared/lib/validation/personalDataConsent';
+
 export const appointmentFormSchema = z.object({
   fullName: z
     .string()
@@ -33,6 +35,8 @@ export const appointmentFormSchema = z.object({
     .min(1, 'Описание проблемы обязательно для заполнения')
     .min(10, 'Описание должно содержать минимум 10 символов')
     .max(1000, 'Описание не должно превышать 1000 символов'),
+
+  personalDataConsent: personalDataConsentSchema,
 });
 
 export type AppointmentFormSchema = z.infer<typeof appointmentFormSchema>;

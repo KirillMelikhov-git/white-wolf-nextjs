@@ -6,6 +6,7 @@ import { useForm } from 'react-hook-form';
 import { IMaskInput } from 'react-imask';
 
 import { Button } from '@/shared/ui/Button';
+import { ConsentCheckbox } from '@/shared/ui/ConsentCheckbox';
 import { Input } from '@/shared/ui/Input';
 import { SuccessModal } from '@/shared/ui/SuccessModal';
 import { Textarea } from '@/shared/ui/Textarea';
@@ -31,6 +32,9 @@ export const AppointmentForm = () => {
   } = useForm<AppointmentFormSchema>({
     resolver: zodResolver(appointmentFormSchema),
     mode: 'onBlur',
+    defaultValues: {
+      personalDataConsent: false,
+    },
   });
 
   const onSubmit = async (data: AppointmentFormSchema) => {
@@ -120,6 +124,12 @@ export const AppointmentForm = () => {
         {...register('description')}
         required
         rows={5}
+      />
+
+      <ConsentCheckbox
+        id="appointment-personal-data-consent"
+        error={errors.personalDataConsent?.message}
+        {...register('personalDataConsent')}
       />
 
       <Button

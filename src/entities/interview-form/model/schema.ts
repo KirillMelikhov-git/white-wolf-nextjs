@@ -1,5 +1,7 @@
 import { z } from 'zod';
 
+import { personalDataConsentSchema } from '@/shared/lib/validation/personalDataConsent';
+
 export const interviewFormSchema = z.object({
   fullName: z
     .string()
@@ -37,6 +39,8 @@ export const interviewFormSchema = z.object({
     .min(1, 'Опыт работы обязателен для заполнения')
     .min(5, 'Опишите ваш опыт работы (минимум 5 символов)')
     .max(1000, 'Описание опыта не должно превышать 1000 символов'),
+
+  personalDataConsent: personalDataConsentSchema,
 });
 
 export type InterviewFormSchema = z.infer<typeof interviewFormSchema>;

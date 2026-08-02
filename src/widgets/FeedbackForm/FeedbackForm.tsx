@@ -5,10 +5,12 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
+import { personalDataConsentSchema } from '@/shared/lib/validation/personalDataConsent';
 import { Button } from '@/shared/ui/Button';
+import { ConsentCheckbox } from '@/shared/ui/ConsentCheckbox';
+import { FeedbackSuccessModal } from '@/shared/ui/FeedbackSuccessModal';
 import { Input } from '@/shared/ui/Input';
 import { Textarea } from '@/shared/ui/Textarea';
-import { FeedbackSuccessModal } from '@/shared/ui/FeedbackSuccessModal';
 
 import styles from './FeedbackForm.module.scss';
 
@@ -38,6 +40,8 @@ const feedbackFormSchema = z.object({
     .string()
     .min(10, 'Сообщение должно содержать минимум 10 символов')
     .max(1000, 'Сообщение не должно превышать 1000 символов'),
+
+  personalDataConsent: personalDataConsentSchema,
 });
 
 type FeedbackFormSchema = z.infer<typeof feedbackFormSchema>;
@@ -57,6 +61,9 @@ export const FeedbackForm = () => {
   } = useForm<FeedbackFormSchema>({
     resolver: zodResolver(feedbackFormSchema),
     mode: 'onBlur',
+    defaultValues: {
+      personalDataConsent: false,
+    },
   });
 
   const onSubmit = async (data: FeedbackFormSchema) => {
@@ -122,6 +129,12 @@ export const FeedbackForm = () => {
         {...register('message')}
         required
         rows={5}
+      />
+
+      <ConsentCheckbox
+        id="feedback-personal-data-consent"
+        error={errors.personalDataConsent?.message}
+        {...register('personalDataConsent')}
       />
 
       <Button
