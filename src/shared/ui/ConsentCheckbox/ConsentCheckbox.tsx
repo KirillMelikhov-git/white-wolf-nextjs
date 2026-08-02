@@ -4,8 +4,7 @@ import { forwardRef, InputHTMLAttributes } from 'react';
 
 import styles from './ConsentCheckbox.module.scss';
 
-export const PERSONAL_DATA_CONSENT_URL =
-  '/documents/personal-data-consent.pdf';
+export const PERSONAL_DATA_CONSENT_URL = '/documents/personal-data-consent.pdf';
 
 export interface ConsentCheckboxProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {
