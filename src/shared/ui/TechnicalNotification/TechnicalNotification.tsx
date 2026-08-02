@@ -78,8 +78,8 @@ export const TechnicalNotification = () => {
               <div className={styles.text}>
                 <h3 className={styles.title}>Внимание!</h3>
                 <p className={styles.description}>
-                  24 декабря 2025 года клиника не работает по техническим
-                  причинам.
+                  05.08.2026, в связи с проведением плановой дезинфекции,
+                  ветеринарная клиника работает до 13:00.
                 </p>
                 <p className={styles.subdescription}>
                   Приносим извинения за доставленные неудобства. Будем рады
