@@ -7,6 +7,7 @@ import {
   createMetadata,
   createOrganizationSchema,
 } from '@/shared/lib/seo';
+import { CookieBanner } from '@/shared/ui/CookieBanner';
 // import { PromoNotification } from '@/shared/ui/PromoNotification';
 
 import './globals.scss';
@@ -50,6 +51,7 @@ export default function RootLayout({
       <body>
         {children}
         {/* <PromoNotification /> */}
+        <CookieBanner />
         <YandexMetrika />
       </body>
     </html>

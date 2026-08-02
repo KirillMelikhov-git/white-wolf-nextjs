@@ -1,6 +1,31 @@
+'use client';
+
 import Script from 'next/script';
+import { useEffect, useState } from 'react';
+
+import {
+  COOKIE_CONSENT_ACCEPTED_EVENT,
+  getCookieConsent,
+} from '@/shared/lib/consent/cookieConsent';
 
 export default function YandexMetrika() {
+  const [allowed, setAllowed] = useState(false);
+
+  useEffect(() => {
+    if (getCookieConsent() === 'accepted') {
+      setAllowed(true);
+    }
+
+    const handleAccept = () => setAllowed(true);
+    window.addEventListener(COOKIE_CONSENT_ACCEPTED_EVENT, handleAccept);
+
+    return () => {
+      window.removeEventListener(COOKIE_CONSENT_ACCEPTED_EVENT, handleAccept);
+    };
+  }, []);
+
+  if (!allowed) return null;
+
   return (
     <>
       <Script

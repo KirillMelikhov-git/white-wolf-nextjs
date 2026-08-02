@@ -1,0 +1,101 @@
+.banner {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 14px 16px;
+  background: linear-gradient(135deg, rgb(25 30 28 / 92%), rgb(35 45 40 / 94%));
+  backdrop-filter: blur(16px);
+  border: 1px solid rgb(74 124 89 / 45%);
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgb(0 0 0 / 28%);
+  animation: slideIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.text {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: rgb(255 255 255 / 88%);
+}
+
+.link {
+  color: var(--color-text-secondary);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--color-text);
+  }
+}
+
+.button {
+  flex-shrink: 0;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-secondary)
+  );
+  color: var(--color-text);
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgb(74 124 89 / 35%);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .banner {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 14px;
+    border-radius: 10px;
+  }
+
+  .button {
+    width: 100%;
+    padding: 10px 16px;
+  }
+
+  .text {
+    font-size: 0.8125rem;
+  }
+}

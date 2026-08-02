@@ -1,0 +1,136 @@
+.page {
+  padding: var(--space-lg);
+  padding-top: 100px;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  width: 100%;
+  max-width: 800px;
+  padding: var(--space-xl);
+  background-color: rgb(0 0 0 / 50%);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  text-align: left;
+  color: var(--color-white);
+}
+
+.backLink {
+  display: inline-block;
+  margin-bottom: var(--space-lg);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-size: var(--font-size-sm);
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--color-text);
+  }
+}
+
+.title {
+  margin: 0 0 var(--space-md);
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-white);
+  line-height: 1.25;
+}
+
+.lead {
+  margin: 0 0 var(--space-xl);
+  padding: var(--space-md);
+  background: linear-gradient(
+      135deg,
+      rgb(255 255 255 / 8%),
+      rgb(74 124 89 / 15%)
+    )
+    border-box;
+  border-left: 4px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-lg);
+  line-height: 1.6;
+  color: rgb(255 255 255 / 92%);
+}
+
+.section {
+  margin-bottom: var(--space-xl);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.sectionTitle {
+  margin: 0 0 var(--space-sm);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-secondary);
+}
+
+.section p,
+.list {
+  margin: 0;
+  font-size: var(--font-size-base);
+  line-height: 1.65;
+  color: rgb(255 255 255 / 88%);
+}
+
+.list {
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+
+  li strong {
+    color: var(--color-white);
+  }
+}
+
+@media (max-width: 768px) {
+  .page {
+    padding: var(--space-sm);
+    padding-top: 70px;
+  }
+
+  .content {
+    padding: var(--space-md);
+    border-width: 1px;
+  }
+
+  .title {
+    font-size: var(--font-size-2xl);
+  }
+
+  .lead {
+    font-size: var(--font-size-base);
+  }
+}
+
+@media (max-width: 480px) {
+  .page {
+    padding: var(--space-xs);
+    padding-top: 60px;
+  }
+
+  .content {
+    padding: var(--space-sm);
+  }
+
+  .title {
+    font-size: var(--font-size-xl);
+  }
+
+  .lead,
+  .section p,
+  .list {
+    font-size: var(--font-size-sm);
+  }
+
+  .sectionTitle {
+    font-size: var(--font-size-lg);
+  }
+}

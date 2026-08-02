@@ -20,4 +20,12 @@ export const dockCards: ICard[] = [
     title: 'Правила внутреннего распорядка',
     link: 'https://docs.google.com/document/d/1BNy6QB7QnfI7PUtCXjX3i-SOU_MdAu2d/edit?usp=sharing&ouid=101541072731352233679&rtpof=true&sd=true',
   },
+  {
+    id: 'cookie-policy',
+    image: Loyalty,
+    title: 'Политика использования cookie',
+    description:
+      'Документ сайта, который объясняет, какие маленькие текстовые файлы (cookie) сохраняются на вашем устройстве, зачем они нужны и как ими управлять',
+    link: '/documents/cookie-policy',
+  },
 ];
