@@ -5,7 +5,9 @@ export const COOKIE_POLICY_URL = '/documents/cookie-policy';
 export type CookieConsentStatus = 'accepted' | null;
 
 export const getCookieConsent = (): CookieConsentStatus => {
-  if (typeof window === 'undefined') return null;
+  if (typeof window === 'undefined') {
+    return null;
+  }
 
   try {
     return localStorage.getItem(COOKIE_CONSENT_KEY) === 'accepted'

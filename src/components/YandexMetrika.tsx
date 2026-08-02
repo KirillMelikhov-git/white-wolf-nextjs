@@ -24,7 +24,9 @@ export default function YandexMetrika() {
     };
   }, []);
 
-  if (!allowed) return null;
+  if (!allowed) {
+    return null;
+  }
 
   return (
     <>

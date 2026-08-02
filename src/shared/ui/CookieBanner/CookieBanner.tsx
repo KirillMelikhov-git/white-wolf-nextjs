@@ -18,7 +18,9 @@ export const CookieBanner = () => {
   useEffect(() => {
     setIsMounted(true);
 
-    if (getCookieConsent() === 'accepted') return;
+    if (getCookieConsent() === 'accepted') {
+      return;
+    }
 
     const timer = setTimeout(() => setIsVisible(true), 600);
     return () => clearTimeout(timer);
@@ -29,7 +31,9 @@ export const CookieBanner = () => {
     setIsVisible(false);
   }, []);
 
-  if (!isMounted || !isVisible) return null;
+  if (!isMounted || !isVisible) {
+    return null;
+  }
 
   return (
     <div
@@ -46,11 +50,7 @@ export const CookieBanner = () => {
           Политика cookie
         </Link>
       </p>
-      <button
-        type="button"
-        className={styles.button}
-        onClick={handleAccept}
-      >
+      <button type="button" className={styles.button} onClick={handleAccept}>
         Понятно
       </button>
     </div>
