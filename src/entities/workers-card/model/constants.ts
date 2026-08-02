@@ -37,12 +37,6 @@ export const workersCards: ICard[] = [
     university: 'Ивановская ГСХА',
   },
   {
-    id: 'workers-card-5',
-    image: '/images/background.png',
-    title: 'Агеева Рита Фяридовна',
-    profession: 'Ассистент ветеринарного терапевта, хирурга',
-  },
-  {
     id: 'workers-card-6',
     image: worker6.src,
     title: 'Иващенко Мария Станиславовна',

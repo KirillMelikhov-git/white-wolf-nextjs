@@ -12,7 +12,7 @@ export const dockCards: ICard[] = [
     id: 'personal-data',
     image: Loyalty,
     title: 'Согласие на обработку персональных данных',
-    link: '/',
+    link: '/documents/personal-data-consent.pdf',
   },
   {
     id: 'rules',
