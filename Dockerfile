@@ -8,7 +8,10 @@ WORKDIR /app
 
 # Копирование файлов зависимостей
 COPY package.json package-lock.json ./
-RUN npm ci
+# Не кэшируем битый install: явная проверка, что next установился
+RUN npm ci --no-audit --no-fund \
+  && test -f node_modules/next/package.json \
+  && test -e node_modules/.bin/next
 
 # Сборка приложения
 FROM base AS builder
