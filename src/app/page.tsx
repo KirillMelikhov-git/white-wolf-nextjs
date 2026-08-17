@@ -29,7 +29,7 @@ export default function HomePage() {
       </main>
       <Footer />
       <VacancyNotification />
-      <TechnicalNotification />
+      {/* <TechnicalNotification /> */}
     </>
   );
 }
